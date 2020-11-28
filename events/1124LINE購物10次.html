@@ -55,16 +55,22 @@
                 left: 4%; 
                 width: 92%; 
                 height: 88%; 
-                box-shadow:0px 8px 40px 10px;
+                box-shadow:0px 3px 20px 3px;
                 background-color: #e6ffee; 
                 overflow: auto; 
             }
+            
             #closebtn{
-            width: 100%; 
-            height: 4%;
+            display: none; 
+            position: absolute; 
+            top: 2%; 
+            left: 4%; 
+            width: 92%; 
+            height: 40px;
             border: 0;
             background-color: #ffdaa8;
             font-size:24px;
+                z-index: 1;
             }
             #sharebtn{
                 width:140px;
@@ -81,16 +87,16 @@
 		<div id="header">
 		<span id="h-left">活動時間</span>
 		<span id="h-right">11月24日12:00～11月25日23:59</span>
-		<button id="sharebtn" href="https://line.me/R/msg/text/?LINE%e6%b4%bb%e5%8b%95%20https%3a%2f%2fart-tw.github.io%2fevents%2f1124LINE%e8%b3%bc%e7%89%a910%e6%ac%a1.html" target="_blank">分享到LINE聊天室</button><br><br>
+		<button id="sharebtn" onclick="location.href='https://line.me/R/msg/text/?LINE%e6%b4%bb%e5%8b%95%20https%3a%2f%2fart-tw.github.io%2fevents%2f1124LINE%e8%b3%bc%e7%89%a910%e6%ac%a1.html'" target="_blank">分享到LINE聊天室</button><br><br>
 		
-		<a href = "javascript:document.getElementById('guide').style.display='block';void(0);">使用指南</a><br><br>
+		<button type="button" id="closebtn" onclick="javascript:document.getElementById('guide').style.display='none';document.getElementById('closebtn').style.display='none';void(0);" >點這裡關閉本視窗</button>
+		<a href = "javascript:document.getElementById('guide').style.display='block';document.getElementById('closebtn').style.display='block';void(0);">使用指南</a><br><br>
 		
-		<span>&#128073</span><a href="https://event-web.line.me/ectw/article/1eQm5B?utm_source=OA&utm_medium=shopping_luckydraw&utm_campaign=ECPassportmgm_20201124" target="_blank">查看活動詳情</a><br><br>
+		
 		
 		<span>&#128073</span><a href="https://liff.line.me/1529013389-QwZzgXDV/luckydraw/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzYIDJBJvW7ykpf9YexGCqABzuM0AY5nM0Bw38FXafrLww/rewards" target="_blank">查看得獎記錄</a>
 		
-		<span>&#128073</span><a href="https://liff.line.me/1529013389-QwZzgXDV/luckydraw/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzY7pkXtnlRppieYWBfAehC-PckDNUDjlO77PmM26GNu8g/draw" target="_blank">抽獎1</a>
-		<span>&#128073</span><a href="line://ch/1529013389/luckydraw/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzY7pkXtnlRppieYWBfAehC-PckDNUDjlO77PmM26GNu8g/draw" target="_blank">抽獎2</a><br><br>
+		<span>&#128073</span><a href="https://event-web.line.me/ectw/article/1eQm5B?utm_source=OA&utm_medium=shopping_luckydraw&utm_campaign=ECPassportmgm_20201124" target="_blank">查看活動詳情</a><br><br>
 		
 		<span>&#128073</span><a href="https://lin.ee/eTPOhc0/rcfk/1101mgm" target="_blank">先加入/解除封鎖LINE購物官方帳號</a>
 		</div>
@@ -109,15 +115,7 @@
         <a href="https://ec-bot-web.line.me/event/proxy/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzYIDJBJvW7ykpf9YexGCqABzuM0AY5nM0Bw38FXafrLww?redirectUrl=https%3A%2F%2Fevent-web.line.me%2Fectw%2Fpublication%2F285d7682fcc1d058e86735834a2de5036f570577f47a8cd61fab42f09693a99d%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DECPassport_pointsmission_20201124&data=gnfSpJ6fw8ExUir2TcGMXfmop03HeIEEfYUMNKDPAqsIjQBddx0d-Vscp-BSnJ-g3hN9KnQMcz_tHfoNzpsISEFbXesIDJUmkWs_72er2nNnLkJD8u6WTHxUaAnf8LVxfum5JD_c6nY" target="_blank">連結10</a><br>
 		</div>
 		
-		<div id="guide">
-          <button type="button" id="closebtn" onclick="javascript:document.getElementById('guide').style.display='none';void(0);" >點這裡關閉本視窗</button><br>
-          <div>
-              <img src="" alt="">
-              <img src="" alt="">
-              <img src="" alt="">
-              <img src="" alt="">
-          </div>
-         </div> 
+		<iframe id="guide" frameBorder="0" src="../guide.html"></iframe>
 		<div id="footer">
             <p>點選下方回主頁</p>
             <a href="https://art-tw.github.io/events/"><img src="https://imgur.com/W6KYoBH.png" alt="Author Art"></a>
