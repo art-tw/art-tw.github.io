@@ -48,6 +48,38 @@
                 font-size: 30px;
                 line-height: 55px;
             }
+            #guide{ 
+                display: none; 
+                position: absolute; 
+                top: 6%; 
+                left: 4%; 
+                width: 92%; 
+                height: 92%; 
+                box-shadow:0px 3px 20px 3px;
+                background-color: #e6ffee; 
+                overflow: auto; 
+            }
+            
+            #closebtn{
+            display: none; 
+            position: absolute; 
+            top: 2%; 
+            left: 4%; 
+            width: 92%; 
+            height: 4%;
+            border: 0;
+            background-color: #ffdaa8;
+            font-size:auto;
+                z-index: 1;
+            }
+            #sharebtn{
+                width:140px;
+                height:60px;
+                font-size:11px;
+                background-color: #64A600;
+                color: #FFFFFF;
+                margin: 10px;
+            }
         </style>
 	</head>
 	<body>
@@ -55,7 +87,10 @@
 		<div id="header">
 		<span id="h-left">活動時間</span>
 		<span id="h-right">11月27日12:00～11月28日23:59</span>
-		<span>&#128073</span><a href="https://line.me/R/msg/text/?LINE%e6%b4%bb%e5%8b%95%20https%3a%2f%2fart-tw.github.io%2fevents%2f1127LINE%e8%b3%bc%e7%89%a910%e6%ac%a1.html" target="_blank">分享到LINE聊天室</a><br>
+		<button id="sharebtn" onclick="location.href='https://line.me/R/msg/text/?LINE%e6%b4%bb%e5%8b%95%20https%3a%2f%2fart-tw.github.io%2fevents%2f1127LINE%e8%b3%bc%e7%89%a910%e6%ac%a1.html'" target="_blank">分享到LINE聊天室</button><br><br>
+		
+		<button type="button" id="closebtn" onclick="javascript:document.getElementById('guide').style.display='none';document.getElementById('closebtn').style.display='none';void(0);" >點這裡關閉本視窗</button>
+		<a href = "javascript:document.getElementById('guide').style.display='block';document.getElementById('closebtn').style.display='block';void(0);">使用指南</a><br><br>
 		
 		<span>&#128073</span><a href="https://liff.line.me/1529013389-QwZzgXDV/luckydraw/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzY7pkXtnlRppieYWBfAehC-PckDNUDjlO77PmM26GNu8g/rewards" target="_blank">查看得獎記錄</a>
 		
@@ -65,6 +100,7 @@
 		</div>
 		
 		<div id="content">
+		<hr>
 		<a href="https://ec-bot-web.line.me/event/proxy/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzY7pkXtnlRppieYWBfAehC-PckDNUDjlO77PmM26GNu8g?redirectUrl=https%3A%2F%2Fevent-web.line.me%2Fectw%2Fpublication%2Fd5be5928715adcf0f9aa8a5d2d9e8bf0c8ba4cd25d2bb3399f4a3368a79c729f&data=pUG1gsyx68xNXlFRjHk0fyeC5kDk-WYyabGm-f7iqJJg5zicnG4JtiY3g4tY05fRaGr3ZjpvlgXmLoK3_llJfCcNq-rnruNezCD2muGxp4Fr_dV4tj7cZfDxCbJIGOG3T5QIZyySG1o" target="_blank">連結1</a><br>
         <a href="https://ec-bot-web.line.me/event/proxy/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzY7pkXtnlRppieYWBfAehC-PckDNUDjlO77PmM26GNu8g?redirectUrl=https%3A%2F%2Fevent-web.line.me%2Fectw%2Fpublication%2Fd5be5928715adcf0f9aa8a5d2d9e8bf0c8ba4cd25d2bb3399f4a3368a79c729f&data=N5SAFRwm8b6SHpTxZrv9aUwPuAvq6TBkfcwLXEjpWxXzVsuiYh6rX1H3COfYjAuGeeBhGUEGmTI94EL8M82kbWhG8yoTsI-WCsx9-ninW3exvKTgzI-UZeOZHVxSUO2f1tcvg_jcaYE" target="_blank">連結2</a><br>
         <a href="https://ec-bot-web.line.me/event/proxy/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzY7pkXtnlRppieYWBfAehC-PckDNUDjlO77PmM26GNu8g?redirectUrl=https%3A%2F%2Fevent-web.line.me%2Fectw%2Fpublication%2Fd5be5928715adcf0f9aa8a5d2d9e8bf0c8ba4cd25d2bb3399f4a3368a79c729f&data=4L3f-UhJDYnRfXaOBRHOBVmDqnuXHQgS0PzLI6dzSPdFyfi-EDxeZJacmy6Xb2D_GsvFbrJQuuRXs8FMsgWpUxW9AAMrnXSgo-7jiXvC6ICxL70K_95dvidEdbO2F-HmdXvPsy6odq0" target="_blank">連結3</a><br>
@@ -76,6 +112,8 @@
         <a href="https://ec-bot-web.line.me/event/proxy/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzY7pkXtnlRppieYWBfAehC-PckDNUDjlO77PmM26GNu8g?redirectUrl=https%3A%2F%2Fevent-web.line.me%2Fectw%2Fpublication%2Fd5be5928715adcf0f9aa8a5d2d9e8bf0c8ba4cd25d2bb3399f4a3368a79c729f&data=rjV6gLLhgDxykoiM3GdWrF9ArxN-RzXyweyfqDYsH2ef4zmY2Eyex5g8OxEQeGfRXYWN0voZVQLmtWWxDyn9WbSFU8KGK1HkPMElxaT5xTJKnexevEYjmy5HxbxAXL3IxupWF0IOFnk" target="_blank">連結9</a><br>
         <a href="https://ec-bot-web.line.me/event/proxy/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzY7pkXtnlRppieYWBfAehC-PckDNUDjlO77PmM26GNu8g?redirectUrl=https%3A%2F%2Fevent-web.line.me%2Fectw%2Fpublication%2Fd5be5928715adcf0f9aa8a5d2d9e8bf0c8ba4cd25d2bb3399f4a3368a79c729f&data=mQn_2Qk7eqZ1nuikKwCG--5IP3SUjwhLBj8LKbtZhKqPGPR2wQA3wpBZKEU8A0eZQw_Kacg_gqnOtDEF9D33aaqLii8Jmc9KkN-ytFR-91NxAGJrzN29ah4gUJyl7RTg003iNuP6LoI" target="_blank">連結10</a><br>
 		</div>
+		
+		<iframe id="guide" frameBorder="0" src="../guide.html"></iframe>
 		<div id="footer">
             <p>點選下方回主頁</p>
             <a href="https://art-tw.github.io/events/"><img src="https://imgur.com/W6KYoBH.png" alt="Author Art"></a>
