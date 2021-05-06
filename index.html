@@ -62,6 +62,12 @@
             margin: 3% 15%;
         }
 
+        #c20,
+        #c21 {
+            background-color: #639390;
+            font-size: 18px;
+        }
+
     </style>
 </head>
 
@@ -74,15 +80,16 @@
     </div>
 
     <h2>最新活動</h2>
-    <div id="content">
+    <div class="content">
         <p><a href="events/210506LINE購物10次.html" target="_blank">LINE購物_0506</a></p>
         <p><a href="events/210506LINE購物品牌名店10次.html" target="_blank">LINE購物品牌名店_0506</a></p>
         <!--<table align='center' border ='0' style="border:2px #259487 groove;" cellpadding="10">
 		<tr><td></td></tr>
 		</table>-->
     </div>
-    
-    <h3 onclick="javascript:menu('1');">2020歷史活動<p id="c20" style="background-color: #639390">🔻點擊展開🔻</p></h3>
+
+    <h3 onclick="javascript:menu('1');">2020歷史活動<p id="c20">🔻點擊展開🔻</p>
+    </h3>
     <div id="list_20" class="content" style="display: none">
         <p><a href="events/0909LINE購物20次.html" target="_blank">LINE購物_0909</a></p>
         <p><a href="events/0921LINE購物10次.html" target="_blank">LINE購物_0921</a></p>
@@ -104,7 +111,8 @@
         <p><a href="events/1231LINE購物10次.html" target="_blank">LINE購物_1231</a>
     </div>
 
-    <h3 onclick="menu('2')">2021歷史活動<p id="c21" style="background-color: #639390">🔻點擊展開🔻</p></h3>
+    <h3 onclick="menu('2')">2021歷史活動<p id="c21">🔻點擊展開🔻</p>
+    </h3>
     <div id="list_21" class="content" style="display: none">
         <p><a href="events/210119LINE購物品牌名店10次.html" target="_blank">LINE購物品牌名店_0119</a></p>
         <p><a href="events/210421LINE購物夯話題10次.html" target="_blank">LINE購物夯話題_0421</a></p>
@@ -114,11 +122,12 @@
         <p><a href="events/210429LINE購物10次.html" target="_blank">LINE購物_0429</a></p>
         <p><a href="events/210505LINE購物10次.html" target="_blank">LINE購物_0505</a></p>
     </div>
-
+    <!--
     <h3>暫存連結</h3>
     <div>
         <p><a href="events/line貼圖.html" target="_blank">LINE貼圖</a></p>
     </div>
+    -->
     <!--<iframe src="https://term.ptt.cc" height="0"width="0">
 		</iframe>-->
     <img src="mark.png" alt="by Art">
@@ -126,10 +135,10 @@
         function menu(select) {
             if (select == '1') {
                 document.querySelector('#list_20').style.display = (document.querySelector('#list_20').style.display == 'none') ? '' : 'none';
-                document.querySelector("#c20").innerHTML=(document.querySelector('#c20').innerHTML == '🔻點擊展開🔻') ? '🔺點擊收折🔺' : '🔻點擊展開🔻';
+                document.querySelector("#c20").innerHTML = (document.querySelector('#c20').innerHTML == '🔻點擊展開🔻') ? '🔺點擊收折🔺' : '🔻點擊展開🔻';
             } else if (select == '2') {
                 document.querySelector('#list_21').style.display = (document.querySelector('#list_21').style.display == 'none') ? '' : 'none';
-                document.querySelector("#c21").innerHTML=(document.querySelector('#c21').innerHTML == '🔻點擊展開🔻') ? '🔺點擊收折🔺' : '🔻點擊展開🔻';
+                document.querySelector("#c21").innerHTML = (document.querySelector('#c21').innerHTML == '🔻點擊展開🔻') ? '🔺點擊收折🔺' : '🔻點擊展開🔻';
             }
         }
 
