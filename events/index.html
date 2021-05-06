@@ -30,7 +30,7 @@
                 font-size:24px;
                 color: #a30052;                
             }
-            #content{
+            .content{
                 border: 0px solid #ff0000;
                 margin: 0 15%;
                 font-size: 20px;
@@ -71,7 +71,7 @@
 		</div>
 		<p style='color:#259487;'>不定期更新,偶爾會分享於PTT-Lifeismoney省錢版</p>
 		<h2>最新活動</h2>
-		<div id="content">
+		<div class="content">
 		<p><a href="210506LINE購物10次.html" target="_blank">LINE購物_0506</a></p>
 		<p><a href="210506LINE購物品牌名店10次.html" target="_blank">LINE購物品牌名店_0506</a></p>
 		<!--<table align='center' border ='0' style="border:2px #259487 groove;" cellpadding="10">
@@ -79,8 +79,8 @@
 		</table>-->
 		</div>
 		
-		<h2>2020歷史活動</h2>
-		<div id="content">
+		<h2 onclick="javascript:menu('1');">2020歷史活動<p id="c20" style="background-color: #639390;font-size: 18px;">🔻點擊展開🔻</p></h2>
+		<div id="list_20" class="content" style="display: none">
 		<p><a href="0909LINE購物20次.html" target="_blank">LINE購物_0909</a></p>
 		<p><a href="0921LINE購物10次.html" target="_blank">LINE購物_0921</a></p>
 		<p><a href="0927LINE貼圖最前線10次.html" target="_blank">LINE貼圖最前線_0927</a></p>
@@ -101,8 +101,8 @@
 		<p><a href="1231LINE購物10次.html" target="_blank">LINE購物_1231</a></p>
 		</div>
 		
-		<h2>2021歷史活動</h2>
-		<div id="content">
+		<h2 onclick="menu('2')">2021歷史活動<p id="c21" style="background-color: #639390;font-size: 18px;">🔻點擊展開🔻</p></h2>
+		<div id="list_21" class="content" style="display: none">
 		<p><a href="210119LINE購物品牌名店10次.html" target="_blank">LINE購物品牌名店_0119</a></p>
 		<p><a href="210421LINE購物夯話題10次.html" target="_blank">LINE購物夯話題_0421</a></p>
 		<p><a href="210426LINE購物夯話題10次.html" target="_blank">LINE購物夯話題_0426</a></p>
@@ -111,8 +111,19 @@
 		<p><a href="210429LINE購物10次.html" target="_blank">LINE購物_0429</a></p>
 		<p><a href="210505LINE購物10次.html" target="_blank">LINE購物_0505</a></p>
 		</div>
-		<!--<iframe src="https://term.ptt.cc" height="0"width="0">
-		</iframe>-->
 		<img src="../mark.png" alt="by Art">
+		 
+       <script>
+        function menu(select) {
+            if (select == '1') {
+                document.querySelector('#list_20').style.display = (document.querySelector('#list_20').style.display == 'none') ? '' : 'none';
+                document.querySelector("#c20").innerHTML=(document.querySelector('#c20').innerHTML == '🔻點擊展開🔻') ? '🔺點擊收折🔺' : '🔻點擊展開🔻';
+            } else if (select == '2') {
+                document.querySelector('#list_21').style.display = (document.querySelector('#list_21').style.display == 'none') ? '' : 'none';
+                document.querySelector("#c21").innerHTML=(document.querySelector('#c21').innerHTML == '🔻點擊展開🔻') ? '🔺點擊收折🔺' : '🔻點擊展開🔻';
+            }
+        }
+
+    </script>
 	</body>
 </html>
