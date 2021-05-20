@@ -123,7 +123,7 @@
             function share() {
                 var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
                 if (content == null || content == "") content = "";
-                window.location.href = "http://line.naver.jp/R/msg/text/?" + content + "+%0d%0a" + location.href;
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + content + "%0d%0a" + location.href;
             }
         </script>
 	</body>
