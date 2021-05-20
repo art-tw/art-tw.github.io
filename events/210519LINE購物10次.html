@@ -88,7 +88,7 @@
 		<div id="header">
 		<span id="h-left">活動時間</span>
 		<span id="h-right">5月19日12:00～5月21日23:59</span>
-		<button id="sharebtn" onclick="location.href='https://line.me/R/msg/text/?LINE%e6%b4%bb%e5%8b%95%20https%3a%2f%2fart-tw.github.io%2fevents%2f210519LINE%e8%b3%bc%e7%89%a910%e6%ac%a1.html'" target="_blank">分享到LINE聊天室</button><br><br>
+		<button id="sharebtn" onclick="javascript:share();" target="_blank">分享到LINE聊天室</button><br><br>
 		
 		<button type="button" id="closebtn" onclick="javascript:document.getElementById('guide').style.display='none';document.getElementById('closebtn').style.display='none';void(0);" >點這裡關閉本視窗</button>
 		<a href = "javascript:document.getElementById('guide').style.display='block';document.getElementById('closebtn').style.display='block';void(0);">使用指南</a><br><br>
@@ -119,5 +119,12 @@
 		<p>點選下方回主頁</p>
             <a href="https://art-tw.github.io/events/"><img src="https://imgur.com/W6KYoBH.png" alt="Author Art"></a>    
 		</div>
+		<script>
+            function share() {
+                var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
+                if (content == null || content == "") content = "";
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + content + "+%0d%0a" + location.href;
+            }
+        </script>
 	</body>
 </html>
