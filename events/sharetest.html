@@ -122,7 +122,8 @@
 		<script>
         function share() {
             var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
-            window.location.href="https://line.me/R/msg/text/?"+content+location.href;
+            window.location.href="https://social-plugins.line.me/lineit/share?text="+content+"url="+location.href;
+            //window.location.href="https://line.me/R/msg/text/?"+content+location.href;
         }
         </script>
 	</body>
