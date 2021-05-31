@@ -69,7 +69,10 @@
     <div id="reader"></div>
     <div>
         <p id="qrmes">none</p>
+        <br>
+        <a id="smsurl" href="#" style="display:none">簡訊連結</a><br>
         <button oncilick="javascript:startcam();">開啟相機</button>
+        
     </div>
 
 
@@ -82,26 +85,28 @@
             if (qrCodeMessage.slice(0, 3) == "SMS") {
                 smstext = qrCodeMessage.slice(11, qrCodeMessage.length);
                 mes = "sms:1922?body=" + smstext;
-
+                document.querySelector("#smsurl").href=mes;
+                document.querySelector("#smsurl").style.display="block"
                 //window.open(mes, "_system");
                 setTimeout(function() {
                     //window.open(mes);
-                    window.open(mes);
+                    window.open(mes,"_self");
                     html5QrCode.clear();
                 }, 1000);
             } else {
+                document.querySelector("#smsurl").style.display="none"
                 setTimeout(function() {
                     location.href = qrCodeMessage;
                 }, 1000);
             }
         }
  
-        const html5QrCode = new Html5Qrcode("reader");
+        var html5QrCode = new Html5Qrcode("reader");
         const qrCodeSuccessCallback = message => {
             onScanSuccess(message)
         };
         const config = {
-            fps: 15,
+            fps: 10,
             qrbox: 250
         };
         html5QrCode.start({
@@ -110,7 +115,7 @@
 
  
         function startcam() {
-            const html5QrCode = new Html5Qrcode("reader");
+            var html5QrCode = new Html5Qrcode("reader");
             html5QrCode.start({
                 facingMode: "environment"
             }, config, qrCodeSuccessCallback);
