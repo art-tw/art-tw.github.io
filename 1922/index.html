@@ -76,14 +76,14 @@
             if(qrCodeMessage.slice(0,3)=="SMS"){
                 var mes=qrCodeMessage.slice(11,qrCodeMessage.length);
                 mes="sms:1922?body="+mes;
-                 setTimeout(function(){location.href=mes;},2000);
+                 setTimeout(function(){window.open(mes,"_system");},1000);
             }else{
-            setTimeout(function(){location.href=qrCodeMessage;},2000);}
+            setTimeout(function(){location.href=qrCodeMessage;},1000);}
         }
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {
-                fps: 60,
+                fps: 30,
                 qrbox: 250
             });
         html5QrcodeScanner.render(onScanSuccess);
