@@ -63,15 +63,16 @@
 <body>
     <!--<p><strong>2021年05月31日建立</strong></p>
     <a href="sms:1922?body=場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">沒""</a>
+    <button oncilick="javascript:startcam();">開啟相機</button>
     -->
-    <h1>test_V1.8</h1>
+    <h1>test_V1.9</h1>
 
     <div id="reader"></div>
     <div>
         <p id="qrmes">none</p>
         <br>
         <a id="smsurl" href="#" style="display:none">簡訊連結</a><br>
-        <button oncilick="javascript:startcam();">開啟相機</button>
+        
         
     </div>
 
@@ -86,18 +87,18 @@
                 smstext = qrCodeMessage.slice(11, qrCodeMessage.length);
                 mes = "sms:1922?body=" + smstext;
                 document.querySelector("#smsurl").href=mes;
-                //document.querySelector("#smsurl").style.display="block"
+                document.querySelector("#smsurl").style.display="block"
                 //window.open(mes, "_system");
                 setTimeout(function() {
                     //window.open(mes);
                     //window.open(mes,"_self");
                     document.querySelector("#smsurl").click()
-                }, 200);
+                }, 500);
             } else {
-                //document.querySelector("#smsurl").style.display="none"
+                document.querySelector("#smsurl").style.display="none"
                 setTimeout(function() {
                     location.href = qrCodeMessage;
-                }, 200);
+                }, 500);
             }
         }
  
