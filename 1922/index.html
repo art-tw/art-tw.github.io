@@ -57,17 +57,17 @@
 </head>
 
 <body>
-    <!--<p><strong>2020年10月22日建立</strong></p>-->
+    <!--<p><strong>2021年05月31日建立</strong></p>
+    <a href="sms:1922?body=場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">沒""</a>
+    -->
     <h1>test</h1>
     
     <div id="reader"></div>
     <div>
         <p id="qrmes">none</p>
     </div>
-    <a href="sms:1922?body='場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。'">給1922傳送簡訊</a>
-    <a href="sms:1922?body=場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">沒""</a>
-    <a href="sms:1922&body='場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。'">用and</a>
-<a href="sms:1922&body=場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">用and沒"</a>
+    
+   
     <script>
         function onScanSuccess(qrCodeMessage) {
             // handle on success condition with the decoded message
@@ -75,7 +75,7 @@
             document.querySelector("#qrmes").innerHTML=qrCodeMessage;
             if(qrCodeMessage.slice(0,3)=="SMS"){
                 var mes=qrCodeMessage.slice(11,qrCodeMessage.length);
-                mes="SMS:1922?body="+mes;
+                mes="sms:1922?body="+mes;
                  setTimeout(function(){location.href=mes;},2000);
             }else{
             setTimeout(function(){location.href=qrCodeMessage;},2000);}
@@ -83,7 +83,7 @@
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {
-                fps: 10,
+                fps: 60,
                 qrbox: 250
             });
         html5QrcodeScanner.render(onScanSuccess);
