@@ -64,7 +64,7 @@
     <!--<p><strong>2021年05月31日建立</strong></p>
     <a href="sms:1922?body=場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">沒""</a>
     -->
-    <h1>test_V1.1</h1>
+    <h1>test_V1.2</h1>
 
     <div id="reader"></div>
     <div>
@@ -93,7 +93,7 @@
         }
         const html5QrCode = new Html5Qrcode("reader");
         const qrCodeSuccessCallback = message => {
-            function(){onScanSuccess(message);}}
+            function(){onScanSuccess(message);}};
         const config = {
             fps: 15,
             qrbox: 250
