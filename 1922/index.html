@@ -74,7 +74,7 @@
             console.log(`QR matched = ${qrCodeMessage}`);
             document.querySelector("#qrmes").innerHTML=qrCodeMessage;
             if(qrCodeMessage.slice(0,3)=="SMS"){
-                var mes=qrCodeMessage.slice(5,qrCodeMessage.length))
+                var mes=qrCodeMessage.slice(5,qrCodeMessage.length);
                 mes="SMS"+mes;
                  setTimeout(function(){location.href=mes;},2000);
             }else{
