@@ -64,13 +64,21 @@
     <div>
         <p id="qrmes">none</p>
     </div>
+    <a href="sms:1922:場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">sms小寫給1922傳送簡訊</a>
+    <a href="SMS:1922:場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">大寫給1922傳送簡訊</a>
+    <a href="SMSTO:1922:場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">TO給1922傳送簡訊</a>
+
     <script>
         function onScanSuccess(qrCodeMessage) {
             // handle on success condition with the decoded message
             console.log(`QR matched = ${qrCodeMessage}`);
             document.querySelector("#qrmes").innerHTML=qrCodeMessage;
-            
-            setTimeout(function(){location.href=qrCodeMessage;},2000);
+            if(qrCodeMessage.slice(0,3)=="SMS"){
+                var mes=qrCodeMessage.slice(5,qrCodeMessage.length))
+                mes="SMS"+mes;
+                 setTimeout(function(){location.href=mes;},2000);
+            }else{
+            setTimeout(function(){location.href=qrCodeMessage;},2000);}
         }
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
