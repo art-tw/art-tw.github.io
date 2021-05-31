@@ -76,7 +76,8 @@
             if(qrCodeMessage.slice(0,3)=="SMS"){
                 var mes=qrCodeMessage.slice(11,qrCodeMessage.length);
                 mes="sms:1922?body="+mes;
-                 setTimeout(function(){window.open(mes,"_system");},1000);
+                html5QrcodeScanner.clear();
+                 setTimeout(function(){window.open(mes);},1000);
             }else{
             setTimeout(function(){location.href=qrCodeMessage;},1000);}
         }
