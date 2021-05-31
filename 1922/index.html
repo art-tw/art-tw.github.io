@@ -39,7 +39,7 @@
             color: #a30052;
         }
 
-        
+
 
         button {
             background-color: #64A600;
@@ -48,9 +48,13 @@
             height: 60px;
             font-size: 11px;
         }
-        #reader{
+
+        #reader {
             width: 500px;
-            position: absolute; top: 0px; left:25%; opacity: 1;
+            position: absolute;
+            top: 0px;
+            left: 25%;
+            opacity: 1;
         }
 
     </style>
@@ -60,34 +64,51 @@
     <!--<p><strong>2021年05月31日建立</strong></p>
     <a href="sms:1922?body=場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">沒""</a>
     -->
-    <h1>test</h1>
-    
+    <h1>test_V1</h1>
+
     <div id="reader"></div>
     <div>
         <p id="qrmes">none</p>
     </div>
-    
-   
+
+
     <script>
+        const html5QrCode = new Html5Qrcode("reader");
+        const qrCodeSuccessCallback = message => {
+            onScanSuccess(message);/* handle success */ }
+        const config = {
+            fps: 30,
+            qrbox: 250
+        };
+        html5QrCode.start({
+            facingMode: "environment"
+        }, config, qrCodeSuccessCallback);
+
         function onScanSuccess(qrCodeMessage) {
             // handle on success condition with the decoded message
             console.log(`QR matched = ${qrCodeMessage}`);
-            document.querySelector("#qrmes").innerHTML=qrCodeMessage;
-            if(qrCodeMessage.slice(0,3)=="SMS"){
-                var mes=qrCodeMessage.slice(11,qrCodeMessage.length);
-                mes="sms:1922?body="+mes;
+            document.querySelector("#qrmes").innerHTML = qrCodeMessage;
+            if (qrCodeMessage.slice(0, 3) == "SMS") {
+                var mes = qrCodeMessage.slice(11, qrCodeMessage.length);
+                mes = "sms:1922?body=" + mes;
                 html5QrcodeScanner.clear();
-                 setTimeout(function(){window.open(mes);},1000);
-            }else{
-            setTimeout(function(){location.href=qrCodeMessage;},1000);}
+                setTimeout(function() {
+                    window.open(mes);
+                }, 1000);
+            } else {
+                setTimeout(function() {
+                    location.href = qrCodeMessage;
+                }, 1000);
+            }
         }
-
+        /*
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {
                 fps: 30,
                 qrbox: 250
             });
-        html5QrcodeScanner.render(onScanSuccess);
+        html5QrcodeScanner.render(onScanSuccess);*/
+
     </script>
 </body>
 
