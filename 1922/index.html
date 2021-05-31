@@ -1,0 +1,93 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Art">
+    <meta property="og:image" content="https://art-tw.github.io/share.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>實聯治</title>
+    <link rel="Shortcut Icon" type="image/x-icon" href="icon.ico" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <script src="html5-qrcode.min.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154791288-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154791288-2');
+
+    </script>
+    <style>
+        html {
+            background-color: #f7cdcd;
+        }
+
+        body {
+            text-align: center;
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0 10%;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #a30052;
+        }
+
+        .content {
+
+            border: 0px solid #ff0000;
+            margin: 0 15%;
+            font-size: 20px;
+            line-height: 40px;
+        }
+
+        button {
+            background-color: #64A600;
+            color: #FFFFFF;
+            width: 140px;
+            height: 60px;
+            font-size: 11px;
+        }
+
+        h2,
+        h3 {
+            background-color: #ff6f6f;
+            color: #ffffff;
+            margin: 3% 15%;
+        }
+
+        #c20,
+        #c21 {
+            background-color: #639390;
+            font-size: 18px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--<p><strong>2020年10月22日建立</strong></p>-->
+    <h1>test</h1>
+    
+    <div style="width: 500px" id="reader"></div>
+    <script>
+        function onScanSuccess(qrCodeMessage) {
+            // handle on success condition with the decoded message
+        }
+
+        var html5QrcodeScanner = new Html5QrcodeScanner(
+            "reader", {
+                fps: 10,
+                qrbox: 250
+            });
+        html5QrcodeScanner.render(onScanSuccess);
+    </script>
+</body>
+
+</html>
