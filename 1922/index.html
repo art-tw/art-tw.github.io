@@ -64,7 +64,7 @@
     <!--<p><strong>2021年05月31日建立</strong></p>
     <a href="sms:1922?body=場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">沒""</a>
     -->
-    <h1>test_V1</h1>
+    <h1>test_V1.1</h1>
 
     <div id="reader"></div>
     <div>
@@ -77,7 +77,7 @@
         const qrCodeSuccessCallback = message => {
             onScanSuccess(message);/* handle success */ }
         const config = {
-            fps: 30,
+            fps: 15,
             qrbox: 250
         };
         html5QrCode.start({
@@ -86,12 +86,12 @@
 
         function onScanSuccess(qrCodeMessage) {
             // handle on success condition with the decoded message
-            console.log(`QR matched = ${qrCodeMessage}`);
+            //console.log(`QR matched = ${qrCodeMessage}`);
             document.querySelector("#qrmes").innerHTML = qrCodeMessage;
             if (qrCodeMessage.slice(0, 3) == "SMS") {
                 var mes = qrCodeMessage.slice(11, qrCodeMessage.length);
                 mes = "sms:1922?body=" + mes;
-                html5QrcodeScanner.clear();
+                //html5QrcodeScanner.clear();
                 setTimeout(function() {
                     window.open(mes);
                 }, 1000);
