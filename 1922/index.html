@@ -64,7 +64,7 @@
     <!--<p><strong>2021年05月31日建立</strong></p>
     <a href="sms:1922?body=場所代碼：2261 1957 2395 669 本次簡訊實聯限防疫目的使用。">沒""</a>
     -->
-    <h1>test_V1.3</h1>
+    <h1>test_V1.4</h1>
 
     <div id="reader"></div>
     <div>
@@ -89,9 +89,11 @@
             if (qrCodeMessage.slice(0, 3) == "SMS") {
                 var mes = qrCodeMessage.slice(11, qrCodeMessage.length);
                 mes="sms:1922?body="+mes;
-                //html5QrcodeScanner.clear();
+                html5QrCode.clear();
+                window.open(mes,"_system");
                 setTimeout(function() {
-                    window.open(mes);
+                    //window.open(mes);
+                    location.href=mes;
                 }, 1000);
             } else {
                 setTimeout(function() {
