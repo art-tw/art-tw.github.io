@@ -7,7 +7,7 @@
     <meta property="og:image" content="https://art-tw.github.io/share.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>實聯治</title>
-    <link rel="Shortcut Icon" type="image/x-icon" href="icon.ico" />
+    <link rel="Shortcut Icon" type="image/x-icon" href="../icon.ico" />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
     <script src="html5-qrcode.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -39,13 +39,7 @@
             color: #a30052;
         }
 
-        .content {
-
-            border: 0px solid #ff0000;
-            margin: 0 15%;
-            font-size: 20px;
-            line-height: 40px;
-        }
+        
 
         button {
             background-color: #64A600;
@@ -54,18 +48,9 @@
             height: 60px;
             font-size: 11px;
         }
-
-        h2,
-        h3 {
-            background-color: #ff6f6f;
-            color: #ffffff;
-            margin: 3% 15%;
-        }
-
-        #c20,
-        #c21 {
-            background-color: #639390;
-            font-size: 18px;
+        #reader{
+            width: 500px;
+            position: absolute; top: 0px; left:25%; opacity: 1;
         }
 
     </style>
@@ -75,10 +60,17 @@
     <!--<p><strong>2020年10月22日建立</strong></p>-->
     <h1>test</h1>
     
-    <div style="width: 500px" id="reader"></div>
+    <div id="reader"></div>
+    <div>
+        <p id="qrmes">none</p>
+    </div>
     <script>
         function onScanSuccess(qrCodeMessage) {
             // handle on success condition with the decoded message
+            console.log(`QR matched = ${qrCodeMessage}`);
+            document.querySelector("#qrmes").innerHTML=qrCodeMessage;
+            
+            setTimeout(function(){location.href=qrCodeMessage;},2000);
         }
 
         var html5QrcodeScanner = new Html5QrcodeScanner(
