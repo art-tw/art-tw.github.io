@@ -73,24 +73,14 @@
 
 
     <script>
-        const html5QrCode = new Html5Qrcode("reader");
-        const qrCodeSuccessCallback = message => {
-            onScanSuccess(message);/* handle success */ }
-        const config = {
-            fps: 15,
-            qrbox: 250
-        };
-        html5QrCode.start({
-            facingMode: "environment"
-        }, config, qrCodeSuccessCallback);
-
+        
         function onScanSuccess(qrCodeMessage) {
             // handle on success condition with the decoded message
             //console.log(`QR matched = ${qrCodeMessage}`);
             document.querySelector("#qrmes").innerHTML = qrCodeMessage;
             if (qrCodeMessage.slice(0, 3) == "SMS") {
                 var mes = qrCodeMessage.slice(11, qrCodeMessage.length);
-                mes = "sms:1922?body=" + mes;
+                mes="sms:1922?body="+mes;
                 //html5QrcodeScanner.clear();
                 setTimeout(function() {
                     window.open(mes);
@@ -101,6 +91,17 @@
                 }, 1000);
             }
         }
+        const html5QrCode = new Html5Qrcode("reader");
+        const qrCodeSuccessCallback = message => {
+            function(){onScanSuccess(message);}}
+        const config = {
+            fps: 15,
+            qrbox: 250
+        };
+        html5QrCode.start({
+            facingMode: "environment"
+        }, config, qrCodeSuccessCallback);*/
+
         /*
         var html5QrcodeScanner = new Html5QrcodeScanner(
             "reader", {
