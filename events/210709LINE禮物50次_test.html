@@ -235,7 +235,7 @@
                     autoWindow.close()
                 }, delay_time);
                 var end_time=new Date();
-                var total_time=(end_time-start_time)/1000;
+                var total_time=Math.floor((end_time-start_time)/1000);
                 alert("50個連結已點擊完成\n總共耗時： "+total_time+" 秒")
             }
         }
