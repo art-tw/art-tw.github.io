@@ -227,7 +227,8 @@
 
         function auto_open() {
             if (autoWindow.closed) {
-                alert("視窗已關閉\n已點擊至第" + counter / 2 - 1 + "筆連結");
+                var num=(counter-2) / 2;
+                alert("視窗已關閉\n已點擊至第" + num + "筆連結");
                 clearInterval(thread_start_btn);
             } else {
                 var target_url = document.querySelector("#content > a:nth-child(" + counter + ")").href
