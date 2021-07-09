@@ -96,7 +96,7 @@
             color: #FFFFFF;
             margin: 10px;
         }
-        #redirectbtn,#loginbtn,#startbtn{
+        #openimg,#loginbtn,#startbtn{
             width: 140px;
             height: 60px;
             font-size: 11px;
@@ -181,10 +181,11 @@
     </div>
     <hr>
     <p id="test">測試功能</p>
-    <p>此功能需使用外部連覽器開啟，且為登入LINE的狀態</p>
-    <button id="redirectbtn" onclick="window.location.href=location.href+'?openExternalBrowser=1'">導至外部瀏覽器</button>
+    <p>此功能需使用外部連覽器(非LINE內建瀏覽器)開啟，且為登入LINE的狀態</p>
+    <button id="openimg" onclick="document.querySelector('#browserimg').style.display=''">如何開啟外部瀏覽器</button><br>
+    <img id="browserimg" src="../img/browser.png" style="width:25%; display :none" alt="外部瀏覽器">
     <p>Step_1【登入LINE (如無登入畫面便是已登入狀態)】</p>
-    <button id="loginbtn" onclick="location.href='https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9su9t9u-b2EvaCcvf6w3OTQ_0PhFuv-fWyH4nGalemiqg'">登入LINE</button>
+    <button id="loginbtn" onclick="window.open('https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9su9t9u-b2EvaCcvf6w3OTQ_0PhFuv-fWyH4nGalemiqg')">登入LINE</button>
     
     <p>Step_2【自動點擊(需約1分鐘 完成後網頁自動關閉)】</p>
     <button id="startbtn" onclick="start_btn()">自動開啟連結</button><br>
