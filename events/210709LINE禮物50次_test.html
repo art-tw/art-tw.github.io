@@ -139,18 +139,18 @@
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfyR84jL-rhdpQHJ-_85EWtJs_thdQzPxrYgvkOM2ymH2iPFA/viewform?usp=sf_link" target="_blank">留言</a>
         <hr>
         <button id="sharebtn" onclick="javascript:share();" target="_blank">分享到LINE聊天室</button><br><br>
-
+        <!--
         <button type="button" id="closebtn" onclick="javascript:document.getElementById('guide').style.display='none';document.getElementById('closebtn').style.display='none';void(0);">點這裡關閉本視窗</button>
-        <a href="javascript:document.getElementById('guide').style.display='block';document.getElementById('closebtn').style.display='block';void(0);">使用指南</a><br><br>
+        <a href="javascript:document.getElementById('guide').style.display='block';document.getElementById('closebtn').style.display='block';void(0);">使用指南</a><br><br>-->
 
         <span>&#128073</span><a href="https://liff.line.me/1529013389-QwZzgXDV/luckydraw/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9su9t9u-b2EvaCcvf6w3OTQ_0PhFuv-fWyH4nGalemiqg/rewards" target="_blank">查看得獎記錄</a>
 
         <span>&#128073</span><a href="https://event-web.line.me/ectw/article/yMGqDk?utm_source=OA&utm_medium=giftshop_luckydraw&utm_campaign=20210709_1dollarcoffee" target="_blank">查看活動詳情</a><br><br>
 
-        <span>&#128073</span><a href="https://lin.ee/yZ1AeZs" target="_blank">先加入/解除封鎖【LINE禮物】官方帳號</a>
+        <!--<span>&#128073</span><a href="https://lin.ee/yZ1AeZs" target="_blank">先加入/解除封鎖【LINE禮物】官方帳號</a>-->
     </div>
 
-    <div id="content">
+    <div id="content" style="display:none;">
         <hr>
         <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9su9t9u-b2EvaCcvf6w3OTQ_0PhFuv-fWyH4nGalemiqg?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fea82feef-1b67-4876-aa6d-7ea594d20d05%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20210709_1dollarcoffee&data=jdzKrD-j-mZoB8P8BQlKJxYv431POPBeLoUDXDepYOpaTbtBWXH3uzPcjkf0SItcc3zzWSMIlGoQYtV5O_G34_BjQ6Ri_ctXQ62H5h-kCotMFzzR92_RKCF0uE2JDGT8QyKmyzx8DP4" target="_blank">連結1</a><br>
         <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9su9t9u-b2EvaCcvf6w3OTQ_0PhFuv-fWyH4nGalemiqg?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fea82feef-1b67-4876-aa6d-7ea594d20d05%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20210709_1dollarcoffee&data=Zvto3FH7YOLzEDPLrbVnbuFfUuIrGQOH_hM2-lWhphWO_Lmnf_QJjNpv-drQccLTDw91uzf5RzkfsSbnoNOOLNkyYaf0E45vIUsBVvNaqVXdRzfmec-X9bV2FEOgCflD-If88hJNr-8" target="_blank">連結2</a><br>
@@ -227,7 +227,7 @@
 
         function auto_open() {
             if (autoWindow.closed) {
-                var num=(counter-2) / 2;
+                var num = (counter - 2) / 2;
                 alert("視窗已關閉\n已點擊至第" + num + "筆連結");
                 clearInterval(thread_start_btn);
             } else {
@@ -239,7 +239,7 @@
                     setTimeout(function() {
                         autoWindow.close()
                     }, delay_time);
-                    counter=2;
+                    counter = 2;
                     var end_time = new Date();
                     var total_time = Math.floor((end_time - start_time) / 1000);
                     alert("50個連結已點擊完成\n總共耗時： " + total_time + " 秒")
