@@ -219,13 +219,13 @@
                 clearInterval(thread_start_btn);
                 setTimeout(function() {
                     autoWindow.close()
-                }, 800);
+                }, 1200);
             }
         }
 
         function start_btn() {
             autoWindow = window.open("", "自動開啟連結" + counter / 2, "width=100, height=100");
-            thread_start_btn = setInterval(auto_open, 800);
+            thread_start_btn = setInterval(auto_open, 1200);
         }
 
     </script>
