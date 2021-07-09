@@ -199,8 +199,8 @@
     <script>
         var counter = 2;
         var thread_start_btn = 0;
-        var autoWindow = 0;
-
+        var autoWindow = 0; 
+        var delay_time=1200;
         function share() {
             var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
             if (content == null || content == "") {
@@ -219,13 +219,15 @@
                 clearInterval(thread_start_btn);
                 setTimeout(function() {
                     autoWindow.close()
-                }, 1200);
+                }, delay_time);
             }
         }
 
         function start_btn() {
-            autoWindow = window.open("", "自動開啟連結" + counter / 2, "width=100, height=100");
-            thread_start_btn = setInterval(auto_open, 1200);
+            var speed=confirm("將以間隔1.2秒方式點擊連結(否則以間隔3秒的方式)\n『手機/電腦效能較慢者建議以間隔3秒的方式』");
+            speed==true?delay_time=1200:delay_time=3000;
+            autoWindow = window.open("https://www.google.com.tw/", "自動開啟連結" + counter / 2, "width=100, height=100");
+            thread_start_btn = setInterval(auto_open, delay_time);
         }
 
     </script>
