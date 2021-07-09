@@ -100,7 +100,7 @@
         #openimg,
         #loginbtn,
         #startbtn,
-        #rewardbtn{
+        #rewardbtn {
             width: 140px;
             height: 60px;
             font-size: 11px;
@@ -132,10 +132,10 @@
 
         <p>Step_2【自動點擊(需約1分鐘 完成後網頁自動關閉)】</p>
         <button id="startbtn" onclick="start_btn()">自動開啟連結</button><br><br>
-        
+
         <p>Step_3 【開獎】</p>
         <button id="rewardbtn" onclick="location.href='https://liff.line.me/1529013389-QwZzgXDV/luckydraw/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9su9t9u-b2EvaCcvf6w3OTQ_0PhFuv-fWyH4nGalemiqg/'">開獎連結</button><br><br>
-        
+
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfyR84jL-rhdpQHJ-_85EWtJs_thdQzPxrYgvkOM2ymH2iPFA/viewform?usp=sf_link">有其他問題請回報表單</a>
         <hr>
         <button id="sharebtn" onclick="javascript:share();" target="_blank">分享到LINE聊天室</button><br><br>
@@ -213,8 +213,8 @@
         var thread_start_btn = 0;
         var autoWindow = 0;
         var delay_time = 1200;
-        var start_time=0;
-        
+        var start_time = 0;
+
         function share() {
             var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
             if (content == null || content == "") {
@@ -226,24 +226,30 @@
         }
 
         function auto_open() {
-            var target_url = document.querySelector("#content > a:nth-child(" + counter + ")").href
-            autoWindow.location.href = target_url;
-            counter += 2;
-            if (counter > 100) {
+            if (autoWindow.closed) {
+                alert("視窗已關閉\n已點擊至第" + counter / 2 - 1 + "筆連結");
                 clearInterval(thread_start_btn);
-                setTimeout(function() {
-                    autoWindow.close()
-                }, delay_time);
-                var end_time=new Date();
-                var total_time=Math.floor((end_time-start_time)/1000);
-                alert("50個連結已點擊完成\n總共耗時： "+total_time+" 秒")
+            } else {
+                var target_url = document.querySelector("#content > a:nth-child(" + counter + ")").href
+                autoWindow.location.href = target_url;
+                counter += 2;
+                if (counter > 100) {
+                    clearInterval(thread_start_btn);
+                    setTimeout(function() {
+                        autoWindow.close()
+                    }, delay_time);
+                    counter=2;
+                    var end_time = new Date();
+                    var total_time = Math.floor((end_time - start_time) / 1000);
+                    alert("50個連結已點擊完成\n總共耗時： " + total_time + " 秒")
+                }
             }
         }
 
         function start_btn() {
             var speed = confirm("將以間隔1.2秒方式點擊連結(否則以間隔3秒的方式)\n『手機/電腦效能較慢者建議以間隔3秒的方式』\n大約完成時間=間隔時間*50(秒) 請等待頁面自動跳轉完成後再行操作!且避免手機螢幕關閉!");
             speed == true ? delay_time = 1200 : delay_time = 3000;
-            start_time=new Date();
+            start_time = new Date();
             autoWindow = window.open("https://www.google.com.tw/", "自動開啟連結" + counter / 2, "width=100, height=100");
             thread_start_btn = setInterval(auto_open, delay_time);
         }
