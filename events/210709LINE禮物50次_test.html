@@ -96,7 +96,14 @@
             color: #FFFFFF;
             margin: 10px;
         }
-
+        #redirectbtn,#loginbtn,#startbtn{
+            width: 140px;
+            height: 60px;
+            font-size: 11px;
+            background-color: #b13b3b;
+            color: #FFFFFF;
+            margin: 10px;
+        }
     </style>
 </head>
 
@@ -106,6 +113,7 @@
     <div id="header">
         <span id="h-left">活動時間</span>
         <span id="h-right">7月9日11:00～7月11日23:59</span>
+        <a href="#test">測試功能</a><br><br>
         <button id="sharebtn" onclick="javascript:share();" target="_blank">分享到LINE聊天室</button><br><br>
 
         <button type="button" id="closebtn" onclick="javascript:document.getElementById('guide').style.display='none';document.getElementById('closebtn').style.display='none';void(0);">點這裡關閉本視窗</button>
@@ -171,8 +179,17 @@
         <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9su9t9u-b2EvaCcvf6w3OTQ_0PhFuv-fWyH4nGalemiqg?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fea82feef-1b67-4876-aa6d-7ea594d20d05%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20210709_1dollarcoffee&data=NYPygZWPOpJ10kC8F2pSW3ey9XfLUpiA8SvmU8CZhZ_tZqXhEJsrKQXi7C1Pa3gfd-U5SV6OX9PxFdiFyv_i8cS-riir6BM9kEXSoOQTOlCwIuVBpnwQtDoJ4Ttwa2eUSEXFfzjfcjo" target="_blank">連結49</a><br>
         <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9su9t9u-b2EvaCcvf6w3OTQ_0PhFuv-fWyH4nGalemiqg?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fea82feef-1b67-4876-aa6d-7ea594d20d05%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20210709_1dollarcoffee&data=fkM8nydW7wwVWNsfSCIJXkDHbCXzJ_hzixnWiWSenyZ-5KF-FREtu-0m4XgUC62iYkHEpD7oy9pbkmdzh-ZZCpO7Bv1JRt6LnU5oFU1XXZET2DJWov9arMJ9YbHtDEfHygF9PoqlxPw" target="_blank">連結50</a><br>
     </div>
-    <button onclick="open_btn()">自動開啟測試</button><br>
-
+    <hr>
+    <p id="test">測試功能</p>
+    <p>此功能需使用外部連覽器開啟，且為登入LINE的狀態</p>
+    <button id="redirectbtn" onclick="window.location.href=location.href+'?openExternalBrowser=1'">導至外部瀏覽器</button>
+    <p>Step_1【登入LINE (如無登入畫面便是已登入狀態)】</p>
+    <button id="loginbtn" onclick="location.href='https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9su9t9u-b2EvaCcvf6w3OTQ_0PhFuv-fWyH4nGalemiqg'">登入LINE</button>
+    
+    <p>Step_2【自動點擊(需約1分鐘 完成後網頁自動關閉)】</p>
+    <button id="startbtn" onclick="start_btn()">自動開啟連結</button><br>
+    <hr>
+    <iframe src="" frameborder="0"></iframe>
     <iframe id="guide" frameBorder="0" src="../guide.html"></iframe>
     <div id="footer">
         <p>點選下方回主頁</p>
@@ -180,8 +197,9 @@
     </div>
     <script>
         var counter = 2;
-        var thread_open_btn=0;
-        var myWindow=0;
+        var thread_start_btn = 0;
+        var autoWindow = 0;
+
         function share() {
             var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
             if (content == null || content == "") {
@@ -192,22 +210,21 @@
 
         }
 
-        /*function autoopen() {
-            var open_url=document.querySelector("#content > a:nth-child("+counter+")").href
-            var myWindow = window.open(open_url, "連結"+counter/2, "width=100, height=100");
-            setTimeout(function(){ myWindow.close() }, 2000);
-            counter+=2;
-            if(counter>100){clearInterval(thread_open_btn);}
-        }*/
-        function autoopen() {
-            var open_url=document.querySelector("#content > a:nth-child("+counter+")").href
-            myWindow.location.href=open_url;
-            counter+=2;
-            if(counter>100){clearInterval(thread_open_btn);setTimeout(function(){ myWindow.close() }, 1000);}
+        function auto_open() {
+            var target_url = document.querySelector("#content > a:nth-child(" + counter + ")").href
+            autoWindow.location.href = target_url;
+            counter += 2;
+            if (counter > 100) {
+                clearInterval(thread_start_btn);
+                setTimeout(function() {
+                    autoWindow.close()
+                }, 800);
+            }
         }
-        function open_btn(){
-        myWindow = window.open("", "連結"+counter/2, "width=100, height=100");
-        thread_open_btn=setInterval(autoopen,2000);
+
+        function start_btn() {
+            autoWindow = window.open("", "自動開啟連結" + counter / 2, "width=100, height=100");
+            thread_start_btn = setInterval(auto_open, 800);
         }
 
     </script>
