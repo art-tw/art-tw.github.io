@@ -1,0 +1,197 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Art">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>公分台寸換算</title>
+    <!--<link rel="shortcut icon" type="image/x-icon" href="../icon.ico">-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2e2e2e;
+            text-align: center;
+            font-family: 'Noto Sans TC', sans-serif;
+            margin: 0 5%;
+        }
+
+        h1 {
+            font-size: 26px;
+            color: #ffffff;
+        }
+
+        #content {
+            margin: 0% 5%;
+        }
+
+        td {
+            height: 30px;
+
+        }
+
+        button {
+            width: 80px;
+            height: 80px;
+            background-color: #868686;
+            border-radius: 8px;
+            border: 2px solid #575757;
+            color: white;
+            font-size: 26px;
+            /*box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
+        }
+
+        .button {
+            transition-duration: 0.4s;
+        }
+
+        .button:hover {
+            background-color: #4CAF50;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1 style="display: none;">公分台寸換算</h1>
+    <div id="header">
+        <table align="center" valign="center" border="0px">
+            <tr style="background-color: white; font-size: 26px;">
+                <td style="width: 80px;">公分</td>
+                <td id="cm" style="width: 300px;"></td>
+            </tr>
+            <tr style="background-color: white;font-size: 26px;">
+                <td style="width: 80px;">台寸</td>
+                <td id="twinch" style="width: 300px;"></td>
+            </tr>
+        </table>
+        <table align="center" valign="center" border="0px">
+            <tr style="background-color: white; font-size: 20px;">
+                <td id="style_a" style="width: 126px;">正常+1.5</td>
+                <td id="style_b" style="width: 126px;">白板+1.7</td>
+                <td id="style_c" style="width: 126px;">厚+2</td>
+            </tr>
+            <tr style="background-color: white; font-size: 24px;">
+                <td id="twinch_1" style="width: 126px;"></td>
+                <td id="twinch_2" style="width: 126px;"></td>
+                <td id="twinch_3" style="width: 126px;"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="content">
+        <hr>
+        <table align="center" valign="center" border="0px">
+            <tr>
+                <td><button class="button" onclick="javascript:numinput(7)">7</button></td>
+                <td><button class="button" onclick="javascript:numinput(8)">8</button></td>
+                <td><button class="button" onclick="javascript:numinput(9)">9</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="javascript:numinput(4)">4</button></td>
+                <td><button class="button" onclick="javascript:numinput(5)">5</button></td>
+                <td><button class="button" onclick="javascript:numinput(6)">6</button></td>
+            </tr>
+            <tr>
+                <td><button class="button" onclick="javascript:numinput(1)">1</button></td>
+                <td><button class="button" onclick="javascript:numinput(2)">2</button></td>
+                <td><button class="button" onclick="javascript:numinput(3)">3</button></td>
+            </tr>
+            <tr>
+                <td><button id="mode_sw" class="button" onclick="javascript:mode()">縫份</button></td>
+                <td><button class="button" onclick="javascript:numinput(0)">0</button></td>
+                <td><button class="button" onclick="javascript:undo()">清除</button></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="footer">
+        <table align="center" valign="center" border="0px">
+            <tr>
+                <td><button style="width: 180px;" class="button" onclick="javascript:clearcm()">歸零</button></td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var tinch_1 = 150;
+        var tinch_2 = 170;
+        var tinch_3 = 200;
+
+        function numinput(num) {
+            var now = String(document.getElementById("cm").innerHTML);
+            if (now.slice(0, 1) == "0") {
+                if (num == 0) {
+                    var next = 0;
+                } else {
+                    var next = String(num);
+                }
+            } else {
+                var next = now + String(num);
+            }
+            document.getElementById("cm").innerHTML = next;
+            setTimeout(function() {
+                cmtotwinch();
+            }, 100);
+        }
+
+        function clearcm() {
+            document.getElementById("cm").innerHTML = "";
+            setTimeout(function() {
+                cmtotwinch();
+            }, 100);
+        }
+
+        function undo() {
+            var now = String(document.getElementById("cm").innerHTML);
+            var next = now.slice(0, now.length - 1);
+            document.getElementById("cm").innerHTML = next;
+            setTimeout(function() {
+                cmtotwinch();
+            }, 100);
+        }
+
+        function cmtotwinch() {
+            var now = document.getElementById("cm").innerHTML;
+            var tw_inch = Number(now * 100) / 3.03;
+            var next = Math.round(Math.floor(tw_inch) / 10) / 10;
+            var next_1 = Math.round(Math.floor(tw_inch + tinch_1) / 10) / 10;
+            var next_2 = Math.round(Math.floor(tw_inch + tinch_2) / 10) / 10;
+            var next_3 = Math.round(Math.floor(tw_inch + tinch_3) / 10) / 10;
+            document.getElementById("twinch").innerHTML = next;
+            document.getElementById("twinch_1").innerHTML = next_1;
+            document.getElementById("twinch_2").innerHTML = next_2;
+            document.getElementById("twinch_3").innerHTML = next_3;
+        }
+
+        function mode() {
+            var now = document.getElementById("mode_sw").innerHTML;
+            if (now == "縫份") {
+                document.getElementById("mode_sw").innerHTML = "收邊";
+                document.getElementById("style_a").innerHTML = "正常+4";
+                document.getElementById("style_b").innerHTML = "白板+4";
+                document.getElementById("style_c").innerHTML = "厚+5";
+                tinch_1 = 400;
+                tinch_2 = 400;
+                tinch_3 = 500;
+                setTimeout(function() {
+                    cmtotwinch();
+                }, 100);
+            } else {
+                document.getElementById("mode_sw").innerHTML = "縫份";
+                document.getElementById("style_a").innerHTML = "正常+1.5";
+                document.getElementById("style_b").innerHTML = "白板+1.7";
+                document.getElementById("style_c").innerHTML = "厚+2";
+                tinch_1 = 150;
+                tinch_2 = 170;
+                tinch_3 = 200;
+                setTimeout(function() {
+                    cmtotwinch();
+                }, 100);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
