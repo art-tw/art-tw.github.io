@@ -7,13 +7,12 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>公分台寸換算</title>
-    <!--<link rel="shortcut icon" type="image/x-icon" href="../icon.ico">-->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+
     <style>
         body {
             background-color: #2e2e2e;
             text-align: center;
-            font-family: 'Noto Sans TC', sans-serif;
+            /*font-family: 'Noto Sans TC', sans-serif;*/
             margin: 0 5%;
         }
 
@@ -67,7 +66,7 @@
             </tr>
         </table>
         <table align="center" valign="center" border="0px">
-            <tr style="background-color: white; font-size: 20px;">
+            <tr id="mode_status" style="background-color: white; font-size: 20px;">
                 <td id="style_a" style="width: 126px;">正常+1.5</td>
                 <td id="style_b" style="width: 126px;">白板+1.7</td>
                 <td id="style_c" style="width: 126px;">厚+2</td>
@@ -99,7 +98,7 @@
                 <td><button class="button" onclick="javascript:numinput(3)">3</button></td>
             </tr>
             <tr>
-                <td><button id="mode_sw" class="button" onclick="javascript:mode()">縫份</button></td>
+                <td><button id="mode_sw" class="button mode_status" onclick="javascript:mode()">縫份</button></td>
                 <td><button class="button" onclick="javascript:numinput(0)">0</button></td>
                 <td><button class="button" onclick="javascript:undo()">清除</button></td>
             </tr>
@@ -117,6 +116,7 @@
         var tinch_1 = 150;
         var tinch_2 = 170;
         var tinch_3 = 200;
+        var mode_value = 1;
 
         function numinput(num) {
             var now = String(document.getElementById("cm").innerHTML);
@@ -155,9 +155,9 @@
             var now = document.getElementById("cm").innerHTML;
             var tw_inch = Number(now * 100) / 3.03;
             var next = Math.round(Math.floor(tw_inch) / 10) / 10;
-            var next_1 = Math.round(Math.floor(tw_inch + tinch_1) / 10) / 10;
-            var next_2 = Math.round(Math.floor(tw_inch + tinch_2) / 10) / 10;
-            var next_3 = Math.round(Math.floor(tw_inch + tinch_3) / 10) / 10;
+            var next_1 = Math.round(Math.floor(tw_inch + tinch_1) / 10) * mode_value / 10;
+            var next_2 = Math.round(Math.floor(tw_inch + tinch_2) / 10) * mode_value / 10;
+            var next_3 = Math.round(Math.floor(tw_inch + tinch_3) / 10) * mode_value / 10;
             document.getElementById("twinch").innerHTML = next;
             document.getElementById("twinch_1").innerHTML = next_1;
             document.getElementById("twinch_2").innerHTML = next_2;
@@ -171,9 +171,12 @@
                 document.getElementById("style_a").innerHTML = "正常+4";
                 document.getElementById("style_b").innerHTML = "白板+4";
                 document.getElementById("style_c").innerHTML = "厚+5";
-                tinch_1 = 400;
-                tinch_2 = 400;
-                tinch_3 = 500;
+                tinch_1 = 200;
+                tinch_2 = 200;
+                tinch_3 = 250;
+                mode_value = 2;
+                document.getElementById("mode_status").style.backgroundColor = "#abffa8";
+                document.getElementById("mode_sw").style.backgroundColor = "#43bc3e";
                 setTimeout(function() {
                     cmtotwinch();
                 }, 100);
@@ -185,6 +188,10 @@
                 tinch_1 = 150;
                 tinch_2 = 170;
                 tinch_3 = 200;
+                mode_value = 1;
+
+                document.getElementById("mode_status").style.backgroundColor = "white";
+                document.getElementById("mode_sw").style.backgroundColor = "#868686";
                 setTimeout(function() {
                     cmtotwinch();
                 }, 100);
