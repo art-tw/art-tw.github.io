@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="author" content="Art">
-    <meta property="og:image" content="https://art-tw.github.io/share.png">
+    <meta property="og:image" content="https://art-tw.github.io/share_2109.png">
+    <meta property="og:description" content="LINE分享x抽獎活動懶人包,不定期更新,偶爾會分享於PTT-Lifeismoney省錢版">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>Art-tw</title>
     <link rel="Shortcut Icon" type="image/x-icon" href="../icon.ico" />
@@ -24,46 +25,69 @@
     </script>
     <style>
         html {
-            background-color: #f7cdcd;
+            background-color: #9fc5d6;
         }
 
         body {
             text-align: center;
             font-family: 'Noto Sans TC', sans-serif;
-            margin: 0 10%;
         }
 
         h1 {
-            font-size: 24px;
-            color: #a30052;
+            border: none;
+            border-radius: 45px;
+            font-size: 1.5em;
+            color: #FFF;
+            background: #000000;
+            max-width: 500px;
+            margin: 1em auto;
         }
 
         .content {
             border: 0px solid #ff0000;
             margin: 0 15%;
-            font-size: 20px;
+            font-size: 1.2em;
             line-height: 40px;
         }
 
         button {
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
             background-color: #64A600;
             color: #FFFFFF;
-            width: 140px;
-            height: 60px;
-            font-size: 11px;
+            letter-spacing: 2.5px;
+            padding: 1.5em;
+            font-size: 1em;
+            transition: all 0.5s ease 0s;
         }
 
-        h2,
-        h3 {
+        button:hover {
+            background-color: #8cc436;
+            box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+
+            transform: translateY(-5px);
+        }
+
+        h2 {
             background-color: #ff6f6f;
             color: #ffffff;
-            margin: 3% 15%;
+            margin: 1em auto;
+            font-size: 1.5em;
+            max-width: 500px;
         }
 
-        #c20,
-        #c21 {
+        h3 {
             background-color: #639390;
-            font-size: 18px;
+            font-size: 1em;
+            margin: 1.5em auto;
+            position: relative;
+            top: -1.5em;
+            max-width: 500px;
+        }
+
+        a {
+            text-decoration: none;
         }
 
     </style>
@@ -75,19 +99,21 @@
     <div id="header">
         <button type="button" onclick="location.href='https://social-plugins.line.me/lineit/share?url=https%3a%2f%2fart-tw.github.io%2fevents'">分享到LINE聊天室</button>
     </div>
-    <p style='color:#259487;'>不定期更新,偶爾會分享於PTT-Lifeismoney省錢版</p>
-
-    <h2>最新活動</h2>
+    <p style='color:#259487; font-size: 1em;'>不定期更新,偶爾會分享於PTT-Lifeismoney省錢版</p>
+    <div>
+        <h2>最新活動</h2>
+    </div>
     <div class="content">
         <p><a href="210914LINE購物10次.html" target="_blank">LINE購物_0914</a></p>
         <!--<hr>
 		<p style="background-color: #87f529"><a href="https://docs.google.com/spreadsheets/d/14ycae9ykeJZ2dx5A9p3jwPO0CXdR8OIWvqcE7zXhm0c/edit?usp=sharing" target="_blank">點數紅包分享，有需要自行取用</a></p><hr>
 		-->
     </div>
-
-    <h2 onclick="javascript:menu('1');">2020歷史活動<p id="c20">🔻點擊展開🔻</p>
-    </h2>
-    <div id="list_20" class="content" style="display: none">
+    <div onclick="menu('1')">
+        <h2>2020歷史活動</h2>
+        <h3 id="c20">🔻點擊展開🔻</h3>
+    </div>
+    <div id="list_20" class="content" style="display: none;">
         <p><a href="0909LINE購物20次.html" target="_blank">LINE購物_0909</a></p>
         <p><a href="0921LINE購物10次.html" target="_blank">LINE購物_0921</a></p>
         <p><a href="0927LINE貼圖最前線10次.html" target="_blank">LINE貼圖最前線_0927</a></p>
@@ -107,9 +133,10 @@
         <p><a href="1211LINE購物10次.html" target="_blank">LINE購物_1211</a></p>
         <p><a href="1231LINE購物10次.html" target="_blank">LINE購物_1231</a></p>
     </div>
-
-    <h2 onclick="menu('2')">2021歷史活動<p id="c21">🔻點擊展開🔻</p>
-    </h2>
+    <div onclick="menu('2')">
+        <h2>2021歷史活動</h2>
+        <h3 id="c21">🔻點擊展開🔻</h3>
+    </div>
     <div id="list_21" class="content" style="display: none">
         <p><a href="210119LINE購物品牌名店10次.html" target="_blank">LINE購物品牌名店_0119</a></p>
         <p><a href="210421LINE購物夯話題10次.html" target="_blank">LINE購物夯話題_0421</a></p>
