@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        a:hover {
+            color: yellow;
+        }
+
+    </style>
+</head>
+
+<body style="text-align: center;font-size: 2rem;">
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8urb-617451f7da90a2-77453799" target="_blank">連結1</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8uof-617452e433ca37-29846735" target="_blank">連結2</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8vem-6174531bd8b8c1-32160037" target="_blank">連結3</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8urb-61745374b1ec83-10555008" target="_blank">連結4</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8vhj-617453b7342b82-37564950" target="_blank">連結5</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8urb-617453d432d3f6-19714553" target="_blank">連結6</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8vhj-617453f9965e87-14354472" target="_blank">連結7</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8vgs-617454301d6ce2-38692391" target="_blank">連結8</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8vhj-617454588a5eb8-83613408" target="_blank">連結9</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8ur8-6174547b94cac8-66298911" target="_blank">連結10</a></p>
+    <p><a href="https://www.i-sharing.com.tw/card/complete/4lq8vg6-617454a2b11be6-40341125" target="_blank">連結11</a></p>
+    <button onclick="javascript:openall();">全開啟</button>
+    <script>
+        /*
+        #1
+        https://www.i-sharing.com.tw/card/complete/4lq8urb-617451f7da90a2-77453799
+        #2
+        https://www.i-sharing.com.tw/card/complete/4lq8uof-617452e433ca37-29846735
+        #3
+        https://www.i-sharing.com.tw/card/complete/4lq8vem-6174531bd8b8c1-32160037
+        #4
+        https://www.i-sharing.com.tw/card/complete/4lq8urb-61745374b1ec83-10555008
+        #5
+        https://www.i-sharing.com.tw/card/complete/4lq8vhj-617453b7342b82-37564950
+        #6
+        https://www.i-sharing.com.tw/card/complete/4lq8urb-617453d432d3f6-19714553
+        #7
+        https://www.i-sharing.com.tw/card/complete/4lq8vhj-617453f9965e87-14354472
+        #8
+        https://www.i-sharing.com.tw/card/complete/4lq8vgs-617454301d6ce2-38692391
+        #9
+        https://www.i-sharing.com.tw/card/complete/4lq8vhj-617454588a5eb8-83613408
+        #10
+        https://www.i-sharing.com.tw/card/complete/4lq8ur8-6174547b94cac8-66298911
+        #11
+        https://www.i-sharing.com.tw/card/complete/4lq8vg6-617454a2b11be6-40341125
+        */
+
+        var links = [];
+        var i = 0;
+
+        function openall() {
+            links = document.getElementsByTagName('a');
+            var lagopen = setInterval(lag, 500);
+        }
+
+        function lag() {
+            links[i].click();
+            i++
+            if (i >= links.length) clearInterval(lagopen);
+        }
+
+    </script>
+</body>
+
+</html>
