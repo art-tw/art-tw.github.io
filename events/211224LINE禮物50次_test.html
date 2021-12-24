@@ -1,0 +1,189 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Art">
+    <meta property="og:image" content="https://art-tw.github.io/share.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>LINE活動懶人包</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="events.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154791288-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154791288-2');
+
+    </script>
+    <style>
+        #openimg,
+        #loginbtn,
+        #startbtn,
+        #rewardbtn {
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+            background-color: #b13b3b;
+            color: #FFFFFF;
+            letter-spacing: 2.5px;
+            padding: 1.5em;
+            font-size: 1em;
+            transition: all 0.5s ease 0s;
+            margin: 1em auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>2021/12/24<br>LINE禮物分享活動(50次)</h1>
+    <h2>【聖誕老公公快閃分享時刻最高賺LINEPOINTS 888點！】</h2>
+    <div id="header">
+        <span id="h-left">活動時間</span>
+        <span id="h-right">12月24日13:00～12月24日23:59</span>
+        <br>
+        <hr>
+        <p id="test">自動點擊功能(測試中)</p>
+        <p style="color:red;">此功能需使用外部連覽器(非LINE內建瀏覽器)開啟，且為登入LINE的狀態</p>
+        <p>此功能僅在android系統以外部瀏覽器chrome測試過</p>
+        <button id="openimg" onclick="document.querySelector('#browserimg').style.display=''">如何開啟外部瀏覽器</button><br>
+        <img id="browserimg" src="../img/browser.png" style="width:75%; display :none" alt="外部瀏覽器">
+        <p>Step_1【登入LINE (如無登入畫面便是已登入狀態)】</p>
+        <p style="color:red;">以活動網址引導至登入，有疑慮者請自行斟酌使用</p>
+        <p style="color:red;">也請勿隨意點擊來路不明的網址登入您的LINE，以免帳密外洩</p>
+        <button id="loginbtn" onclick="window.open('https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA/')">登入LINE</button>
+
+        <p>Step_2【自動點擊(完成後網頁自動關閉)】</p>
+        <button id="startbtn" onclick="start_btn()">自動開啟連結</button><br><br>
+
+        <p>Step_3 【開獎】</p>
+        <button id="rewardbtn" onclick="location.href='https://liff.line.me/1529013389-QwZzgXDV/luckydraw/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA/'">開獎連結</button><br><br>
+
+        <div style="background-color: #f1ff4b;color: white;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfyR84jL-rhdpQHJ-_85EWtJs_thdQzPxrYgvkOM2ymH2iPFA/viewform?usp=sf_link" target="_blank">留言給我</a></div><br>
+        <hr>
+        <button id="sharebtn" onclick="javascript:share();" target="_blank">分享到LINE聊天室</button><br><br>
+
+        <span>&#128073</span><a href="https://liff.line.me/1529013389-QwZzgXDV/luckydraw/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA/rewards" target="_blank">查看得獎記錄</a>
+
+        <span>&#128073</span><a href="https://event-web.line.me/ectw/article/2DgwXgz" target="_blank">查看活動詳情</a><br><br>
+        <button type="button" id="linkbtn" onclick="javascript:document.querySelector('#content').style.display = (document.querySelector('#content').style.display == 'none') ? '' : 'none';void(0);">點這裡顯示連結</button>
+        <!--<span>&#128073</span><a href="https://lin.ee/yZ1AeZs" target="_blank">先加入/解除封鎖【LINE禮物】官方帳號</a>-->
+    </div>
+
+    <div id="content" style="display:none;">
+        <hr>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=hQuSfBOhQes5NaBZkXEoanMNWkMOmnbNSFKQPGG5au98gHF2WtfInJc3LV8pVhOQSa4A84eUukFl5snob1hdqamPFNYNNwI84WQ89osLshRQC9AjWjfSJQYmln6Dl_u6LYZ9I_pZ1zE" target="_blank">連結1</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=JyC-XJ1p5r_uUqglxnkPnDvrHNW0-Me4kzD-lGKfQT7OafnGhfq0cSeHaNeD5uN8i63Z5nL0okR2Cy79BLMEm7mtCT6t5Bthc61iIDzfeP5b0fdVuOvr4Pcz8ciITckfOsAOOaYIYaU" target="_blank">連結2</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=2MiEOxoSlsJz-oRJUkPQ1Zg3WDljlhT0VADdcrhbuRLKtfcWNeL3p48ZNFi46mnd3iFNrOgTDSaYtF84p1kvW4YeWIrx5EAig5z1u_U9Zo3vUCP6Ry0E6UeoCB681QcA-KL5Oq1CxCo" target="_blank">連結3</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=lmlwncIstehLhSwMSV_EXl3OTWpocEL6Jw7qm4BJ2OPBQARFkKDIblpk-TexYdOm9I_Kj6ImBfTG9OEar4x0REVTFbmzsX62mpi8mlKGvJuuSpZEAwvbpqv2y7HfIe27PY7pP86Md00" target="_blank">連結4</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=OFIRsEtWw3Rf9RbbqCC-j4CaTjkhCx0nkwyRsWUk-OoF7wrNo6n_uhOB1v5CZ0KNOu5agi5RnfGgewxU1wGrbyvip9SX_DsTKQuTBfAJqVRmOZvrZNIKMLxpP0zziSdRzY2qvcJpXlM" target="_blank">連結5</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=LgVkg2AvIdJc0qsm9SyDUIyUZC8WAR_fKH2h08kSwgs0G_UmOFqOO6J_GfYNjd86QwciAVVC3gTeEXyDE-H7VMvbm8bnpVR4kMQOw71QJOZCjN_mca-L7J1q6ETCa__dosQaUFY1n04" target="_blank">連結6</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=7IAUYKqlceRaGtO5Yammwg_2ySYKCQPFUneOfKk7FKnz5BoFw52G-g00jAGH_euJBdfs2uV9cqw6hLIOg6UBw09GR3z_L154fjQphDPkwpX-ZhaxpkvJoSyin_eyhHA1tou9UmIC5Cw" target="_blank">連結7</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=hso_Vm8BH8kCN22lAhvWIuRYn4UeUN17K-6w9onx20u0-MotcuDZ0BS0e_exGbw6UxJaOTurEvASHCK6xBD65gOVL_s50cyL2900Yfdx0w5zhJgXR5ei9s2rDPEC-Ekaq0hv8lGd5rM" target="_blank">連結8</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=Cwsv7IccseHb9JFLJkq2Y8lsZiIQdDqmnC8TnEfqAhrtsYaT3pP93tM_xnlAk_Jh6-4Du3I6N5qZhDYOAMFaG_Jbvx-Q452inM7XkTfF5_hUK30-MS9TuHQkXT-FO2y3Bt4lyQb2iGc" target="_blank">連結9</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=4nRR3fkJDsDMQHOm-6tlEHgliEA2WPs5OiRCpCMUPp_FVTxJa2QJJYjtorE1nMk-sGQYdrLVJgVQwipagwawtV76AOHpcSU86hGrK0TJsfb3WCPh104jIdSzaHVPtUXFSZwpFD0QOBA" target="_blank">連結10</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=ZMCsuPiEfQN3crbeP_QNO7Uopo_JaDw6jYlCo1QP1pO_43ix0OgCCNaJL2lXb_0qFwL4YFSCywkVkO6OZ0gv0tO-BXsljgDPQHwpWeUTGS6P1BaRiNfPE-rj-Byfw5qYuJVrtOdzI-c" target="_blank">連結11</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=aHqUWnFYF1QZJuXWFnhrx6PVVMpS_nPQZyvUUGZXQtEZ4rIvwHIYhGhGqpMBid5P3QYTzJSe_tllhORjLe3gdcqREYWc5pa0OsReT0ODC5DPsh69EVpNowWv_mlAvFSEQ0mpZE4JHas" target="_blank">連結12</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=lCMrfQp2RgFracCNGtXo9SDHhtj0r-sJKHkQnbqWY-fag42CwBDW3eglGJBsk_Fjkspscjg1BX9St3y-KBTm1tXvIdbNWWJon-UH9kd4pZeXgKhCVXqmNY1aKYpHTBF7vm5QD_kju_4" target="_blank">連結13</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=xDPXs1GIJjoJUCkIoaIEHtaUDf_emwOMOoWJBwC9WiULkvU1LwidkOkAPumFDjehPbrE4tm9KvZUzkCsgtUKz02Hjal1Cy2xoAhUXZNfZpGmD8VIAf9KJ1sJNoHdmhbU9vvn-RFq88M" target="_blank">連結14</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=-2erek1o8V5llrFDNqU8_Ilpzf1i5QG9ZkCy0E7urhA790cYXBXT_Vqw9mCATa83gt2Y2Aoxy2uXraXoLBy4OOfvlQbzEKz7uWuEEdHyr9_PhKhzlRMXBRIwx2IC2LHe1739zVUuSNo" target="_blank">連結15</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=0ji1Qpr1TL1P69TWR4aMZoryieKj-np8GtTCCga8LATmXSa4E62xrTZFxU-ntb5DeaLfKi8uRoLRliRV33MnuabFhbxVus4oITx5soAM8V4TK67rQIryi80xE5jpm2xAKWr9EeoLswU" target="_blank">連結16</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=xBPe4pAZ_Yy5Lo-D4qwXtn-WyTy6Obmv8349k9zewj1jKBIWFiaJgDe_u-o9qz2vQ0JOy82ehTvoFdwFEm9_Kh2ydtmSCI6HZy_LB7LwyV7Fu9soI8VYqJQoyCvWl7c7hfpY4qRJ1WU" target="_blank">連結17</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=kdMqFHLjcgjajvkH5wy6O6W944yBPcnEJQEdz0GKtrveg45EAX3DLNSkpXLGXR0T_nIIj_wsODSZsiR0m_yVKzTMcWFzppAbKCXqEX9PyKcRr92LL1S98sp7vZqkj8yW4NKiWH8ckNw" target="_blank">連結18</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=KuAf1LDtNz7xRhKtt-cuNRw-q7C0fyh6AuCqzLxm0C1xqpwqzkiQJ1dHLz1l2_8tfbHTedULUJf5L3JK305zXlhlMdmez5-HAWIXzLsD1JC_LAP2cAHCk4JR2QQhzgC8lq_A7B2V8Qw" target="_blank">連結19</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=kU_3tfdZ3vMWjJHDxhU2wE5F667eXCslrywmZPAbn4fwhrAeuG_Q3kymyrBx_vl3MciUGvDkM7OceLgGwhxQnQobAMQgwLZevC7iSdUNt5XFtWAUATWiFCAj81srSCLUOveYQk33lfY" target="_blank">連結20</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=Y8QdmSRJaSObSNAm6DnKAPD8FVlTXtdmbNEq-r_wRB1SasIoKYOsS8I1nBEN3uLqcSUhBut_7fSOcRu75Y6uR4aPHapLjQBSb8W4XsZB3ASxs0Khe5lxgpo2dQHUSF3vZDvrVdriW3I" target="_blank">連結21</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=pvZMm_2ChhHwiE1k8N6JjiieYSO5Y2_aOJrH8u-HRMLzX0lejP_LrRaLo3RPRVaM8zL8H9ymETiouneDokDwu9Lj9kYbdFEOpDlopBHSpACvKqpDR2i79Va-ObPQ33w23UA9OrB6Gd0" target="_blank">連結22</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=EskVNrUleiyCftDw8O3pf5vmC-W-2zDExCNpL4JjKPg5PjD376YthCOwTxEzqp2NMu8qR85fYoVGb47WuKo_TnbF5uV1-GnarqNiIxPtmYU7LtF7GLLl_GJI5bHaNw2rZd2XQ4bK4pk" target="_blank">連結23</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=k_b6AGxRHt4uSzmLGF6rV_BQrIyJR4BkXUH_QoD3arKsrXilc45QY6bQ7FSsWNUuCmgMUEEI6FDUAAAFVgMU_EObp3pI_YAzPdpYI8uIjO5yixkklsvRdYGnSjfV_4_6rP21w_XEubo" target="_blank">連結24</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=6kXQl-WpG3O_w3hWnrcpli1yK5j3L3lEdeWVR7hzka0hDokIzLlKP1vH4KI39M1td-7-9LoqDr5rjCBHNFCueF41rJZlq_ebnG4Fgfrkq5R9BZ1bbqfkpi_AlvnqSucNmb8gBGl0WCY" target="_blank">連結25</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=5_GvKi8whzrEQfLp5RIhDRvlvFMqdNx1WRe0hsAc2MVPcBaWS_8rR_ZIZxQ7SFDjlRsjlyzpA-WHmXzVXI-Jd0DlDF1HKg6tjQ6ARjE0JT4Gbi9sgVSiswNAdYazPz77ECyfupSC2_4" target="_blank">連結26</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=OUagI-utKtdwrAny5SDUXbRHX0lfh4Qr2Vy_JdFd80UnHradiq3-J_gVyJjM_pUdC4AWOz9th5U-qDbiXWBdEqrBUKpETtGZypga1Pr3NSE5tXpKGLU5BN8W373ommzRws3V3DbrXWs" target="_blank">連結27</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=A6RpUOoj9kROXzQRAbpbp74ghzIo9_MmuU9Nmj0Vcwieoy3ftcCDiKi79qxDkwHxVH22dEoR6VC5tswoWZoN4vc8M5YWTg21YFnCrV9jlvPNIRWHduzk2NU7GYbzjoZtwC5Btey9KOk" target="_blank">連結28</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=WbeXtYfVUWM2A9uQWBxYY02cGf_MmSJpoh5HvHlALbS6FgHxwfjqZ63AsWEYv75BIPpSdxGeFjf-P16O7UPOcQ5uEE3nVoPHcxZVMQzx3jCchVBFkJHEZzsP_Ege2uaOesMyofhtdlQ" target="_blank">連結29</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=H_J5Zt4Mc9Hyv8dFzO0u_DyvQooy8CxURMwICJZa4akt_b57qFxnG7ih9_5tPi9GSee7qLrqhW1wTKBgezdZqJXPDGfSsR-DxiwnkSl68JsE30DUopgoYkH68PFj-H-p8YSRD2HI5us" target="_blank">連結30</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=Y5g6QrnWeqnRcI9toiXXc6LDZSAPiJn7RAgUCgEgRK6WUzOsLgrU49q3xdGD-_DErO-IGrkx7l4fKGpsea7K923Xr6uPjmeUx5vtI70fg-wHxnIN-kvb9VCridtJxw9LiieFmnHs4aI" target="_blank">連結31</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=T62cQ30i5FSe3SKygF7_w9iQoKhfFi6psKBIqyu9KNRMGx0wPBGWxnQ1pEfLmWW0NQ4vSlwVA6hT_0JPQOLftDacmoTLEPhcByI7DlpMePwR9coEmQ45AeXzKp-heK7-aCpMgzBoE_M" target="_blank">連結32</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=yNLGfwqs-OT8RkXiLwwORBJ0_gb2E0Pobn_SGoYcyMDD6k5o5OB7iNd4gw2LM80ZoAs2opg0PW7rgIsjOBODgYtkedMKh-MXgFzacfdMKNYpydesf2X6K2-n_ue7TIhFn3cYaNmQDgI" target="_blank">連結33</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=ba2SqaA9B29pVopCoh6A6SDCJ8wlxCT4zcfEEYT0370JFGEOixQRtVEkSBuFtQxJWMbJzZ__BwrKdD_Aub9pRzbmTcvoUCOZxp6AzcaZGL1p1jcB5hohk0O3nKfhnBsVG0fcsUmkDjc" target="_blank">連結34</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=L1L0gePZnMACWBf2mdokBC81-51Q6_S6JssXw0VOjYP1xiUlRTbrRf8MGenawSPuams52HbGF0imsQlSitHEWQ21arcWXisA3ZAmCM7F9soyKiEstVrmVWK4F2ABxONgWUpS8QEgawQ" target="_blank">連結35</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=c-ixs-U7DvKEUOaUpnlo_vDLVa1irKVYAvToyf0rPbtG4R1cgnXMvr97FZ1N5LMjcDsJLTFFOyWddiZzTtzf-z-TjOqKwEUaTwmrr2q3rf85e9Fz2XYebwSrUGMByT0B_ARfVhZlZMs" target="_blank">連結36</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=mbzDMWwTwcpZK178x6Mn1aaYp89br1LrhSUf4C8IBJYP7nPW2QaAl4GZIE6DrKkyUXhN0iL11xr32am6u9h2CvLMOzMQEdvvezeTUVp3Ta0WJ3ghMTPw0WsHDS50_leIVLpATNJ9-aE" target="_blank">連結37</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=ghjeECKq_OyCvqzrRCgAX8CmHBeVR9os_8scF3O6HZM5EEAmp_U4rPnegArPKlraU6NMEbu6SnvvdE6vuPPAZW0y1h0PLswtIpFeC9DdePUovKVMBvCN6fv8ZujPWcQLokA6S7XQRBg" target="_blank">連結38</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=Rqf53Jcsyl-F1IHPyTKnIrSm2P1T5mA7Aofq_Fud9Y02zpMw2QjFW4YR-JdGNVmILepNK7H1N1ak3BKtMYIcayUarN8vlOlP9Fpz72a6oobw6Dm0yCIWewOjqn_bYDVfu1V2-KmKk1I" target="_blank">連結39</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=cLDkWFZ8DCIRJrcRzS-6moBoUcw45xw27rQz18SBZxvNv5_Z1p4coSot29dLRCdklmR4yHymhiKxy73fc5qMb3B3QmdFfqjdJmR8bi1V_ukOT-BohrendIg145me9sa8MZfWv9vjs4E" target="_blank">連結40</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=AeV9vW732J7v2jNzNhaIBQMWg4xu34sarLtcLPccSzSuDviYfkmKF1YY5JX-YiKSAXul6RRS5PKfGK7sBoA9AONzZevlE85DJs0fAz9EQp7JzvxRQsPlQRSPgkzAFD4gH2A9N2rDS44" target="_blank">連結41</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=tc6nnFzSj1YnPRccwQCE8IKvbk2JyJzkE544XNQeoesvj88ltJozaAsTD34NHqTipQhlpeTTNBQ-QV_1DmWQZW5C9WHNygHCNaZvfebwVdTkTvR7XfHDn7f0wNajIvWszkeU18AlrS8" target="_blank">連結42</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=heTmS4YmbSQZCUIJbNJkDNzriuaywmOCVjH_7R2Vj0ujZrWSXIyfjuj36_zoxT1L_zNPig4G4CjEsdgdWJ5Cs_52M1uBPUtm5CgKoWtzPBHVBe6fhIuBFmWD0XqUkhmnz2_6-v3GFfU" target="_blank">連結43</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=bAVzl8YVnOrsMntFYetKGn8jvkAHA03QorcmeYtSe5gkrhbPnzQyEOBMfZhfw8YQ2qEwqX_BjmTNP_Izl4Ly4MWVl_1byNfllYBr8aOHvJFicTeuYQdDpuYZSw5u22d7sQZSpqJs_VA" target="_blank">連結44</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=ArtUlOc3KTmbT0QtW1xulbZEDdwqbVtGmtb5zA7XekqbC3sAN2TmXAwnzsCOMEPQVEtYqUrUQEBUjU-dCl-Xgn-PzWmeYUHYDGyCfZXQEUSGeVWperkUhKG49XKGtziQ4FkY3G99lgc" target="_blank">連結45</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=rgzqvST7KCUy-F1FtBZTMD0jh0UVH2kAe1rJTe_1uKBSs7sU_1jesz-rmEgvgng4xmCbuO0jyP4cPC_XC9hxpjIYOplXqQVzJYvwa_qqpKZ8v2m6TLda7MJcE_RcTV53syS9sAFumwo" target="_blank">連結46</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=x9JMw7nG0V181US5iklt2hWXlPjwVo7M2gzhtBX6xtT8-oc_wgNekcNMy-cXFXNGqdHhT5lmM5NPCcKkQ2weTvHZbVrAOxbTq3R66hsB1PtcmlquA2kcM_jqiYP40LvqDGBAHpBofkQ" target="_blank">連結47</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=Xi0xdkUSWzmct745T0S4txBsCaqMClnj8iAnlbA-Ch5LGga7f76y8UjKVJe4Y-os5wr3lfJF55EWmPzYw2lzobJH8wLmQOJSkj4oR_ApShpJoZji7Tngq7psQbacIlO2eZ_JCxVIMdw" target="_blank">連結48</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=71qUp7tuPI0JHPXhV0blt_VVMrP05nqOp_L8V0vQvT3L41ctqwAu9-O_9KhdPRR_UuyqOFRq9O-932NBrgUwhbcUvOOVjolZDNiSiq5wQP99n1uhYe_CKYKP1JVFIf7Qs3HJNO7gKbc" target="_blank">連結49</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9uOjl8dVf91hm8EGE5je6HqZoEi4fVKKNbDcKGQ1O2dHA?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2Fbbeac123-c9a9-4123-925b-d227a03e6286%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3D20211224_LD_Xmas_MGM3&data=uTEgpnfRcBhfViWjJhIPd_93tt4sV-L45tfWEpPcUDasm4_TiY8f_O8NL6MpedRpURKcK7NQCxVTRqWG-7SEWNITVxLEUarAd2oE0bgPzzYA41lCKY9TBDqigkj7xh32E55pDDCocYM" target="_blank">連結50</a><br>
+    </div>
+    <iframe id="guide" frameBorder="0" src="../guide.html"></iframe>
+    <div id="footer">
+        <p>點選下方回主頁</p>
+        <a href="https://art-tw.github.io/events/"><img src="https://imgur.com/W6KYoBH.png" alt="Author Art"></a>
+    </div>
+    <script>
+        var counter = 2;
+        var thread_start_btn = 0;
+        var autoWindow = 0;
+        var delay_time = 1200;
+        var start_time = 0;
+
+        function share() {
+            var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
+            if (content == null || content == "") {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + location.href;
+            } else {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + content + "%0d%0a" + location.href;
+            }
+
+        }
+
+        function auto_open() {
+            if (autoWindow.closed) {
+                var num = (counter - 2) / 2;
+                alert("視窗已關閉\n已點擊至第" + num + "筆連結");
+                clearInterval(thread_start_btn);
+            } else {
+                var target_url = document.querySelector("#content > a:nth-child(" + counter + ")").href
+                autoWindow.location.href = target_url;
+                counter += 2;
+                if (counter > 100) {
+                    clearInterval(thread_start_btn);
+                    setTimeout(function() {
+                        autoWindow.close()
+                    }, delay_time);
+                    counter = 2;
+                    var end_time = new Date();
+                    var total_time = Math.floor((end_time - start_time) / 1000);
+                    alert("50個連結已點擊完成\n總共耗時： " + total_time + " 秒")
+                }
+            }
+        }
+
+        function start_btn() {
+            var speed = confirm("將以間隔1.2秒方式點擊連結(否則以間隔3秒的方式)\n『手機/電腦效能較慢者建議以間隔3秒的方式』\n大約完成時間=間隔時間*50(秒) 請等待頁面自動跳轉完成後再行操作!且避免手機螢幕關閉!");
+            speed == true ? delay_time = 1200 : delay_time = 3000;
+            start_time = new Date();
+            autoWindow = window.open("https://www.google.com.tw/", "自動開啟連結" + counter / 2, "width=100, height=100");
+            thread_start_btn = setInterval(auto_open, delay_time);
+        }
+
+    </script>
+</body>
+
+</html>
