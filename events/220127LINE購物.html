@@ -1,0 +1,60 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Art">
+    <meta property="og:image" content="https://art-tw.github.io/share.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>LINE活動懶人包</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../icon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap">
+    <link rel="stylesheet" href="events.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154791288-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154791288-2');
+
+    </script>
+</head>
+
+<body>
+    <h1>2022/1/27~2/7<br>LINE購物每日抽獎</h1>
+    <h2>【虎年抓財神！天天拍照搜圖拿好禮】</h2>
+    <div id="header">
+        <span id="h-left">活動時間</span>
+        <span id="h-right">1月27日12:00～2月7日23:59</span>
+        <button id="sharebtn" onclick="javascript:share();" target="_blank">分享到LINE聊天室</button><br><br>
+        <span>&#128073</span><a href="https://lin.ee/eTPOhc0/rcfk" target="_blank">先加入/解除封鎖LINE購物官方帳號</a><br><br>
+        <button id="sharebtn" onclick="javascript:location.href='https://liff.line.me/1530376675-qxz2gEmo';" target="_blank">拍照搜圖拿好禮</button><br><br>
+        <span>&#128073</span><a href="https://liff.line.me/1529013389-QwZzgXDV/luckydraw/ugBFIDeyMxcoCaY7HaaGgUUKWaj3xCddVX8EgYXNpzZc-hC-YDAGH-7M-ky-kwSs6lKLatZ5JpUGaJZ4uti33A/rewards" target="_blank">查看得獎記錄</a>
+        <span>&#128073</span><a href="https://event-web.line.me/ectw/v2/article/yz6QrEG" target="_blank">查看活動詳情</a>
+    </div>
+
+    <iframe id="guide" frameBorder="0" src=""></iframe>
+    <div id="footer">
+        <p>點選下方回主頁</p>
+        <a href="https://art-tw.github.io/events/"><img src="https://imgur.com/W6KYoBH.png" alt="Author Art"></a>
+    </div>
+    <script>
+        function share() {
+            var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
+            if (content == null || content == "") {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + location.href;
+            } else {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + content + "%0d%0a" + location.href;
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
