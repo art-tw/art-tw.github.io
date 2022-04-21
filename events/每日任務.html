@@ -85,7 +85,7 @@
             </tr>-->
             <tr>
                 <td>LINE通知綁定</td>
-                <td><a href="https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=Tx6A9j6J72XcAhNJIpEwP6&redirect_uri=https://script.google.com/macros/s/AKfycbz2OwvuLcK4UNUI6jpD7q31q1VPsapJT5RJ_0H3t8iTR_MRVLdsxvrZn5dHbwzbwUKERg/exec&scope=notify&state=tina&response_mode=form_post" target="_blank">BUTTON</a></td>
+                <td><a href="https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=Tx6A9j6J72XcAhNJIpEwP6&redirect_uri=https://script.google.com/macros/s/AKfycbz2OwvuLcK4UNUI6jpD7q31q1VPsapJT5RJ_0H3t8iTR_MRVLdsxvrZn5dHbwzbwUKERg/exec&scope=notify&state=art&response_mode=form_post" target="_blank">BUTTON</a></td>
             </tr>
         </table>
         <br><br>
@@ -102,6 +102,8 @@
                 <td>LINE-洪小緯整理</td>
                 <td><a href="https://docs.google.com/spreadsheets/d/1HpI4PQuc4pcY8oOOZlQlcGUmuEztWBg7baQaDZYXYk8/edit#gid=0">LINE活動</a></td>
             </tr>
+            <button type="button" onclick="mark();">LINE通知綁定</button>
+            <button type="button" onclick="javascript:localStorage.clear();">清除ID</button>
             <!--
             https://event-web.line.me/ectw/v2/article/lVK9xg
             
@@ -123,10 +125,11 @@
         function mark() {
             if (localStorage.getItem('art-tw_id')) {
                 //console.log('有標記了');
-                document.getElementById('my_id').innerHTML=atob(localStorage.getItem('art-tw_id'));
+                document.getElementById('my_id').innerHTML = atob(localStorage.getItem('art-tw_id'));
             } else {
                 //console.log('尚未標記');
-                var dev = navigator.userAgent.match(/^[^\(]+\((\w+)/)[1];
+                //var dev = navigator.userAgent.match(/^[^\(]+\((\w+)/)[1];
+                var dev = navigator.userAgent.split('(')[1].split(') ')[0];
                 var time = new Date().getTime();
                 var my_ip;
                 fetch("https://api.ipify.org/", {
@@ -147,10 +150,16 @@
                     //console.log(localStorage.getItem('art-tw_id'));
                     //console.log('解碼  ' + atob(localStorage.getItem('art-tw_id')));
                     alert(localStorage.getItem('art-tw_id') + '\n解碼  ' + atob(localStorage.getItem('art-tw_id')));
-                    document.getElementById('my_id').innerHTML=atob(localStorage.getItem('art-tw_id'));
+                    document.getElementById('my_id').innerHTML = atob(localStorage.getItem('art-tw_id'));
+                    location.href = 'https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=Tx6A9j6J72XcAhNJIpEwP6&redirect_uri=https://script.google.com/macros/s/AKfycbz2OwvuLcK4UNUI6jpD7q31q1VPsapJT5RJ_0H3t8iTR_MRVLdsxvrZn5dHbwzbwUKERg/exec&scope=notify&state=' + localStorage.getItem('art-tw_id') + '&response_mode=form_post';
                 });
             }
         }
+        /*
+                function clearMark() {
+
+                }
+        */
 
     </script>
 </body>
