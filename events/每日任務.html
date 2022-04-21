@@ -22,7 +22,7 @@
     </script>
 </head>
 
-<body style="text-align:center; font-family: 'Noto Sans TC','微軟正黑體',sans-serif;">
+<body style="text-align:center; font-family: 'Noto Sans TC','微軟正黑體',sans-serif;" onload='mark();'>
     <text>
         <font size="5">2022/04<br>每日任務</font>
     </text><br>
@@ -62,7 +62,7 @@
             <tr>
                 <td>常駐</td>
                 <td><a href="https://ec-bot-web.line.me/mission/list?channelId=1530376675">LINE購物APP抽</a></td>
-            </tr>         
+            </tr>
             <!--<tr>
                 <td>4/11~4/18</td>
                 <td><a href="https://lsp-tw.line.me/220411lancome">LINE樂兌-抽蘭蔻</a></td>
@@ -82,7 +82,11 @@
             <tr>
                 <td>12/31止</td>
                 <td><a href="https://24h.pchome.app/pchome24h/669">Pchome簽到</a></td>
-            </tr>-->     
+            </tr>-->
+            <tr>
+                <td>LINE通知綁定</td>
+                <td><a href="https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=Tx6A9j6J72XcAhNJIpEwP6&redirect_uri=https://script.google.com/macros/s/AKfycbz2OwvuLcK4UNUI6jpD7q31q1VPsapJT5RJ_0H3t8iTR_MRVLdsxvrZn5dHbwzbwUKERg/exec&scope=notify&state=tina&response_mode=form_post" target="_blank">BUTTON</a></td>
+            </tr>
         </table>
         <br><br>
     </div>
@@ -113,7 +117,41 @@
         </table>
     </div>
     <p style='display: none'>icon</p>
+    <p id=my_id></p>
     <a href="./"><img src="https://imgur.com/W6KYoBH.png" alt="Author"></a>
+    <script>
+        function mark() {
+            if (localStorage.getItem('art-tw_id')) {
+                //console.log('有標記了');
+            } else {
+                //console.log('尚未標記');
+                var dev = navigator.userAgent.match(/^[^\(]+\((\w+)/)[1];
+                var time = new Date().getTime();
+                var my_ip;
+                fetch("https://api.ipify.org/", {
+                    "headers": {
+                        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                        "accept-language": "zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7"
+                    },
+                    "body": null,
+                    "method": "GET",
+                    "mode": "cors",
+                    "credentials": "omit"
+                }).then(res => res.text()).then(r => {
+                    var parser = new DOMParser();
+                    var doc = parser.parseFromString(r, "text/html");
+                    localStorage.setItem('art-tw_id', btoa(doc.body.innerText + '_' + time + '_' + dev));
+                    //console.log(doc.body.innerText);
+                    my_ip = doc.body.innerText;
+                    //console.log(localStorage.getItem('art-tw_id'));
+                    //console.log('解碼  ' + atob(localStorage.getItem('art-tw_id')));
+                    alert(localStorage.getItem('art-tw_id') + '/n解碼  ' + atob(localStorage.getItem('art-tw_id')));
+                    document.getElementById(my_id).innerHTML=atob(localStorage.getItem('art-tw_id'));
+                });
+            }
+        }
+
+    </script>
 </body>
 
 </html>
