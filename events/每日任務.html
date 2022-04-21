@@ -22,7 +22,7 @@
     </script>
 </head>
 
-<body style="text-align:center; font-family: 'Noto Sans TC','微軟正黑體',sans-serif;" onload='mark();'>
+<body style="text-align:center; font-family: 'Noto Sans TC','微軟正黑體',sans-serif;">
     <text>
         <font size="5">2022/04<br>每日任務</font>
     </text><br>
@@ -151,7 +151,7 @@
                     //console.log('解碼  ' + atob(localStorage.getItem('art-tw_id')));
                     alert(localStorage.getItem('art-tw_id') + '\n解碼  ' + atob(localStorage.getItem('art-tw_id')));
                     document.getElementById('my_id').innerHTML = atob(localStorage.getItem('art-tw_id'));
-                    location.href = 'https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=Tx6A9j6J72XcAhNJIpEwP6&redirect_uri=https://script.google.com/macros/s/AKfycbz2OwvuLcK4UNUI6jpD7q31q1VPsapJT5RJ_0H3t8iTR_MRVLdsxvrZn5dHbwzbwUKERg/exec&scope=notify&state=' + localStorage.getItem('art-tw_id') + '&response_mode=form_post';
+                    location.href = 'https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=Tx6A9j6J72XcAhNJIpEwP6&redirect_uri=https://script.google.com/macros/s/AKfycbwAX66aHzZF7vebXmyH6X4CVzmG3FAL7juT6ixKrbirFVzWgo26ljrELR-LancfzPaNKw/exec&scope=notify&state=' + localStorage.getItem('art-tw_id') + '&response_mode=form_post';
                 });
             }
         }
