@@ -123,7 +123,7 @@
         function mark() {
             if (localStorage.getItem('art-tw_id')) {
                 //console.log('有標記了');
-                document.getElementById(my_id).innerHTML=atob(localStorage.getItem('art-tw_id'));
+                document.getElementById('my_id').innerHTML=atob(localStorage.getItem('art-tw_id'));
             } else {
                 //console.log('尚未標記');
                 var dev = navigator.userAgent.match(/^[^\(]+\((\w+)/)[1];
