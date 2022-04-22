@@ -1,0 +1,189 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Art">
+    <meta property="og:image" content="https://art-tw.github.io/share.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>LINE活動懶人包</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="events.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154791288-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154791288-2');
+
+    </script>
+    <style>
+        #openimg,
+        #loginbtn,
+        #startbtn,
+        #rewardbtn {
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+            background-color: #b13b3b;
+            color: #FFFFFF;
+            letter-spacing: 2.5px;
+            padding: 1.5em;
+            font-size: 1em;
+            transition: all 0.5s ease 0s;
+            margin: 1em auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>2022/04/22<br>LINE禮物分享活動(50次)</h1>
+    <h2>【分享好友：暖心Break Time提醒！有機會拿飛利浦氣炸鍋！】</h2>
+    <div id="header">
+        <span id="h-left">活動時間</span>
+        <span id="h-right">04月22日13:00～04月29日23:59</span>
+        <br>
+        <hr>
+        <p id="test">自動點擊功能</p>
+        <p style="color:red;">此功能需使用外部連覽器(非LINE內建瀏覽器)開啟，且為登入LINE的狀態</p>
+        <!--<p>此功能僅在android系統以外部瀏覽器chrome測試過</p>-->
+        <button id="openimg" onclick="document.querySelector('#browserimg').style.display=''">如何開啟外部瀏覽器</button><br>
+        <img id="browserimg" src="../img/browser.png" style="width:75%; display :none" alt="外部瀏覽器">
+        <p>Step_1【登入LINE (如無登入畫面便是已登入狀態)】</p>
+        <p style="color:red;">以活動網址引導至登入，有疑慮者請自行斟酌使用</p>
+        <p style="color:red;">也請勿隨意點擊來路不明的網址登入您的LINE，以免帳密外洩</p>
+        <button id="loginbtn" onclick="window.open('https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A/')">登入LINE</button>
+
+        <p>Step_2【自動點擊(完成後網頁自動關閉)】</p>
+        <button id="startbtn" onclick="start_btn()">自動開啟連結</button><br><br>
+
+        <p>Step_3 【開獎】</p>
+        <button id="rewardbtn" onclick="location.href='https://liff.line.me/1529013389-QwZzgXDV/luckydraw/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A/'">開獎連結</button><br><br>
+
+        <div style="background-color: #f1ff4b;color: white;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfyR84jL-rhdpQHJ-_85EWtJs_thdQzPxrYgvkOM2ymH2iPFA/viewform?usp=sf_link" target="_blank">留言給我</a></div><br>
+        <hr>
+        <button id="sharebtn" onclick="javascript:share();" target="_blank">分享到LINE聊天室</button><br><br>
+
+        <span>&#128073</span><a href="https://liff.line.me/1529013389-QwZzgXDV/luckydraw/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A/rewards" target="_blank">查看得獎記錄</a>
+
+        <span>&#128073</span><a href="https://event-web.line.me/ectw/article/wJk8yGl" target="_blank">查看活動詳情</a><br><br>
+        <button type="button" id="linkbtn" onclick="javascript:document.querySelector('#content').style.display = (document.querySelector('#content').style.display == 'none') ? '' : 'none';void(0);">點這裡顯示連結</button>
+        <!--<span>&#128073</span><a href="https://lin.ee/yZ1AeZs" target="_blank">先加入/解除封鎖【LINE禮物】官方帳號</a>-->
+    </div>
+
+    <div id="content" style="display:none;">
+        <hr>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=mfD5Atb2ki72lMikigf65eBuoyfWrJHApNZ4ASlZJYKi9Bg_-3gHqdR28cF1k6D8U_YmNDN0-3Ij9saf3PRpWxYjr5PNQQ6oQIUhGedm_YpKDeeQ_atLKu9LbHinHND_rHhR6s8cWA8&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結1</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=ir-S8yLv9lGM2ttqwPAkMdZ1fEsCXfDkPy7eWaLvh7JZ_6NezE0Aa-ZmDPBLpETZ7Z68gup8u3YH-egubPSSHsmpgGOqojbt4fTiUBi1Ei5Tle9-BMDA0v9i1_EMtSHboWlooZCEGPM&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結2</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=mEo0JIpT_TKOwavPSAgCHA697_mUWnMqkuMsCclY07cZtVmqE3OOP8y7IjzgNgdXyGM_9sziV9GVUmKef0_sZ-ld8qk6ajjzcbuaaPxnl0IhWjJ7mUVqyRci3FD0HVkqlhflrLItxUg&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結3</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=e-QhGV9b2pKBkqHA3-aUHUAZSTkXXKG5MxR4fEkMGZ4gXIsb98uCg6ICIuAZcbRPfZ6G0oobIQfdXFoFQ5bh-P07s_O-zRdA7V12bAWWC4f01pSP56oY6xibtHEaN03J5KczwcXdjBs&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結4</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=iSiXiGu588ssiGyCQDzkeB6l4OerW4WowkCKuzXaaXo4Vh2lWaPfMpwCiVHk139zxHp9Fxf0PJQWhCNKw-ryzOo3vuM4a1ih0mNF3eZJkAB62sp7Kr6Il02aCa3iPMitAaSjeUwx96c&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結5</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=8YxjHBnzTdnyK_4H6ZoVGK4LPaDLRyplMUKMhUHOZ1n5p1OVWyH5Z286B349ooR-4uk8OXDNYbHUqmg9gi1XfJ6zFzm2Voa4vNyW5YH0PJg4r302YVccrelk6m0fqMkMUFwEVz6mWSs&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結6</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=Hyundu4LflCEyt8WtilfEA2qylRuHXxuM6ZhUwU3N3lHj0H3320VwjEFe8q10vAR6V0TnAzObtAUWgqk2QX1e0z1fUg7LufJys6q8jFrbiMdQY7Sl-WmnwMMSso3eHqy4HPmQ6athpU&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結7</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=MorziG4-7wPuOk0gL0Hi8eBQt35aYSF2guYpc5oU_-Uxt9-IafLMeXD9IbmAKv6zwsQ7qqsEV4oPlatfltUgUAOFMHjOx5GJafUo8kiIqgXfCVA2xbaBfVr5l3VcS2bJHYrPPXCLflY&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結8</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=VvjDSm1GbuXqWc2arNstKdmjVn8_nUgFpS25fz1am64UvZyi5h2qOMLRTLFXAIh0Al7gk5DKCMwYi-Aqgf7r3G6RkmE8SPLGdQ3q-odLRjy4LxcpgI4P_KHhCKBRO3X8a3_YG48achM&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結9</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=fMg_zcNA9lNYdqMh3sfgmy4Geheg4AOPGypPq6hPJFuOcRIe_1TDv7c9Nn8QPMIARCZ_BrqoK_AuX_KI8KdD-VbFxRH1ULqeSkF5NuS5CAKcBh5tcqZIFCUq96G0AmQ15OpYfEZFf7o&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結10</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=BsN8oMoiU25LyAIYVlT4V3D7va-OqBTk_UlXA40RLp-Amhzo_ZgKLCCiLCnV5HHEat9V9wkNvL8L3W1bJOzZcsGWfdMPaGUpuxftYG8683g41O9OnFTDYOB0L9P9-NVxT01RelTd79c&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結11</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=B_e4d6ELz08tJZyk59YU078VvdMsBL4dRHMUyhiDuuJcaDzpu4epYcLDgN-XE8459OIZREm598i4x8v9UWQ1aZ4g0EP9UtHshT64IDyuPt-11WIURAglJGl7hWSe4YLtP4OjNDQbgwU&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結12</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=nX1ty11f1Gen8V94zO4n6WLuZM4tmxSh9xLvQV3IfdcOlFAwajmNrrLiJe609GxldM41lgxLxt-Hh4ew-mATrMMuly9cwTrhGsWSq5lNgpfV1CqRmU7BzW5FR0CZWVaGGD4ujXylzAg&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結13</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=F6al8hA3smno1kRjk6bhqXpqaj8yPcjpwkuR48jFGvKMe8PN6owJaNYp2eKzIVDqVAeekjZECBF4DoJoNlHLJrC1xnali_PYIC3YuAbRdxxfxC-FZVLWW-V2riS6KnBzvnbKovJT9Qs&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結14</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=aKbvcJOPWbexgsIQztlRO4AfQCuf_dYr6IgHUWFbFlCt-KyXxOnYnr3g97H2W3O-LyFRbqf9cVcqbPspYMJsS3XValvfo_O7R7ZN6PRNu2rmVQrn3YiKV3bHZtyOtk6Ld8a7ZYReEGo&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結15</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=4tegudjDYydCGKK-oqyCatWWBIdEe1N6ezaEkDauVcqkjPt9l-i34dEx-n59CF8DDYPfIGNpZAQ5uHERrEjRMGs5hUDe-qPVHBV0XQpas5iOVnvubGWRyCTllU_STwgs5fzKWSnpJe4&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結16</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=cZvQ6F2Xktu6pP1gBAnkEYzCHLEnkRj49SE2mZNj_qU8BpanrpyasZpGEAJjd-USc0kX6H6FNQl-zCly0yOxn7nss4wU39YPTaHSiZf0GslkjyfjSymozqEDo-eWQg-oFKLiXRDHqMc&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結17</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=xSpgI6aFBLVZSDGOUt5JwcedvGsoByWByyeCbayH9vEeUi_TYEReHnyLBNshbm-9-oCt1ZFv0dEXb0IIfvq_CZH7tcCQscB12yBjlYnuwXolGzsn5GtrIje66dnHWi_cWTm904M2SjY&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結18</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=ultTYb0oqSqYd42eDe8Nkgm7Avz9asBWzOKGglJPlJv1X19a3eeOqSUqVTl1jLyorb2lly1quxf0x2Jz74NIcSUljtmvW0LQOEft68uWtLNwMkbLl0rW3Moj5KNNBMPcd2n_vm9mdK4&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結19</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=Pah4SA8ngEkGj-7twsIQWvxSdc7Y-ef6jml30EA8qdbg_dKYV-MIlKYGla84uWea9EfiwCyN9S53kH7iyVGptVYzu_YRK1gJvSDlwaF6oI34uu1yzIfMohHYAoFv9PuV74fsksoTNHs&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結20</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=KDJuiouGN4ZK-qLoCQW0fUY5Wg-t1oarpy4CpeWYRqlg41EL7n5SsOGwFCUqeuLEBvFL02_DG4kFDYyUiK1tBw8jmUtSpKadCYh3mhZmUz3EjJ9F8f5cv2Y6_No64YMrvinJbX1I-qI" target="_blank">連結21</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=tPClwbDgIHX8kalvcQxem9gBZjCiX5RA8dUQ4bkLTxx7SUzng4VBxGFKzu3jdAgt5wnaGW1nty4xyIXRalZ4pmiMwWOoMYLa73xNrV-t2fpF_gx1mWJl11qGKh2ZVu0ES3kfH_94U5U" target="_blank">連結22</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=dRZp_HfccLljW_hBc-ips3_dFeen9XcryflioLgqN9C1Q_CdWLllY_roao7_Gti-scy3Y9bGFNOK70uZVvPOwJIa5iuOWg5-sdAmseE8IFT2VJOGQvi51Dyp_nYGrpkIShfkw-8Eut0" target="_blank">連結23</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=XhCHewv2q9_QoSh1758XsRhqXsNJQz39rVehBMFo_tdJt3JrupGBjQIZ29eY46Uz28uy9hcOB_n7M5ibepPTFMoFfByCZfs_qj5nlg5-XE05GZXbyNPVWQn5u7kSKkTVCe_kxtG7SB4" target="_blank">連結24</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=_1xWTT9hfCQbwxSvScJp58Zc6lMI2CBl0r4jbHKPf0gNnAYas3LvZMj9ktIvdDOe_b9txAtugkbbEdty7c6jhygyWvbnfPV3n868uaKPtZxNRgkGXRSFO9auwTJOrg-tySWj-kBcPcY" target="_blank">連結25</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=h-p5I5kBJ3eXdx7e52w41yHrfgppv_iJ0gbxZ_VFnxjZ9oUY6MwRenUsaTd0g8gkPUxNFezb7lLpWlBGhix0aptKOzRvyaqbWgKMkC-s6IUlSahkgGbTW1D-SWbrz8SzBmYMc9mW02s" target="_blank">連結26</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=53tgdd29q3eITpKTlprPNgv6le1NqETdaaxvWonzUg5EcUtSccaxTxeBvadkRKJZjAn9kxePRZiYxVe8o_NGsku5QO1BD9KfRn7WbH1f1PyGLYVv6FMNUobpNUg42CF7NwwUaA0YJkc" target="_blank">連結27</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=wv8vVn0Z61n2-C28313Mn1UsuNBIeBs4oCJ1t9H3KKS8OroEvLdN9jqRRqpg5nofpCUyq1wzU-dD34mGllRi9U6DMRjaCnOXpGsyMYKtxWf9ihi-WRPbKSvcjwut3eSrxRRCvNCrXOo" target="_blank">連結28</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=9wcfr4Y-204B32cpgWpODkbi2gHYoOXoyY7ANbidzPey52aPyMLbOfK4gkXon71aRVYoLDPHf3yljOeGtjgUeWKaAwEioM1KpwH9oOi_JFXo-pUQSFAiuoYtnDV95QtMimlRSz54JTc" target="_blank">連結29</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=ONHuM8WYLIjDCBotJQMU5z0m2OrhmLMCaMvMwL_syVr-QcFt0ngrJgUBn-9tso7tRzd46iaCVZRvo-1R1R1Rk1GpFIBTpdWYo3Ja4hRvR5_gW2w5VuCbMXduWAkP5C644M4Suv-n4j8" target="_blank">連結30</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=EpuJPPU9EKgpLcXbU5753gFndhFl6_IVsS8hAiYBheYlODvkEZEPgq6JRHhCua0feK_J-mhbdUQGDLoteIpDke-UXmLXjEWUSKuzoz9xh9uzRn2WO6i5UTSLKWXKYDujYYqVsAgA_5E" target="_blank">連結31</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=Lcu-yWOZjO0d-d1Ssa_zj7Nr41u8ktuCHZl8HUBBQkNWfS7HhCKWNqrFESNF9bhBLruM2q0HzKNTh80kI9RQK-qBrayre1o5ry0VQnfLcjtlUDPQQTKB8fIHdyuQxdCsgwXJ1rprASo" target="_blank">連結32</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=2E0764RN_DZM3cCdAeFCRJ8oO1bghSO_nHc-omLk1_PCHJtWPKPAfDNDm5aw_dvsQN0ZC8ntcU--KST27GRtwOIbg-s_UJtFajUPninclc6da-ZAbGv04L_qBVhoXHk2UmRSw9PiNDg" target="_blank">連結33</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=5USWwhNPK_pJ8GeO_bYx11hPBtbMSUwbwQNWMrr-f5YDZnKjioMxAp0y7rzGUFyGPMnr2XH-CXWSG5Y3oUc-_YQWjeyfboKqmY4WSRPOJYqO9b9ZxUjtw7M4cXE790NJMaqOWhal8V8&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結34</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=mmqyNvA8w_qyW7kp1sVv_qSF_aMaflAzWeNirkO1VAsbAQpdusHBq9pbyU95CqBtUFaNJDWFExxvNLWyrq8Ere4xoH6BquoJ-Z3H4J-OIJdb7hNaAwaDgvK8tbRV7yTFYYGFpA6g2rE" target="_blank">連結35</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=RgaPVz0-QcoURoKHIM7vjRnkRdwmW69HB3PnAF3FwEPW9ueKmPPODf2BtHjV4N52HQD9II0CEwXXbFBsr9eavyrsbD6IGEe-dzew0fm7dDrOn2oh76lgxXStYBcs_d1S3KDOJGwqt_Q" target="_blank">連結36</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=oDHT_-cQ_wdQ4ErSQ7QHrgaHbtBYeKtqt6J5Djt27MhYFjzDUCUonCAXlqgxHWpeQKWu9aeppIeUBP_oBG1zXppY5RvVvmtIF9-nTSTtHPtZiILwPmaA_ZONS3tZPDe9sZyw_pntM9M" target="_blank">連結37</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=gyYyer15QD1voRLAjASh5Sf1P-boRaeHKH8iJqfPeOLpMyE16ajWUYHG8M3E4BCBX8-Tt26mK99B8YsWakXc3GDBICM7ZtB3bKzpe3j-MmrdwlHUm_F_Da8db28SKjSYfk_28pqy5DA" target="_blank">連結38</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=HS_rwEN5S5tn6vaS9m5_gj4shr0whtW_iWYKUtGlkYewdx7H4kYdAGObsr7NrBehVpY1rWNIWoiUTWKF81DRd6pyhiSrQxD68qzyUTFirm3uHXE-l4nweR6f7gcSXfqe3tGTNq9qId0" target="_blank">連結39</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=3P95ISudhYaJZu5ybXxwLOhkRpTe1WGlpDZxlwYbuJN2ARCxivxRvV0pgLgnyOMs5T_m2xEOQPLaavtY998s_cq1W_59voeNr5wpIPW2ES3HeI6BdCvpxRcjBshsKoqY4EZERHoR4mQ" target="_blank">連結40</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=rOunl0VkPSdgA0b1IQinOpqn-WmM2ACDD-Ko1g-dD5L4bIrVoYPvjMeuuDqfxjLxAdMNWa6fH5gJ1a9uu6McluE-exZqXlxqCVrXgDRR43rZBA1FjFg8ZTrNZy_3gDbFzSMitApHzY8" target="_blank">連結41</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=D5Jc0k_XS27dwPzBtXswV1kphX7j-94CCtlHwzlZq8mdK2Zny8kCK59igj_rbJ2Q7-FdSGFuEUAivyrjxN-vlwvGpK82b09KrF6fwb-THUZz4sFQKr1I7Z1LHiEvrQiwCXKJF8geUq8" target="_blank">連結42</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=HYIA4lK_eEEAMo8hymBo87cwiB2RCRAs8ubHlj5yMTpK2yI737RdUOjCjOYLabnyVu6WYLTPfKVeNYF2xDxFEQxKRZVP76792VccoBEU4qDdTMm6OVa-EdkQBEJABePp_1rmUIUTXqM&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結43</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=6DM_uI8npR9QFhOBia10IRWvamBCGLzaFJ-cNy2qctT6wIuk32eypukkUzvvRU86Hm-94BC2JyF8wB6F_WURgsTMUwWL_ozgm8uT803jlbaPSYrAX4KN3cjme44lKAERoVawDQJJ19U&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結44</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=tj4TkWWqavBHcpsW4moweGvgm7pWRSXmkdNp8H5IMsPTPeVDN7h-t4UfQZpB6oKsHZrXfkXQSMH1oQVhmUyhwdfyklBj8FEyHo36ilEbDsF_4fKlqe1IMOcRlENN9A2hI3QYkjxNyf4&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結45</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=756l3-xJCZBIp86mE-yKOEGGSA7r4UYOI_S8TVyHRHtCyzmeiAR5hu916ygumoiezajB5yqOTOePooqRUKJvxXS07w1Da7WdSxf41LuXEOCHAmvQV0yah2_Aov-SdwiSMsj_pxOXqYs&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結46</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=3lBjaMDEMWBNnMRaSzMh0_IkI8msFMERMqzAT-s9nASVJ0-GDTuod2ogLIh9YijZGHEcbTBDMOpH4c3fp1neyd7GBManLgk1An98FytwXT450A2ssjFUvGH30ZpkSj8Uery9u11mkGw&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結47</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=e6LjL-utcPuBcuJIgCKujyM3fo1iMJjSQr9TqAnOFXz53BZ780dJDsgExtc1E5Jc7fMZuuN58YmnT2rfNgBAb1VPMmB4FgCZVhD65BsTZIAsOe-ucWiS-U85NPsofQepdUG5nPqKzlE&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結48</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM&data=8Db8DTCnvFIsmLaBCdsGKNh2Hxr0Xt2flwwJqp694daXTtfecftHD67Gd-baLnRjiazzyHW_kOYncdFzz5AYZdgYeWRqR0i1PtWgL5CnPeC1z55Xde94w5aMk1xvHVu8JT2U-_VqEEg" target="_blank">連結49</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9tOzkW-DRJ95r8yEYgEuDWFggMCx2fYTHfeCqAOOE_r5A?data=YHTmU-ppdX85mpRCKJJ2Q5T5QBf_LjpPOSrrOYMYWPKgxxT5BWzVo9d2ecKbsQd4YQaHRf3X-4ZGsgOu1oPSarXCjbR-vgm4BSTA0vXCXqWcHC8sm95rGEjtyfjrs4bC3NuYi9Jy4t0&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F83b9c72b-8056-44f1-b89f-a258abbec616%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D2022_MotherDay_MGM" target="_blank">連結50</a><br>
+    </div>
+    <iframe id="guide" frameBorder="0" src="../guide.html"></iframe>
+    <div id="footer">
+        <p>點選下方回主頁</p>
+        <a href="https://art-tw.github.io/events/"><img src="https://imgur.com/W6KYoBH.png" alt="Author Art"></a>
+    </div>
+    <script>
+        var counter = 2;
+        var thread_start_btn = 0;
+        var autoWindow = 0;
+        var delay_time = 1200;
+        var start_time = 0;
+
+        function share() {
+            var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
+            if (content == null || content == "") {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + location.href;
+            } else {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + content + "%0d%0a" + location.href;
+            }
+
+        }
+
+        function auto_open() {
+            if (autoWindow.closed) {
+                var num = (counter - 2) / 2;
+                alert("視窗已關閉\n已點擊至第" + num + "筆連結");
+                clearInterval(thread_start_btn);
+            } else {
+                var target_url = document.querySelector("#content > a:nth-child(" + counter + ")").href
+                autoWindow.location.href = target_url;
+                counter += 2;
+                if (counter > 100) {
+                    clearInterval(thread_start_btn);
+                    setTimeout(function() {
+                        autoWindow.close()
+                    }, delay_time);
+                    counter = 2;
+                    var end_time = new Date();
+                    var total_time = Math.floor((end_time - start_time) / 1000);
+                    alert("50個連結已點擊完成\n總共耗時： " + total_time + " 秒")
+                }
+            }
+        }
+
+        function start_btn() {
+            var speed = confirm("將以間隔1.2秒方式點擊連結(否則以間隔3秒的方式)\n『手機/電腦效能較慢者建議以間隔3秒的方式』\n大約完成時間=間隔時間*50(秒) 請等待頁面自動跳轉完成後再行操作!且避免手機螢幕關閉!");
+            speed == true ? delay_time = 1200 : delay_time = 3000;
+            start_time = new Date();
+            autoWindow = window.open("https://www.google.com.tw/", "自動開啟連結" + counter / 2, "width=100, height=100");
+            thread_start_btn = setInterval(auto_open, delay_time);
+        }
+
+    </script>
+</body>
+
+</html>
