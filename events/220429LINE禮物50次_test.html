@@ -59,7 +59,7 @@
         <p>Step_1【登入LINE (如無登入畫面便是已登入狀態)】</p>
         <p style="color:red;">以活動網址引導至登入，有疑慮者請自行斟酌使用</p>
         <p style="color:red;">也請勿隨意點擊來路不明的網址登入您的LINE，以免帳密外洩</p>
-        <button id="loginbtn" onclick="window.open('https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9sS313ZG3GRIlsrpnEKx1wKhA8BKsUWR7NJQBXQu432IA/')">登入LINE</button>
+        <button id="loginbtn" onclick="login()">登入LINE</button>
 
         <p>Step_2【自動點擊(完成後網頁自動關閉)】</p>
         <button id="startbtn" onclick="start_btn()">自動開啟連結</button><br><br>
@@ -181,6 +181,13 @@
             start_time = new Date();
             autoWindow = window.open("https://www.google.com.tw/", "自動開啟連結" + counter / 2, "width=100, height=100");
             thread_start_btn = setInterval(auto_open, delay_time);
+        }
+
+        function login() {
+            var login_link = document.createElement('a');
+            login_link.href = 'https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9sS313ZG3GRIlsrpnEKx1wKhA8BKsUWR7NJQBXQu432IA/';
+            login_link.target = '_blank';
+            login_link.click();
         }
 
     </script>
