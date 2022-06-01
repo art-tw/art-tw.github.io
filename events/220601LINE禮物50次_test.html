@@ -1,0 +1,189 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Art">
+    <meta property="og:image" content="https://art-tw.github.io/share.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>LINE活動懶人包</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="events.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154791288-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154791288-2');
+
+    </script>
+    <style>
+        #openimg,
+        #loginbtn,
+        #startbtn,
+        #rewardbtn {
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+            background-color: #b13b3b;
+            color: #FFFFFF;
+            letter-spacing: 2.5px;
+            padding: 1.5em;
+            font-size: 1em;
+            transition: all 0.5s ease 0s;
+            margin: 1em auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>2022/06/01<br>LINE禮物分享活動(50次)</h1>
+    <h2>【限時立蛋集氣挑戰,分享好友有機會拿氣炸鍋LINE POINTS888點等好禮!】</h2>
+    <div id="header">
+        <span id="h-left">活動時間</span>
+        <span id="h-right">06月01日13:00～06月03日23:59</span>
+        <br>
+        <hr>
+        <p id="test">自動點擊功能</p>
+        <p style="color:red;">此功能需使用外部連覽器(非LINE內建瀏覽器)開啟，且為登入LINE的狀態</p>
+        <!--<p>此功能僅在android系統以外部瀏覽器chrome測試過</p>-->
+        <button id="openimg" onclick="document.querySelector('#browserimg').style.display=''">如何開啟外部瀏覽器</button><br>
+        <img id="browserimg" src="../img/browser.png" style="width:75%; display :none" alt="外部瀏覽器">
+        <p>Step_1【登入LINE (如無登入畫面便是已登入狀態)】</p>
+        <p style="color:red;">以活動網址引導至登入，有疑慮者請自行斟酌使用</p>
+        <p style="color:red;">也請勿隨意點擊來路不明的網址登入您的LINE，以免帳密外洩</p>
+        <button id="loginbtn" onclick="window.open('https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ/')">登入LINE</button>
+
+        <p>Step_2【自動點擊(完成後網頁自動關閉)】</p>
+        <button id="startbtn" onclick="start_btn()">自動開啟連結</button><br><br>
+
+        <p>Step_3 【開獎】</p>
+        <button id="rewardbtn" onclick="location.href='https://liff.line.me/1529013389-QwZzgXDV/luckydraw/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ/'">開獎連結</button><br><br>
+
+        <div style="background-color: #f1ff4b;color: white;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfyR84jL-rhdpQHJ-_85EWtJs_thdQzPxrYgvkOM2ymH2iPFA/viewform?usp=sf_link" target="_blank">留言給我</a></div><br>
+        <hr>
+        <button id="sharebtn" onclick="javascript:share();" target="_blank">分享到LINE聊天室</button><br><br>
+
+        <span>&#128073</span><a href="https://liff.line.me/1529013389-QwZzgXDV/luckydraw/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ/rewards" target="_blank">查看得獎記錄</a>
+
+        <span>&#128073</span><a href="https://event-web.line.me/ectw/article/wJk8yGl" target="_blank">查看活動詳情</a><br><br>
+        <button type="button" id="linkbtn" onclick="javascript:document.querySelector('#content').style.display = (document.querySelector('#content').style.display == 'none') ? '' : 'none';void(0);">點這裡顯示連結</button>
+        <!--<span>&#128073</span><a href="https://lin.ee/yZ1AeZs" target="_blank">先加入/解除封鎖【LINE禮物】官方帳號</a>-->
+    </div>
+
+    <div id="content" style="display:none;">
+        <hr>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=Jv1yS_u9XlaM5rqvuLElqomj35DnF_uGHgZULdVAbhQpvPeu-7__KbutNzUbCxsfLNpnb98ctlxbnF5alieZULrRtJxaNm5IM_r59Pb9ZNmwCc_eO6RO-qU7C0XSnOMbv2XPZDb6WKA" target="_blank">連結1</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=qvj-DRPFStNdHX3gJtRyU5NMOypub97GBrXeOMTnQswG_S23osZBG9PRGSQcU1gzzOTW0J0IWzG56KfACP7QE0VzmoLe4bvj3-BAgKZsNk_fRHxABO2KNrkOTIIUKnR0USqaxXD_ZD4" target="_blank">連結2</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=go-a8ts1HgiFVbpys1yCKtNmwcNqvQXX-PxFB4W5xMZT6LYCxyO9kuuMOIKb-zvmuTyY-RqnGsaSkAO3oqq4dsGkD5lyQ6a7-SHzlXUf5tHROp6t5AbNg07gqk7KvoWACV2DyybO_iA" target="_blank">連結3</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=bJNZM3FShIaNrOfm8DQGVMijG2ECaKCrypu3ihCf9XbbNh0k7rbIwny36jvXhE_j-Hy_1g8GpPzhl2XP2_rPdKctZ4XdlPZLAsc0nKW4tjIo_kM5aQEzGxavIhbvsHGUXEHm7yodQBY" target="_blank">連結4</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=Uyv-wjkPWuC2_DxAZYvJgMk_9ETP3tKjl6sVSWd8aDOZmgQ6Q5U52RtbGXyYyhSJuP59UzGs_Eyt8ykIROUjjaUumW1BsOpqX-zplDrFdqOhyIgVfRnVTYzeyanF0C2K2CcMKtFC13k" target="_blank">連結5</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=C8lTgGwNUrXyU4QEIYHS5PZzV9_naG6ByVFtz_Re6L-8VowSHJk1Ein5JdN-7BMJZxc7qjiMpx4-de9Uig1D7es8V_pCWnB0n47SsnfzXXnr2_g5sS6dSH_G_xtQbLNJho7aJ36hv4Y" target="_blank">連結6</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=yhx60zZyBx88ETVAySSgRpTsct2-hCzL9Z9Iy81XH22eu9r_GP-pa6c-2H1b2l0sTSVfusLTalkwUeYH091LcMzft7tDPnktGgORsMylgMkHFSlX1UL0EjJpHkngRHlHQtWmXCTbEfc" target="_blank">連結7</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=71YZRZEDOwsHa3iO89el6t846tRzAnMTzWO36Gyz7cYflvHvEaGGHC33mzgkrDE4ETFTnSxhNGGjuHYCq7Alh5MHAmx3Bsa7XodgJIIqBMFnH3zV00IDznHlLRP8_WClAVzaDNTDRH8" target="_blank">連結8</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=0sS-WRN8mC9jmtSPUSdQaVbMWlBIEua0rqrrCl4PBkGo7PPFEVPbkhh57qzixhOp9mif3KANDNRlxIKxREPM49NiltAHFtOeZ2yz3c86Uvb_QnNHP7UPfJDdamNlNL2N9W6vthW4okw" target="_blank">連結9</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=fCRITjb7S3bIK4jgm8xc4RyCkLlu1CQM5OtT_UjEPjDx3PU2jKtDSXpD2co30G0vFHkWp0yvp63IEgZH2Wto5bR9dNaMy10QsYWuTGNQ7Y8lPT2mXC36pqhjjfNqjA6LXV7UTxKOIrI" target="_blank">連結10</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=4ktm8E1ZX9mcDeVKt5-aAKqylBTIOfuR8rP59IBr9feH3Xm_uyfBQwg4WGEpiOb0SpTmDgYqBJzA_rBfKHsCyQFF7gSm1eJQR1zyxbWa_pur6uNdoWL7pHAPqgnjWyRbYoUm87KpQ7Y" target="_blank">連結11</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=Se3gI0Sc3CsC52wPqcx98F6vO7QF6KC2GzLu7dikjWcf2cjnsl_O-20lVVH1KzTFB-9h0WcMLPRfJqD59zsl7OMkDzM1GZ3w6IvjDJ7ZhYCzzt3euQpXrwzLrKBLFFoIX0XxRDzzpm0" target="_blank">連結12</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=dWB1P6KciiX9ARlLjvMyeHoxCn0fbEPHOXN2OGcQwVXIBmzZas2Pd4XJeJLJyCVP9CT8JSz2Whvhk5dYXdApW8UaiKFUcfjiUPx6r-X_bAZlrl3dVjaknJJolsfbHo--gl3h2m10buA" target="_blank">連結13</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=eL_EfHNcsZjnKSBKlrjVCxUz2oo66qwSaNbhjt05ksc3L2UrbQM9fU9jy134wRlnoEekUv8yHxsLxeSVfFd_zE9axsJ_kaVUBM_nmMcC_7VCNPnM5hMD1KbYQkqZXAQShfp52WEx3dI" target="_blank">連結14</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=sd7aSK85Q0IEjS8F3cqtu_giNb0X8hPZQ7M5-rZT3AbhD55W0IYJOYjNCjs0xNJQwGIdMZx_l5NAz6ioESOAIk4M4WpkomptedQyzbLvL30HmSSVgpN6-V3nmzxtJH6jPknSAqI1c1Y" target="_blank">連結15</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=sc70RBzSIqjWcQe1taAZG6xJBlBVo-lPE5z20CWInx8bD-BsXQmJzF_tNWJNX-lEj7SFYrQaGsH_j8O9Y3e-LUhufEllBitnT78MkMOL4-3-Zh_CmCi_xuN_PnpQVCDDXpkVUlUI2gw" target="_blank">連結16</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=n-03O2EfkAlLrvb8ptzuIh8kqc0e5N5nR1NqwhrKkoWHCrcJ8nCoqrOnQ3Yo1Xa2IOkInBhS6-728SVllhqpwfcGShLauoI7hKaN_Uc74yoynoLmZo6BSwpiFjb3uJYtqZasBTkz-xQ" target="_blank">連結17</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=H2XXgBSwd03nJIWcwKJ8Sg_FT8jqpvckTiBK3qXczweaZMtJRLxBGxA3Z6ECAajhZ-l5oNwPeErsJ5pYUBfPBXgLp94d8S18fFT2BG2nYiJ0JnPRmgEGSXljSWH20lcVgm5vfVAKBiA" target="_blank">連結18</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=VClYmZnvYSJh1Ae0xvwa6k9uTgKRXj-sw_erMUv7Vs_RlRVu2DIHY5ljPQG8rgkUnGShNeyRVjg9jHvR0mV17kjdmedjQUNXEDyuiXSkShdhue9in5hRLV614uzZEqP4g8bwJd-jM3s" target="_blank">連結19</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=vxgfWqFbpfp0AUz9XbmsH7i97dKiJDS0X7hwiOQg_9b6db99VqfQ5Vr1zwZnftf9Q6_s3cYcgqYsS-G7dS5WUDfQJYDTAbg6b21TUjZMKQ8KqaLhq_7tcznXvCVuLBsdCL_fXF0DceY" target="_blank">連結20</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=LuxIpaJnkNda3sfr5zD9H6xgzyT2gq_so3qExAN81KqYNQ548FPr4Dl77gGtYoQ6KjXXVHxw7NjAsdqdVx6I8ePWWwxIRBYX6cMX7pNjd5y3DGA-Yx1IMHel_Ukd59DZg1xZgPMR_vU" target="_blank">連結21</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=JmSJAVd0Rpf6IfZpiV4zN6OMhLl2He0AeoKgUGmTEyK-cUaf53alvjP126AiRgFgpCjmKpERQuysuJf2F_sSMS5UDehXOvU-QKXC7SPYYyfBQgCnIp6d3OZn5MWdxMjoGLnn_u928wc" target="_blank">連結22</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=GE2A58jdk0r1K_-Vxs7p_t32ipGOW4iNm-ePBAQewWW48At2XEzGlCCjtq77O2RwQr10c9jWSDSagg5ZK4AGhrw0e57OhYWHQoegf8Ly8iYIBhlYYrHlN9Rm9s8Q3HPlZ0jGclMk358" target="_blank">連結23</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=YUNCxlO9UfuHAmmIY2LyEeebWXrV4scKL9d18nlF03reGTOxCPsWrXZSvwhF3_dnQlOIO66KR--1SRsHOY5aZ5ESCeHvmQth1rUxtnNQpY3EhtbxHNCoVucagsf3yajLkfrE_IwsN9Y" target="_blank">連結24</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=M-nxyahEvubS9JsltB70OWNRr2_uR_4la0HmSe3IKldPBJ1TbOiso2NJDaiBocoYUqnPSM3w9Dd3SVAu6ieYcbQzhwqdAs-cHMGNFhcpzUeN2T540pCg5QvpbJUofhuQBhD7Sqd91yg" target="_blank">連結25</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=uorGnXZAc7WKg_WGTVdiNPkFg2fSFFCeabd15myLXzTyZbWTfuQyJk8Xa6sxWEhsAsezKhrAOQkVYiW01c3VXlf-QAaKLAcEi7wfgOa4XAXCTXVi6fhRvtZPMoBu8RVxpudsfvfkTOI" target="_blank">連結26</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=jybIuh83wHWa-Pv8gxoLet5m4BBL5BEo0knXBhlftvRYNGAyMPbBmkq5JiRgQDyzs-xxoCPqCpVoCblJVQKXF6TbZUTbbQ1iOORXhyrZjqfTVC7dZyosRUvL35zgBe7b4Ho8RtnWs_U" target="_blank">連結27</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=XTl4XiuYkgL_2w_7LFFVcqDxNIZJ2anqleSBfQLBfSvF9vNVdkHXRL1m3W2w40bJAqSGfItpZpacmX_305gZFXxkfxBt0ysivdWQWGY3CzSmLB0Y4B_0hATa_qjGsrquZd1QTNX6pvw" target="_blank">連結28</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=tW3S-oIKyb6bfTyJxkp8EB64DdS_tJHJ9_VeTqJZEVtKRfpL8KTuMoJQunwSSuvKtVRgR8X1yj5Icx7w8B-XL8yv_hpHoSmrswHWyWrGl4_WXydBQ1h6pRoPbJvXvTxT30xUjTG0xog" target="_blank">連結29</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=zEg3KssDp0UATASNgnV1YctrVSCaf1KHGxmn0kWNikpYMFQd1wxCZz2ugDjLvXR378p-11NQaDB0RmAYjJ308OMl4n7E9N_FuvflLAAAdfkB3rAtyXcR-Lx254oxvVYe1B3FXtzWc6o" target="_blank">連結30</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=F820qm-zOlAx9F9B5qJjN7_ksRqZZBwF9zg_0svKxs25xrdemdueJCyq4ek5wu42zhFR1_TTWd5h6zfyD5MZbvst0LK11_4fbhYCDjs-JaOstfBpjOBBjDajRniHP03fvag3uZR5HCQ" target="_blank">連結31</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=mwbMK_XlGjT_XP1irQdErTPy6_YSidi9GsCfXWrDW2QS3BoQDJShhijKmu8gQb_le1ma6H_X7o_yHVBQ5xDQH0AmzN4NzDpURZGr1y3FF5MMHlaFgtNS7Yr40EKCtgdaARywLWog6-s" target="_blank">連結32</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=6UPzQf2Qe_W5mAMMehx_Mj8_-_GLHmbbZF9baqeqdaNg4I8H_MXL2PyLv_k8ZtAlQIxzQrD__UC8YkQsqg83JoXE0vuQEJ1XlJgUu4EunGJTHibCOxC3-6WX0tptt7XRebYnglrYqdk" target="_blank">連結33</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=KS0jPZ2o9qM6O531XfbiQPwpedheqWrq4rHnF_5vDpGmqyV3dVB00FFPIttHOCVI6vgTIToS0h2ttVC01iyLdpf-TSv135ytzYvKeOjnpCkPAZW5mXVYIWO_y91bKaF4xKyd0yENq7U" target="_blank">連結34</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=GoJF1npgcP7qddG_VQkWflJAd3zB8KjL2vtmQCH-b64VweTkgQNfsUW02A0bglQvLN3bRMlbmJaQECWRfsOzZeTxFP6exNFjwqC9HIE4ZKzrZQWL8hFQBP70oyVP2O38xfyXfA1O_Ug" target="_blank">連結35</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=P_RmEHyeLxmSxPJWnKwbnHtVDQGRKjbXY_WQtszt4cRI_9xKHeCBVS50h4M6n0gxqy9LRKDApAuTVZ6vn3Lxn8r1TugWzJDeSOeDGH48cD9mx4lLuOOvaiT5OTdh4bK2Hh0J_xStSS4" target="_blank">連結36</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=3_3VY988T-4AJj8SR-syMzL7Owr7f8w8dxWcYcQWQIOrsAoQGAhnHuqy8NBXOAf0gR6fKhRX09tU6m3zyLHKjff0xftvEn-ui8pqwBhgt771fRKuzaRgw4gsg16lf6H2pvNHpY_zJgk" target="_blank">連結37</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=RM03tUCSgmz4eKBExvbarKatM3Avlp2XXRCFIQ62CCwuLRJ-4m03yJkDNwOB_Yxt4DN2p_wxivjNJRh3GiX2RSIP5-IeDk9-YJ0SYy-_ktWCnZNcILdd6bIpmRD_fcdV7t5R3dIGhVc" target="_blank">連結38</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=yHiFb350CvCUVuPfXCBxjH8-Greu3jbMrVHDL_X04ktiwaq4AOGU8HCs-548Ql8K6OC03wLGpSQVWtKslxnkcYQ_6AlXXC2RU9ys-DdNnWqpIzP59bDh-ZjOJwJTRq5RQd0UgQL_S7A" target="_blank">連結39</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM&data=qkMnUe8Ygsg8jW27Fv3priRWCyuJylclYKaX5J7yI2ljuyhMDbFkkP9fyBUjpaNFv8PlxnLlfPTNGOg5rWtqLtq-0J03f2NrpccxsmsZB_BO42DehAkSO7y3P0XkbBtdbMD_SWROWco" target="_blank">連結40</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=SkZmGEonYqll8GkKNgIg1VcWB20BE-JvfRBqWDRcJWRxIoJkmz2Qgkc_GbUjjppBdHknxklsjEf-57grLm2qLsd_RIYvmu2TWiu8SEy_SeTmTjlwyHT9WTD5rvIJi1P9h0ASIjslMSw&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結41</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=8DXH1XaBiiyRCJ2s6qNCXZQQSzBI6e4C03h8mEQ7DrohL2VJ-zovdeYyeAquiHMsPb9nXgHj7-NkXMq4dh_97Y6NZ87epSvzk9hxySKdG0F6RuQ5PljSbUVXh0xF9xRtWj9PONqz64c&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結42</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=QQZavrvVpkhASowEvWLfcETsis4zpU7cIV37uRt2QXeMTAQhBpYvKW764Gzal21Is4A41k1hDdiilK3_vHgVPxf4B224O1RA5lzAL8DBr00OCoApT2JuwZdhDXiHgb8hfCWB3ytoL98&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結43</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=yDdLHNavgLzdnbB9Nh5yk0Vo2fNb6h2eTMIMT6DUTBeuHVeZxNyJQOvuzsSyLELcqTc51vdCREijw-5Fdkv0yFKtfEsinMm0_9bk7ptelAszshs1iXP_eBgXrkSdA6Q5vjCP5zenMAw&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結44</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=QJeJBrVRGMT-DbUCh_6lW6cjqTbWEBGBq1Z1OsubiynzccPIctzoYpwTuVQ1isM3YQ1f_Qlb6YlS6lzdDrHXGb0QgIj1WS2NPb3n1xkj82i4u8wINDMLiGqpyrMHR-WzYtfnd76GoF0&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結45</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=8xfNQAS1L8ar36TWc1VyE1J9o-RmVWRotqpOY2rKMNhTEfwa91VjlYaTE8KRnIHVUzWtl2St6NyWE0cc4vbCopEwyXV2MRBH2uAdtC0f-CxzZxGHmypjoW0Ouay7-ljbJzVTR3owY3M&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結46</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=M94yvrl3Vrn3h4bVL5jg3GcKYuDbLIu0OhwjOqkQwkHhTXAt_UCI2-VMNIy2MJWSRYF_gr_K1gCSSATqid8S1GcZ0lE-32IevOgot3KfKgZ_e-4oEwItF1Tpaw__rOvoKNrK4y7b3QE&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結47</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=LizJnuZPu_UhCY6TnFLaqh4OjIKkevhoSlVE5O6kEvvAYf1EoTpTSqZmZGc_eQNroFyBYlQwsHyiu-NLR1wgiq8pQQbX-5HFk9wmdurmGO-6QOJu9V33IOQLAPNUQLcy9S_wNKXcrow&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結48</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=6W19-2WAqVUSK0ogckFFItQqoDc1PSetm2-qfYC7KnYQ0j41VZibOLn-JoCrFQakszttxZThkOSQYU6gpYMrZk4JfYi969o2p5hAUbX2U6wLZm0KyCFl83YAuDeIZ1M5um3znNP_je8&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結49</a><br>
+        <a href="https://ec-bot-web.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t_1U70ZER0JYUMBCOaHWqNE4-4elOLBs0h0b1J7FYxXQ?data=VoPliyaHqB6Dd9oiJHKga8_vFJ-3Y6dahItN1GS_rvgdSl4Yq3KrJlkLsbJbw-lfWuLUC5VfvfJI3ibEGTX9KiTj6CNo9LsPtO1a2Qk-JsFtu_j63K1YvkyFoiznZ6qcsUBVWP2R6v0&redirectUrl=https%3A%2F%2Fevent.line.me%2Fcampaign%2F092c1ab2-29dd-40a4-a35c-574ed968bf33%3Futm_source%3DOA%26utm_medium%3Dgiftshop_luckydraw%26utm_campaign%3D202206_DragonBoatFestival_MGM" target="_blank">連結50</a><br>
+    </div>
+    <iframe id="guide" frameBorder="0" src="../guide.html"></iframe>
+    <div id="footer">
+        <p>點選下方回主頁</p>
+        <a href="https://art-tw.github.io/events/"><img src="https://imgur.com/W6KYoBH.png" alt="Author Art"></a>
+    </div>
+    <script>
+        var counter = 2;
+        var thread_start_btn = 0;
+        var autoWindow = 0;
+        var delay_time = 1200;
+        var start_time = 0;
+
+        function share() {
+            var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
+            if (content == null || content == "") {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + location.href;
+            } else {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + content + "%0d%0a" + location.href;
+            }
+
+        }
+
+        function auto_open() {
+            if (autoWindow.closed) {
+                var num = (counter - 2) / 2;
+                alert("視窗已關閉\n已點擊至第" + num + "筆連結");
+                clearInterval(thread_start_btn);
+            } else {
+                var target_url = document.querySelector("#content > a:nth-child(" + counter + ")").href
+                autoWindow.location.href = target_url;
+                counter += 2;
+                if (counter > 100) {
+                    clearInterval(thread_start_btn);
+                    setTimeout(function() {
+                        autoWindow.close()
+                    }, delay_time);
+                    counter = 2;
+                    var end_time = new Date();
+                    var total_time = Math.floor((end_time - start_time) / 1000);
+                    alert("50個連結已點擊完成\n總共耗時： " + total_time + " 秒")
+                }
+            }
+        }
+
+        function start_btn() {
+            var speed = confirm("將以間隔1.2秒方式點擊連結(否則以間隔3秒的方式)\n『手機/電腦效能較慢者建議以間隔3秒的方式』\n大約完成時間=間隔時間*50(秒) 請等待頁面自動跳轉完成後再行操作!且避免手機螢幕關閉!");
+            speed == true ? delay_time = 1200 : delay_time = 3000;
+            start_time = new Date();
+            autoWindow = window.open("https://www.google.com.tw/", "自動開啟連結" + counter / 2, "width=100, height=100");
+            thread_start_btn = setInterval(auto_open, delay_time);
+        }
+
+    </script>
+</body>
+
+</html>
