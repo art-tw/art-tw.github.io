@@ -64,13 +64,14 @@
                 <td><a href="https://ec-bot-web.line.me/mission/list?channelId=1530376675">LINE購物APP抽</a></td>
             </tr>
             <tr>
-                <td>6/7止</td>
-                <td><a href="https://lsp-tw.line.me/220524ochaen">LINE樂兌-抽御茶園</a></td>
-            </tr>
-            <tr>
                 <td>6/19止</td>
                 <td><a href="https://tw.buy.yahoo.com/points/checkin?id=216c39ee">Y購簽到</a></td>
             </tr>
+            <tr onload="javascript:creatLink();">
+                <td>6/20止</td>
+                <td><a id=pchome href="https://line.me/R/oaMessage/@pchome24h/?恭喜完成6/6尋找BOXMAN任務❗️快來看他送你什麼禮物🎁">LINE_Pchome抽獎</a></td>
+            </tr>
+            
             <tr>
                 <td>6/21止</td>
                 <td><a href="https://www.trplus.com.tw/event/trplus/220601_sign">特力+簽到</a></td>
@@ -170,7 +171,10 @@
                 });
             }
         }
-
+        function creatLink(){
+            var today=new Date().getDate();
+            document.getElementById('pchome').href='https://line.me/R/oaMessage/@pchome24h/?恭喜完成6/'+today+'尋找BOXMAN任務❗️快來看他送你什麼禮物🎁';
+        }
     </script>
 </body>
 
