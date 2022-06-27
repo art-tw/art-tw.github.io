@@ -57,16 +57,18 @@
                 <td><a href="https://www.trplus.com.tw/event/trplus/211101_signt">特力屋簽到最高110點</a></td>
                 https://www.trplus.com.tw/event/trplus/220201_kickoff_sign 特力屋簽到65點
                 https://www.trplus.com.tw/event/trplus/2022cny_lottery/
+                https://www.trplus.com.tw/event/trplus/220601_sign 62
             </tr>
             -->
             <tr>
                 <td>常駐</td>
                 <td><a href="https://ec-bot-web.line.me/mission/list?channelId=1530376675">LINE購物APP抽</a></td>
             </tr>
-            <tr>
-                <td>6/21止</td>
-                <td><a href="https://www.trplus.com.tw/event/trplus/220601_sign">特力+簽到</a></td>
+             <tr>
+                <td>7/11止</td>
+                <td><a id=pchome href="https://line.me/R/oaMessage/@pchome24h/?7/11回到家我要「換上涼感衣」">LINE_Pchome抽獎</a></td>
             </tr>
+            
             <!--<tr>
                 <td>5/9止</td>
                 <td><a href="https://line.me/R/oaMessage/@pchome24h/?我選「C」捲髮+「A」穿搭+「D」時尚家電禮物">LINE-PC家抽P幣</a></td>
@@ -169,8 +171,8 @@
         }
         function creatLink(){
             var today=new Date().getDate();
-            document.getElementById('pchome').href='https://line.me/R/oaMessage/@pchome24h/?恭喜完成6/'+today+'尋找BOXMAN任務❗️快來看他送你什麼禮物🎁';
-            
+            var mon=new Date().getMonth()+1;
+            document.getElementById('pchome').href='https://line.me/R/oaMessage/@pchome24h/?'+mon+'/'+today+'回到家我要「換上涼感衣」';
         }
         setTimeout(()=>creatLink(),500);
     </script>
