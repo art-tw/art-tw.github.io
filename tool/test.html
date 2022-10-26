@@ -10,7 +10,75 @@
     </style>
 </head>
 
-<body style="text-align: center;font-size: 2rem;">
+<body style="text-align: center;font-size: 1rem;">
+    <button onclick="javascript:openall();">全開啟</button>
+    <table class="center">
+        <tbody>
+            <tr>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lquacu-63564d806a2ed6-66462467" target="_blank">連結1</a></p>
+                </td>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lqua9j-63564e33a69268-15788417" target="_blank">連結2</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lquady-63564e4b452909-26507503" target="_blank">連結3</a></p>
+                </td>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lqua8w-63564e63c76249-81905161" target="_blank">連結4</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lquady-63564e744e0510-06774533" target="_blank">連結5</a></p>
+                </td>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lqub43-63564e8635d6f3-26918338" target="_blank">連結6</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lqua8l-63564e9fccf764-99358480" target="_blank">連結7</a></p>
+                </td>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lquady-63564eaece6eb4-91401448" target="_blank">連結8</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lqua8w-63564ebebb9422-13025928" target="_blank">連結9</a></p>
+                </td>
+                <td>
+                    <p><a href="https://www.i-sharing.com.tw/card/complete/4lqub44-63564ece4ddb52-05020591" target="_blank">連結10</a></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <style>
+        table,
+        td {
+            line-height: 3em;
+            font-size: 1.1em;
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 0em 1.5em;
+        }
+
+        .center {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button {
+            padding: 1.5em 5em;
+            margin: 1em 0em;
+            border: outset;
+            background: #bacdff;
+        }
+
+    </style>
+    <!--
     <p><a href="https://www.i-sharing.com.tw/card/complete/4lquacu-63564d806a2ed6-66462467" target="_blank">連結1</a></p>
     <p><a href="https://www.i-sharing.com.tw/card/complete/4lqua9j-63564e33a69268-15788417" target="_blank">連結2</a></p>
     <p><a href="https://www.i-sharing.com.tw/card/complete/4lquady-63564e4b452909-26507503" target="_blank">連結3</a></p>
@@ -21,8 +89,8 @@
     <p><a href="https://www.i-sharing.com.tw/card/complete/4lquady-63564eaece6eb4-91401448" target="_blank">連結8</a></p>
     <p><a href="https://www.i-sharing.com.tw/card/complete/4lqua8w-63564ebebb9422-13025928" target="_blank">連結9</a></p>
     <p><a href="https://www.i-sharing.com.tw/card/complete/4lqub44-63564ece4ddb52-05020591" target="_blank">連結10</a></p>
+-->
 
-    <button onclick="javascript:openall();">全開啟</button>
     <script>
         /*
         #1
@@ -65,7 +133,7 @@
 
         function openall() {
             links = document.getElementsByTagName('a');
-            var lagopen = setInterval(lag, 2000);
+            var lagopen = setInterval(lag, 3000);
         }
 
         function lag() {
