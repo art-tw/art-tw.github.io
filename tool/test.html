@@ -71,10 +71,14 @@
             margin-right: auto;
         }
         button {
-            padding: 1.5em 5em;
+            padding: 1em 4em;
             margin: 1em 0em;
             border: outset;
+            border-width: 0.7em;
             background: #bacdff;
+        }
+        button:hover{
+            background: #576998;
         }
 
     </style>
@@ -133,7 +137,7 @@
 
         function openall() {
             links = document.getElementsByTagName('a');
-            var lagopen = setInterval(lag, 3000);
+            var lagopen = setInterval(lag, 2800);
         }
 
         function lag() {
