@@ -148,7 +148,7 @@
         }
 
         function newurl() {
-            var camp=(document.getElementById('camp').value=='checked')?',camp_redeemable':'';
+            var camp=(document.querySelector('#camp').checked)?',camp_redeemable':'';
             links = document.getElementsByTagName('a');
             for(j=0;j<links.length;j++){
             links[j].href += '&maxp=' + document.getElementById('max').value + '&minp=' + document.getElementById('min').value+'&refine=ship_free'+camp;
