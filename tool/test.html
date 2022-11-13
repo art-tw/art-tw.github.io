@@ -136,10 +136,10 @@
 
         var links = [];
         var i = 0;
-
+        var lagopen;
         function openall() {
             links = document.getElementsByTagName('a');
-            var lagopen = setInterval(lag, 5000);
+            lagopen = setInterval(lag, 5000);
         }
 
         function lag() {
