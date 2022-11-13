@@ -70,6 +70,7 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         button {
             padding: 1em 4em;
             margin: 1em 0em;
@@ -77,7 +78,8 @@
             border-width: 0.7em;
             background: #bacdff;
         }
-        button:hover{
+
+        button:hover {
             background: #576998;
         }
 
@@ -143,7 +145,13 @@
         function lag() {
             links[i].click();
             i++
-            if (i >= links.length) clearInterval(lagopen);
+            if (i >= links.length) {
+                clearInterval(lagopen);
+                setTimeout(() => {
+                    window.opener = null;
+                    window.close();
+                }, 1000);
+            }
         }
 
     </script>
