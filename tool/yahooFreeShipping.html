@@ -17,6 +17,7 @@
     <input id="max" type="text" placeholder="最大值"><br>
     <p>條件</p>
     <input id="camp" type="checkbox" checked>可使用折價券<br>
+    <input id="free" type="checkbox" checked>免運<br>
     <button id="ckbtn" onclick="javascript:newurl();">確認</button>
     <button id="refresh" onclick="javascript:location=location;">重置</button>
     <hr>
@@ -149,9 +150,10 @@
 
         function newurl() {
             var camp=(document.querySelector('#camp').checked)?',camp_redeemable':'';
+            var freeshiping=(document.querySelector('#free').checked)?'ship_free':'';
             links = document.getElementsByTagName('a');
             for(j=0;j<links.length;j++){
-            links[j].href += '&maxp=' + document.getElementById('max').value + '&minp=' + document.getElementById('min').value+'&refine=ship_free'+camp;
+            links[j].href += '&maxp=' + document.getElementById('max').value + '&minp=' + document.getElementById('min').value+'&refine='+freeshiping+camp;
             }
         }
 
