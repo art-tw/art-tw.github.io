@@ -1,0 +1,156 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Art">
+    <meta property="og:image" content="https://art-tw.github.io/share.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>LINE活動懶人包</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../icon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="events.css">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154791288-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-154791288-2');
+
+    </script>
+    <style>
+        #openimg,
+        #loginbtn,
+        #startbtn,
+        #rewardbtn {
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+            background-color: #b13b3b;
+            color: #FFFFFF;
+            letter-spacing: 2.5px;
+            padding: 1.5em;
+            font-size: 1em;
+            transition: all 0.5s ease 0s;
+            margin: 1em auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>2023/07/31<br>LINE購物品牌名店分享活動(30次)</h1>
+    <h2>【這個月，感謝有你，分享感謝心意最高拿888點】</h2>
+    <div id="header">
+        <span id="h-left">活動時間</span>
+        <span id="h-right">07月31日00:00～07月31日23:59</span>
+        <br>
+        <hr>
+        <p id="test">自動點擊功能</p>
+        <p style="color:red;">此功能需使用外部連覽器(非LINE內建瀏覽器)開啟，且為登入LINE的狀態</p>
+        <!--<p>此功能僅在android系統以外部瀏覽器chrome測試過</p>-->
+        <button id="openimg" onclick="document.querySelector('#browserimg').style.display=''">如何開啟外部瀏覽器</button><br>
+        <img id="browserimg" src="../img/browser.png" style="width:75%; display :none" alt="外部瀏覽器">
+        <p>Step_1【登入LINE (如無登入畫面便是已登入狀態)】</p>
+        <p style="color:red;">以活動網址引導至登入，有疑慮者請自行斟酌使用</p>
+        <p style="color:red;">也請勿隨意點擊來路不明的網址登入您的LINE，以免帳密外洩</p>
+        <button id="loginbtn" onclick="window.open('https://ec-bot-web.line.me/event/proxy/ugBFIDeyMxcoCaY7HaaGgXicpCuGwBeysUaoie5LdsKaAK7QXdOi3KjjD_spgeH0C6BjR-uI2G-WQQ015-P9xQ/')">登入LINE</button>
+
+        <p>Step_2【自動點擊(完成後網頁自動關閉)】</p>
+        <button id="startbtn" onclick="start_btn()">自動開啟連結</button><br><br>
+
+        <p>Step_3 【開獎】</p>
+        <button id="rewardbtn" onclick="location.href='https://liff.line.me/1529013389-QwZzgXDV/luckydraw/ugBFIDeyMxcoCaY7HaaGgXicpCuGwBeysUaoie5LdsKaAK7QXdOi3KjjD_spgeH0C6BjR-uI2G-WQQ015-P9xQ/'">開獎連結</button><br><br>
+        <!--
+        <div style="background-color: #f1ff4b;color: white;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSfyR84jL-rhdpQHJ-_85EWtJs_thdQzPxrYgvkOM2ymH2iPFA/viewform?usp=sf_link" target="_blank">留言給我</a></div><br>-->
+        <hr>
+        <button id="sharebtn" onclick="javascript:share();" target="_blank">分享到LINE聊天室</button><br><br>
+
+        <span>&#128073</span><a href="https://liff.line.me/1529013389-QwZzgXDV/luckydraw/ugBFIDeyMxcoCaY7HaaGgXicpCuGwBeysUaoie5LdsKaAK7QXdOi3KjjD_spgeH0C6BjR-uI2G-WQQ015-P9xQ/rewards" target="_blank">查看得獎記錄</a>
+
+        <span>&#128073</span><a href="https://event-web.line.me/ectw/article/gz3xLOX" target="_blank">查看活動詳情</a><br><br>
+        <button type="button" id="linkbtn" onclick="javascript:document.querySelector('#content').style.display = (document.querySelector('#content').style.display == 'none') ? '' : 'none';void(0);">點這裡顯示連結</button>
+        <!--<span>&#128073</span><a href="https://lin.ee/yZ1AeZs" target="_blank">先加入/解除封鎖【LINE禮物】官方帳號</a>-->
+    </div>
+
+    <div id="content" style="display:none;">
+        <hr>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=IULzKnNtDiUqCjDzfatJQOoxjJVpnWyycO4kUZe9qEIkp_DPD1oXcNLNKilJSR60T8DpMSvm2G7mvb4sgdRdfp229wwKHVBKO0eXNyXzDm9hOrjvuxJ21B5uEuCdk-K_UZQICNsj_OM" target="_blank">連結13</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=1J6Dl0UhCILklR2CtnCQSDrAYDwoCjo28JesNFJU44XgZ8qtAlMj4IEIXpAXWff6unvM2IbsuMByW5qxeM4GBQcsHqkJPwENMmsUgtDzetopQyEv6DVyqN5LhjkOrhJyXxDGdz2HyrM" target="_blank">連結14</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=o1aplVL-g63e3pXEyC3Xui1JybDejXLYxZ4SLpmxIl9rFMf7pCBU4pWbDLzWixsHDh-WCe3H4oZnLAZuPqQbGIVJWLWaXDqceL9g9xFJ4b7w2mqC-ZFEkZflCSM1zoIy7lphyuWmiqk" target="_blank">連結15</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=5Wc3ev1KVfcf_xcoEtgRooAZ0Pb6YEqai0dp_INaHSE_DB7PpsR-UEF1FBwgQUGZgRC_pcn_vWOpJ6j_SEz9XL99DQtHKdwPqGZ2Kbo_AGASv2EMReU1rKJsvjKj0WhmBcEkkLbW0bs" target="_blank">連結16</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=S7Np0I_NbvoaXzWhX1EdpGsmfm-f7Io4bg35R4CIj6CF1usRGvHhhumXx8z5QDPSRdnpEl9CVc9CtV6OxmcfdznDhHAgBsflQTaR2lF7_m4thgG3q6RNg_ojbOOyIh3QVGAqPfz-0kQ" target="_blank">連結17</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=sfPi0W_DsuN4lGK6HIy3jIN5YIrjpAB1zSY0W1b_hU-DqtFMez2I5r1q1ID_sbDXEeC97KTDIs2sNMFMOq9IJl__Qe3aNwD-BtpG1Gw_KPDXK-mj8z11Qgbgk-LtReV0DcmVVTOA1I0" target="_blank">連結18</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=Rv1O2wTrA4rb3qe-mtxq5vhAHs5KVaK8fvktVsr74UQWffkeKmNQm0tzgE6-u9RkVnDNhGMt4OTCSJOL7mVmAniOWM4mta2TbCvw-N0BBOaoolfrHqamqKnjubFNka96-Ep_w2yRTOo" target="_blank">連結19</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=jFCmIdWgZfunLqpf5McNY-p7YH3wDsX0vhOqHUKMP1Pa-JnSADRLmEFnYzswU8BXWxkwKzw1TGsLZIC6qUDwriqD5p6jP4GOez95YTWMzxngVRatyTzFv_-O8WO2UeemltrB_Bd-mQ8" target="_blank">連結20</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=6qen-9AWCgcM4pjzJ1VHzz-mKBUnOuXpkxm0yhTdH-rrTeTdK9caj8eMQemr8AHZaAXI__T95rK-jfGQeQoSBkla5siKyyMLiu4HgCiZpxnnmLzJ_iwqJ81OUOpYXOZUFXEP1JpHhgo" target="_blank">連結21</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=23_qE2uTnLrM7_RkbqLXKa7XtTUhZkfzm8dV5zUWv6orwQBiZopOXalB4U4wktnHF-HcdxaLE9gZR9-2nOQysjv_XOwsLnEXPEeJDTtbwGjbU7Zxk5jg24N-t_LMD87jc2AH9R41SWM" target="_blank">連結22</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=Hft93d2n0dlzNFij8tkqYct7NjFLLUFH08Pz8wU0GX9xj-VVWmy1KciDpp_YjTbTotMWd6cqS84TQkFjrhDc-ImqQmEG5niJOWOo26LYc7Va2LUWR5ofnQ3YP7444r6WoDX22E3TnS8" target="_blank">連結23</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=Jo4FRF1WK48AknJEVkr0J-X44_obvwUcr_zrgyaYeSlAe-1tYYy61uPXToqWt7mbos0-3kmfe_mAM2obXZNJ1kYYtAcWaqQ5MPncfhBzsgEZ9dMKQjwsTJWIP3GTVa2mka2l9mIJ4CA" target="_blank">連結24</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=7_mKyb-rqszKQ0gvOqg31EkSJ2o2fTidDfGrAN-oYn4SwWLC-TFSnrmLLe2VnKMbDNBep1fV81rHplFwCv6KMkK-qxRPnqldLYN_QFrGfx6hYN9QRvmsGFNq-_mI0GUhGGVtH2PMyhM" target="_blank">連結25</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=PQVdrzqo61a8miK8FuwoiviGa_X1XXTnsA94sSSHWjn81NltzNKcox1LUvv_GiJm8lUgruB28GIptYSH8dWI2IMSAUGOEPgHl0A2cKEYbjeJqhZ9jxyxxvOrzQeIRNEZb3_lwPEKFcs" target="_blank">連結26</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=jMWnxL3ED9g8t5QQpJuBDJF67tcxaTAn1lAJwt6y8IaZ9F6Oq9Zu332JCiRYTv-kp5mwwSQjaKy0QWvFmXTadB2I7_XcYtmgSJgWHvbIyY5mF8fX2V4TUUVQ-zhUYkqA__5LXUsO3pY" target="_blank">連結27</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=yjoFqoQjkOmRA18aDaO3fN49ktbn8bU5QOif8FAFh9dkuW7fgPqyB28ihTpytuWGHbqZ6Q5zKhVZwvoESqw5XUcs48R8QxlyeiFMz53e1QQ--xJdLUVZPDTO-9QhnR511hElxnTqYLw" target="_blank">連結28</a><br>
+        <a href="https://event.line.me/event/proxy/Jm_wM2BhSNX8_zMvqnMEbdzpxZThzZObuP285emXj9t5HnbD_3X3EJv_yJ5THGTnHhVugz5Fotr-58GTR9M9Sg?redirectUrl=https%3A%2F%2Fgiftshop-tw.line.me%2Fcollection%2F1027763%3Futm_source%3Dmgmpage%26utm_medium%3Dreceiver%26utm_campaign%3DA10_20230731_0000_N1_P06_C98_S98_thankyou20230731&data=v3JQRbaktPVEGIjZwnxp8_kNdmfS7W6LhpH6reL0GORY8mRCz24CC6jc8iLNPHecQWKQ2qAFb5KF0k0L_Zk7f6AboUsQXE-5UWzcVQteDP4ejKz-Hfdui4cehShbMs3xW7gxxweQdP8" target="_blank">連結29</a><br>
+    </div>
+    <iframe id="guide" frameBorder="0" src="../guide.html"></iframe>
+    <div id="footer">
+        <p>點選下方回主頁</p>
+        <a href="https://art-tw.github.io/events/"><img src="https://imgur.com/W6KYoBH.png" alt="Author Art"></a>
+    </div>
+    <script>
+        var counter = 2;
+        var thread_start_btn = 0;
+        var autoWindow = 0;
+        var delay_time = 1200;
+        var start_time = 0;
+
+        function share() {
+            var content = prompt('請輸入分享內容(可填/不填)\n實際分享為：(您輸入的內容+目前網頁網址)\n');
+            if (content == null || content == "") {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + location.href;
+            } else {
+                window.location.href = "http://line.naver.jp/R/msg/text/?" + content + "%0d%0a" + location.href;
+            }
+
+        }
+
+        function auto_open() {
+            if (autoWindow.closed) {
+                var num = (counter - 2) / 2;
+                alert("視窗已關閉\n已點擊至第" + num + "筆連結");
+                clearInterval(thread_start_btn);
+            } else {
+                var target_url = document.querySelector("#content > a:nth-child(" + counter + ")").href
+                autoWindow.location.href = target_url;
+                counter += 2;
+                if (counter > 100) {
+                    clearInterval(thread_start_btn);
+                    setTimeout(function() {
+                        autoWindow.close()
+                    }, delay_time);
+                    counter = 2;
+                    var end_time = new Date();
+                    var total_time = Math.floor((end_time - start_time) / 1000);
+                    alert("50個連結已點擊完成\n總共耗時： " + total_time + " 秒")
+                }
+            }
+        }
+
+        function start_btn() {
+            var speed = confirm("將以間隔1.2秒方式點擊連結(否則以間隔3秒的方式)\n『手機/電腦效能較慢者建議以間隔3秒的方式』\n大約完成時間=間隔時間*50(秒) 請等待頁面自動跳轉完成後再行操作!且避免手機螢幕關閉!");
+            speed == true ? delay_time = 1200 : delay_time = 3000;
+            start_time = new Date();
+            autoWindow = window.open("https://www.google.com.tw/", "自動開啟連結" + counter / 2, "width=100, height=100");
+            thread_start_btn = setInterval(auto_open, delay_time);
+        }
+
+    </script>
+</body>
+
+</html>
