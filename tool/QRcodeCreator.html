@@ -1,0 +1,155 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.4" />
+    <meta charset="utf-8">
+    <style>
+        textarea {
+            margin: 5%;
+            width: 50%;
+            height: 25%;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        #idbar {
+            height: 84px;
+            margin: 5%;
+        }
+
+        .scroller {
+            overflow-x: scroll;
+            width: vw;
+            display: flex;
+            scroll-snap-type: x mandatory;
+            scroll-margin: 0;
+            margin: auto;
+        }
+
+        .scroller>div {
+            flex: 0 0 24em;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            scroll-snap-align: start;
+        }
+
+        .controlbtn {
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+            background-color: #64A600;
+            color: #FFFFFF;
+            letter-spacing: 2.5px;
+            padding: 1.5em;
+            font-size: 1em;
+            transition: all 0.5s ease 0s;
+        }
+
+        .controlbtn:hover {
+            background-color: #8cc436;
+            box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+
+            transform: translateY(-5px);
+        }
+	.showbtn{
+            background-color: #5aaaaa;
+	}
+
+        h1 {
+            border: none;
+            border-radius: 45px;
+            font-size: 1.5em;
+            width: 170px;
+            color: #FFF;
+            background: #000000;
+            margin: 1em auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <textarea id='entercode'></textarea>
+    <br>
+    <button class='controlbtn showbtn' onclick="javascript:show();">產生</button>
+    <br>
+    <div id='tb' class='scroller'>
+    </div>
+
+    <button class='controlbtn' onclick="javascript:showup();">上一張</button>
+    <button class='controlbtn' onclick="javascript:showdown();">下一張</button>
+    <br><br>
+    <button class='controlbtn showbtn' onclick="javascript:showel();">顯示輸入欄</button>
+
+    <script>
+        var qrcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
+        var barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
+        let codes = [];
+        var cl = 0;
+        var counter = 0;
+        var thread_creat = 0;
+
+        function show() {
+            document.getElementById('entercode').style.display = 'none';
+            document.querySelector('button').style.display = 'none';
+            var allcodes = document.getElementById('entercode').value;
+            var spl = allcodes.split('\n');
+            for (i = 0; i < spl.length; i++) {
+                codes.push(spl[i]);
+            }
+            cl = spl.length;
+            //console.log(spl.length);
+            //console.log(codes);
+            thread_creat = setInterval(creatQrcode, 2000);
+        }
+
+        function creatQrcode() {
+            var list = document.createElement("div");
+            var elcount = document.createElement('h1')
+            var titlecount = counter + 1;
+            elcount.textContent = '第【' + titlecount + '】筆';
+            var el = document.createElement("img");
+            el.src = qrcode + codes[counter];
+            var elbar = document.createElement("img");
+            elbar.id = 'idbar';
+            elbar.src = barcode + codes[counter];
+            var elbr = document.createElement("br");
+            var elhr = document.createElement("hr");
+            //el.value = value;
+            el.style.margin = '3%';
+            //document.body.appendChild(el);
+            list.appendChild(elcount);
+            list.appendChild(el);
+            list.appendChild(elbr);
+            list.appendChild(elbar);
+            list.appendChild(elhr);
+            document.getElementById('tb').appendChild(list);
+            counter++;
+            if (counter >= cl) clearInterval(thread_creat);
+        }
+
+        function showel() {
+            document.getElementById('entercode').style.display = '';
+            document.querySelector('button').style.display = '';
+        }
+        var showpicCount = 0;
+        var viewWidth = document.body.clientWidth;
+
+        function showup() {
+            showpicCount = (showpicCount == 0 ? 0 : showpicCount - 1);
+            document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
+        }
+
+        function showdown() {
+            var endcount = codes.length - 1;
+            showpicCount = (showpicCount == endcount ? endcount : showpicCount + 1);
+            document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
+        }
+
+    </script>
+</body>
+
+</html>
