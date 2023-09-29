@@ -5,13 +5,18 @@
     <meta charset="utf-8">
     <style>
         textarea {
-            margin: 5%;
-            width: 50%;
-            height: 25%;
+            margin: 1rem;
+            min-width: 50%;
+            max-width: 50%;
+            min-height: 25%;
+            max-height: 60%;
+
+            font-size: 2rem;
         }
 
         body {
             text-align: center;
+            background-color: #FFFFFF;
         }
 
         #idbar {
@@ -54,36 +59,54 @@
 
             transform: translateY(-5px);
         }
-	.showbtn{
-            background-color: #5aaaaa;
-	}
-
+	    .showbtn{
+                background-color: #5aaaaa;
+	    }
+        .ebtn{
+            display:none;
+        }
+        .srcbtn{
+            font-weight:bold;
+        }
         h1 {
             border: none;
             border-radius: 45px;
-            font-size: 1.5em;
+            font-size: 1.5rem;
             width: 170px;
-            color: #FFF;
-            background: #000000;
-            margin: 1em auto;
+            color: #FFFFFF;
+            background: #5FFFFF;
+            margin: 1.5rem auto;
         }
 
     </style>
+    <script type="text/javascript">
+        window.onload=function(){
+            if (location.href.includes("QRcodeCreator.html?sign=")) {
+            var signature=location.href.split('?sign=')[1];
+            console.log(signature);
+            document.getElementById('entercode').innerText=signature;
+            }
+        }
+    </script>
 </head>
 
 <body>
+    <h1 class='fbtn'>模式選擇</h1>
+    <button class='fbtn controlbtn srcbtn' onclick="javascript:srcChange();">QRcode<hr>一維條碼</button>
+    <h1 class='fbtn'>序號輸入處</h1>
     <textarea id='entercode'></textarea>
     <br>
-    <button class='controlbtn showbtn' onclick="javascript:show();">產生</button>
+    <button class='fbtn controlbtn showbtn' onclick="javascript:show();">產生</button>
     <br>
     <div id='tb' class='scroller'>
     </div>
 
-    <button class='controlbtn' onclick="javascript:showup();">上一張</button>
-    <button class='controlbtn' onclick="javascript:showdown();">下一張</button>
+    <button class='ebtn controlbtn' onclick="javascript:showup();">上一張</button>
+    <button class='ebtn controlbtn' onclick="javascript:showdown();">下一張</button>
     <br><br>
-    <button class='controlbtn showbtn' onclick="javascript:showel();">顯示輸入欄</button>
-
+    <button class='ebtn controlbtn showbtn' onclick="javascript:showel();">顯示輸入欄</button>
+    
+    
     <script>
         var qrcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
         var barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
@@ -91,10 +114,23 @@
         var cl = 0;
         var counter = 0;
         var thread_creat = 0;
-
+       
+        function srcChange(){
+            var el=document.querySelector('.srcbtn');
+            if(el.innerHTML=='QRcode<hr>一維條碼'){
+                el.innerHTML='只產生<hr>QRcode';
+                qrcode='https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
+                barcode = '';
+            }else{
+                el.innerHTML='QRcode<hr>一維條碼';
+                qrcode='https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
+                barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
+            }
+        }
         function show() {
+            document.querySelectorAll('.ebtn').forEach(i=>i.style.display='inline');
             document.getElementById('entercode').style.display = 'none';
-            document.querySelector('button').style.display = 'none';
+            document.querySelectorAll('.fbtn').forEach(i=>i.style.display='none');
             var allcodes = document.getElementById('entercode').value;
             var spl = allcodes.split('\n');
             for (i = 0; i < spl.length; i++) {
@@ -113,27 +149,31 @@
             elcount.textContent = '第【' + titlecount + '】筆';
             var el = document.createElement("img");
             el.src = qrcode + codes[counter];
-            var elbar = document.createElement("img");
-            elbar.id = 'idbar';
-            elbar.src = barcode + codes[counter];
-            var elbr = document.createElement("br");
-            var elhr = document.createElement("hr");
             //el.value = value;
             el.style.margin = '3%';
             //document.body.appendChild(el);
             list.appendChild(elcount);
             list.appendChild(el);
+
+            if(barcode){
+            var elbar = document.createElement("img");
+            elbar.id = 'idbar';
+            elbar.src = barcode + codes[counter];
+            var elbr = document.createElement("br");
             list.appendChild(elbr);
             list.appendChild(elbar);
+            }
+            var elhr = document.createElement("hr");
             list.appendChild(elhr);
+
             document.getElementById('tb').appendChild(list);
             counter++;
             if (counter >= cl) clearInterval(thread_creat);
         }
 
         function showel() {
-            document.getElementById('entercode').style.display = '';
-            document.querySelector('button').style.display = '';
+            document.getElementById('entercode').style.display = 'inline';
+            //document.querySelector('button').style.display = 'inline';
         }
         var showpicCount = 0;
         var viewWidth = document.body.clientWidth;
@@ -148,7 +188,6 @@
             showpicCount = (showpicCount == endcount ? endcount : showpicCount + 1);
             document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
         }
-
     </script>
 </body>
 
