@@ -82,6 +82,17 @@
             margin: 1.5rem auto;
         }
 
+        #creatspeed,
+        span {
+            margin: 1.5rem;
+            border: none;
+            border-radius: 45px;
+            font-size: 1.5rem;
+            width: 10rem;
+            color: #FFFFFF;
+            background: #ee0063;
+        }
+
     </style>
     <script type="text/javascript">
         window.onload = function() {
@@ -95,7 +106,7 @@
                         return item.trim();
                     });
                     var output = document.getElementById('entercode');
-                    elements.forEach(function(element) {
+                    elements.forEach(function(element, index) {
                         output.value += element;
                         if (index < elements.length - 1) {
                             output.value += '\n';
@@ -116,7 +127,11 @@
     <h1 class='fbtn'>序號輸入處</h1>
     <textarea id='entercode'></textarea>
     <br>
+    <input class="fbtn" type="range" id="creatspeed" min="0.5" max="5" step="0.5" value="2">
+    <span class="fbtn" id="creatspeedValueDisplay">間隔2秒產生</span>
+    <br>
     <button class='fbtn controlbtn showbtn' onclick="javascript:show();">產生</button>
+
     <br>
     <div id='tb' class='scroller'>
     </div>
@@ -124,7 +139,7 @@
     <button class='ebtn controlbtn' onclick="javascript:showup();">上一張</button>
     <button class='ebtn controlbtn' onclick="javascript:showdown();">下一張</button>
     <br><br>
-    <button class='ebtn controlbtn showbtn' onclick="javascript:showel();">顯示輸入欄</button>
+    <button class='ebtn controlbtn showbtn' id="shbtn" onclick="javascript:showel();">顯示輸入欄</button>
 
 
     <script>
@@ -193,8 +208,15 @@
         }
 
         function showel() {
-            document.getElementById('entercode').style.display = 'inline';
-            //document.querySelector('button').style.display = 'inline';
+            var el = document.getElementById('shbtn');
+            if (el.innerText == '顯示輸入欄') {
+                el.innerText = '隱藏輸入欄';
+                document.getElementById('entercode').style.display = 'inline';
+                //document.querySelector('button').style.display = 'inline';
+            } else {
+                el.innerText = '顯示輸入欄';
+                document.getElementById('entercode').style.display = 'none';
+            }
         }
         var showpicCount = 0;
         var viewWidth = document.body.clientWidth;
@@ -209,6 +231,12 @@
             showpicCount = (showpicCount == endcount ? endcount : showpicCount + 1);
             document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
         }
+
+        var creatspeed = document.getElementById('creatspeed');
+        var creatspeedValueDisplay = document.getElementById('creatspeedValueDisplay');
+        creatspeed.addEventListener('input', function() {
+            creatspeedValueDisplay.textContent = '間隔' + creatspeed.value + '秒產生';
+        });
 
     </script>
     <div id="sign"></div>
