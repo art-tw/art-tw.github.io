@@ -175,7 +175,8 @@
             cl = spl.length;
             //console.log(spl.length);
             //console.log(codes);
-            thread_creat = setInterval(creatQrcode, 2000);
+            var speedvalue=Number(document.getElementById('creatspeed').value);
+            thread_creat = setInterval(creatQrcode, speedvalue*1000);
         }
 
         function creatQrcode() {
