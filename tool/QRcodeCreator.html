@@ -81,10 +81,19 @@
     </style>
     <script type="text/javascript">
         window.onload=function(){
-            if (location.href.includes("QRcodeCreator.html?sign=")) {
-            var signature=location.href.split('?sign=')[1];
-            console.log(signature);
-            document.getElementById('entercode').innerText=signature;
+            if (location.href.includes("html?sign=")) {
+                var signature=location.href.split('?sign=')[1];
+                location.href='https://script.google.com/macros/s/AKfycbwhxHZQ4zOkJ6d4j9hXih3tpk6eC0MlDAQnij2EdIGLwkteksGOq1PYom-2fBwNS0-w/exec?v='+signature;
+            }else{
+                if(location.href.includes('code=')){
+                    var codes=location.href.split('?code=')[1];
+                    var elements = codes.split(',').map(function(item) {
+                return item.trim();
+            });
+            elements.forEach(function(element) {
+                document.getElementById('entercode').value += element + '\n';
+            });
+                }
             }
         }
     </script>
@@ -189,6 +198,7 @@
             document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
         }
     </script>
+    <div id="sign"></div>
 </body>
 
 </html>
