@@ -59,15 +59,19 @@
 
             transform: translateY(-5px);
         }
-	    .showbtn{
-                background-color: #5aaaaa;
-	    }
-        .ebtn{
-            display:none;
+
+        .showbtn {
+            background-color: #5aaaaa;
         }
-        .srcbtn{
-            font-weight:bold;
+
+        .ebtn {
+            display: none;
         }
+
+        .srcbtn {
+            font-weight: bold;
+        }
+
         h1 {
             border: none;
             border-radius: 45px;
@@ -80,28 +84,35 @@
 
     </style>
     <script type="text/javascript">
-        window.onload=function(){
+        window.onload = function() {
             if (location.href.includes("html?sign=")) {
-                var signature=location.href.split('?sign=')[1];
-                location.href='https://script.google.com/macros/s/AKfycbwhxHZQ4zOkJ6d4j9hXih3tpk6eC0MlDAQnij2EdIGLwkteksGOq1PYom-2fBwNS0-w/exec?v='+signature;
-            }else{
-                if(location.href.includes('code=')){
-                    var codes=location.href.split('?code=')[1];
+                var signature = location.href.split('?sign=')[1];
+                location.href = 'https://script.google.com/macros/s/AKfycbwhxHZQ4zOkJ6d4j9hXih3tpk6eC0MlDAQnij2EdIGLwkteksGOq1PYom-2fBwNS0-w/exec?v=' + signature;
+            } else {
+                if (location.href.includes('code=')) {
+                    var codes = location.href.split('?code=')[1];
                     var elements = codes.split(',').map(function(item) {
-                return item.trim();
-            });
-            elements.forEach(function(element) {
-                document.getElementById('entercode').value += element + '\n';
-            });
+                        return item.trim();
+                    });
+                    var output = document.getElementById('entercode');
+                    elements.forEach(function(element) {
+                        output.value += element;
+                        if (index < elements.length - 1) {
+                            output.value += '\n';
+                        };
+                    });
                 }
             }
         }
+
     </script>
 </head>
 
 <body>
     <h1 class='fbtn'>模式選擇</h1>
-    <button class='fbtn controlbtn srcbtn' onclick="javascript:srcChange();">QRcode<hr>一維條碼</button>
+    <button class='fbtn controlbtn srcbtn' onclick="javascript:srcChange();">QRcode
+        <hr>一維條碼
+    </button>
     <h1 class='fbtn'>序號輸入處</h1>
     <textarea id='entercode'></textarea>
     <br>
@@ -114,8 +125,8 @@
     <button class='ebtn controlbtn' onclick="javascript:showdown();">下一張</button>
     <br><br>
     <button class='ebtn controlbtn showbtn' onclick="javascript:showel();">顯示輸入欄</button>
-    
-    
+
+
     <script>
         var qrcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
         var barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
@@ -123,23 +134,24 @@
         var cl = 0;
         var counter = 0;
         var thread_creat = 0;
-       
-        function srcChange(){
-            var el=document.querySelector('.srcbtn');
-            if(el.innerHTML=='QRcode<hr>一維條碼'){
-                el.innerHTML='只產生<hr>QRcode';
-                qrcode='https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
+
+        function srcChange() {
+            var el = document.querySelector('.srcbtn');
+            if (el.innerHTML == 'QRcode<hr>一維條碼') {
+                el.innerHTML = '只產生<hr>QRcode';
+                qrcode = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
                 barcode = '';
-            }else{
-                el.innerHTML='QRcode<hr>一維條碼';
-                qrcode='https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
+            } else {
+                el.innerHTML = 'QRcode<hr>一維條碼';
+                qrcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
                 barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
             }
         }
+
         function show() {
-            document.querySelectorAll('.ebtn').forEach(i=>i.style.display='inline');
+            document.querySelectorAll('.ebtn').forEach(i => i.style.display = 'inline');
             document.getElementById('entercode').style.display = 'none';
-            document.querySelectorAll('.fbtn').forEach(i=>i.style.display='none');
+            document.querySelectorAll('.fbtn').forEach(i => i.style.display = 'none');
             var allcodes = document.getElementById('entercode').value;
             var spl = allcodes.split('\n');
             for (i = 0; i < spl.length; i++) {
@@ -164,13 +176,13 @@
             list.appendChild(elcount);
             list.appendChild(el);
 
-            if(barcode){
-            var elbar = document.createElement("img");
-            elbar.id = 'idbar';
-            elbar.src = barcode + codes[counter];
-            var elbr = document.createElement("br");
-            list.appendChild(elbr);
-            list.appendChild(elbar);
+            if (barcode) {
+                var elbar = document.createElement("img");
+                elbar.id = 'idbar';
+                elbar.src = barcode + codes[counter];
+                var elbr = document.createElement("br");
+                list.appendChild(elbr);
+                list.appendChild(elbar);
             }
             var elhr = document.createElement("hr");
             list.appendChild(elhr);
@@ -197,6 +209,7 @@
             showpicCount = (showpicCount == endcount ? endcount : showpicCount + 1);
             document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
         }
+
     </script>
     <div id="sign"></div>
 </body>
