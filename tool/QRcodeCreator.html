@@ -140,6 +140,7 @@
     <button class='ebtn controlbtn' onclick="javascript:showdown();">下一張</button>
     <br><br>
     <button class='ebtn controlbtn showbtn' id="shbtn" onclick="javascript:showel();">顯示輸入欄</button>
+    <button class='fbtn controlbtn showbtn' id="clipboardbtn" onclick="javascript:createUrl();">複製序號網址</button>
 
 
     <script>
@@ -219,6 +220,15 @@
                 document.getElementById('entercode').style.display = 'none';
             }
         }
+        
+        function createUrl() {
+            var items=document.getElementById('entercode').value.split('\n');
+            var createurl='https://art-tw.github.io/tool/QRcodeCreator.html?code=';
+            items.forEach(i=>{createurl+=i;if(i!=items[items.length-1]){createurl+=','}});
+            navigator.clipboard.writeText(createurl);
+            alert('已產生連結!');
+        }
+        
         var showpicCount = 0;
         var viewWidth = document.body.clientWidth;
 
