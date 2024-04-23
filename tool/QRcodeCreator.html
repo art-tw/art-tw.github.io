@@ -155,7 +155,8 @@
             var el = document.querySelector('.srcbtn');
             if (el.innerHTML == 'QRcode<hr>一維條碼') {
                 el.innerHTML = '只產生<hr>QRcode';
-                qrcode = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
+                //qrcode = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
+                qrcode = 'https://quickchart.io/qr?text=';
                 barcode = '';
             } else {
                 el.innerHTML = 'QRcode<hr>一維條碼';
