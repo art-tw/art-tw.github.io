@@ -100,7 +100,15 @@
     }
 
     // 示例：生成序列号为 "123456789" 的条形码
-	var codevalue=prompt('請輸入序號');
+	var codevalue
+
+	window.onload = function() {
+            if (location.href.includes("html?c=")) {
+                codevalue = location.href.split('?c=')[1];
+            } else {
+                codevalue=prompt('請輸入序號');
+            }
+        }
 	$(".unexchange ").attr("pincode",codevalue)
     generateBarcode(codevalue);
 	
