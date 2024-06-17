@@ -107,10 +107,9 @@
             } else {
                 codevalue=prompt('請輸入序號');
             }
+			$(".unexchange ").attr("pincode",codevalue)
+			generateBarcode(codevalue);
         }
-	$(".unexchange ").attr("pincode",codevalue)
-    generateBarcode(codevalue);
-	
   </script>
 	
 </body>
