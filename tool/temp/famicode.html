@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Content-Security-Policy" content="style-src 'self' 'unsafe-inline';script-src 'self' 'unsafe-inline' https://www.googletagmanager.com;default-src 'self';img-src * data:;font-src *;connect-src * blob:;">
+  <link href="common.css?v=1190" rel="stylesheet">
+  <link href="ticket.css?v=1190" rel="stylesheet">
+  <script src="jquery-3.6.0.min.js?v=1220"></script>
+  <script src="jquery-alert.js?v=202011101"></script>
+  <script src="anime.min.js?v=20201110"></script>
+  <script src="ticket.js?v=202011100504"></script>
+  <script src="JsBarcode.all.min.js"></script>
+  <title>酷碰卷</title>
+</head>
+
+<body>
+<canvas id="barcodeCanvas" style="display: none;"></canvas>
+  <div class="kp-container">
+    <span class="close" onclick="window.location.href='#'"></span>
+    <div class="content">
+      <div class="top">
+        <p class="title font-larger font-center font-blue-018DD6 font-bold">
+          指定飲料冰品任兩件0元
+        </p>
+        <div class="img">
+          <img src="PROD_1490322450013_9182862.jpg" alt="" />
+        </div>
+        <div class="barcode">
+          <img id="barcode" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqAAAAAeAQMAAADJrT6qAAAABlBMVEX///8AAABVwtN+AAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAE1JREFUSIntzNEJADEIA9AOIHT/bTJAwIXy0djCzXAfQSQG4S10kyoJoqdci5oE5ftLwrE53VV3/RKa2nzrPt4KGjRo0KBBgwYN+i/0AH+NRfBmvoOXAAAAAElFTkSuQmCC" alt="" srcset="" />
+        </div>
+        <div class="tips flex flex-between">
+          <a href="#" class="font-small unexchange font-black-5D677c" pincode=''>無法完成兌換？</a>
+          <p class="font-small font-grey scale">點擊放大顯示</p>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="flex flex-row flex-between">
+          <p class="font-grey font-13">活動名稱</p>
+          <p class="font-black-5D677c font-13">2024飲料冰品抽抽樂-APP</p>
+        </div>
+        <div class="flex flex-row flex-between" style="margin-top: 9px">
+          <p class="font-grey font-13">兌換截止日</p>
+          <p class="font-black-5D677c font-13">2024-07-09 23:59:59</p>
+        </div>
+        <div class="warning font-13 font-black-5D677c">
+          <p class="font-bold">注意事項</p>
+          <div class="flex flex-row flex-end">
+            <ul class="flex-1">
+                             <li>
+                                  本券不得與其他行銷活動合併使用
+                
+
+              </li>                              <li>
+                                  本券限使用乙次，結帳時請出示本券，使用後將回收本券，且無法退貨及重複使用
+                
+
+              </li>                                                                                   </ul>
+            <a href="#" class="more font-black-5D677c">查看更多</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="button flex flex-row flex-between">
+      <a href="#" class="font-larger font-center font-white background-deepblue">
+        立即轉贈
+      </a>
+      <a href="#" class="font-larger font-blue background-white font-center">完成兌換</a>
+    </div>
+  </div>
+
+  <div class="img-scale hide">
+    <img id="img-scale-img" src="" alt="" />
+    <span class="close img-close"></span>
+  </div>
+  <script>
+    function generateBarcode(serialNumber) {
+      // 获取 canvas 元素
+      var canvas = document.getElementById('barcodeCanvas');
+
+      // 使用 JsBarcode 库生成条形码
+      JsBarcode(canvas, serialNumber, {
+        format: "CODE39",
+        displayValue: false,
+		height:130,
+		width: 10
+      });
+
+      // 获取条形码的 Base64 编码
+      var barcodeBase64 = canvas.toDataURL('image/png');
+
+      // 在页面中显示 Base64 编码的条形码
+      //var img = document.createElement('img');
+      //img.src = barcodeBase64;
+      //document.body.appendChild(img);
+	  document.querySelector("#barcode").src=barcodeBase64;
+    }
+
+    // 示例：生成序列号为 "123456789" 的条形码
+	var codevalue=prompt('請輸入序號');
+	$(".unexchange ").attr("pincode",codevalue)
+    generateBarcode(codevalue);
+	
+  </script>
+	
+</body>
+</html>

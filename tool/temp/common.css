@@ -1,0 +1,254 @@
+@import url(normalize.css);
+@font-face {
+  font-family: 'Noto Sans TC';
+  src: url("/static/v2/fonts/NotoSansTC-Regular.woff2"); }
+body {
+  background: #e5e5e5;
+  font-family: 'Noto Sans TC'; }
+
+a:visited, a:link, a:focus, a:hover, a:focus-within, a:focus-visible, a:target {
+  color: unset; }
+
+.hide {
+  display: none; }
+
+.background-white {
+  background: white; }
+.background-blue {
+  background: #e2f5ff; }
+.background-deepblue {
+  background: #007bca; }
+.background-orange {
+  background: #fb8a06; }
+.background-green {
+  background: #00c858; }
+.background-grey {
+  background: #c2c6c8; }
+
+.text-left {
+  text-align: left !important; }
+
+.font-blue {
+  color: #007bca !important; }
+.font-grey {
+  color: #b3b3b3 !important; }
+.font-grey-9a {
+  color: #9a9a9a !important; }
+.font-12 {
+  font-size: 12px; }
+.font-13 {
+  font-size: 13px; }
+.font-small {
+  font-size: 14px; }
+.font-15 {
+  font-size: 15px; }
+.font-normal {
+  font-size: 16px; }
+.font-large {
+  font-size: 18px; }
+.font-larger {
+  font-size: 20px; }
+.font-smallest {
+  font-size: 10px; }
+.font-center {
+  text-align: center; }
+.font-grey-66 {
+  color: #666 !important; }
+.font-nowrap {
+  white-space: nowrap; }
+.font-bold {
+  font-weight: bold; }
+.font-orange {
+  color: #fb8a06 !important; }
+.font-white {
+  color: white !important; }
+.font-black-44 {
+  color: #444 !important; }
+.font-blue-018DD6 {
+  color: #018dd6 !important; }
+.font-black-5D677c {
+  color: #5d677c !important; }
+.font-17 {
+  font-size: 17px; }
+.font-red {
+  color: #e90d0d !important; }
+.font-green {
+  color: #00c858 !important; }
+.font-black {
+  color: #333 !important; }
+.font-24 {
+  font-size: 24px; }
+.font-30 {
+  font-size: 30px; }
+.font-right {
+  text-align: right; }
+.font-nowrap {
+  white-space: nowrap; }
+.font-10 {
+  font-size: 10px; }
+
+.flex {
+  display: flex; }
+  .flex-row {
+    flex-direction: row; }
+  .flex-column {
+    flex-direction: column; }
+  .flex-center {
+    justify-content: center;
+    align-items: center; }
+  .flex-around {
+    justify-content: space-around; }
+  .flex-between {
+    justify-content: space-between; }
+  .flex-1 {
+    flex: 1; }
+  .flex-end {
+    align-items: flex-end; }
+
+a {
+  text-decoration: none; }
+
+.header {
+  height: 48px;
+  line-height: 48px;
+  position: relative;
+  text-align: center;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5; }
+  .header p {
+    margin: 0; }
+  .header a {
+    width: 48px;
+    height: 48px;
+    background: url(../images/back.png) center center no-repeat;
+    background-size: 9px 16px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0; }
+
+.product-ticket .img img {
+  width: 100%; }
+.product-ticket .item {
+  background: url(../images/normal.png) center center no-repeat;
+  background-size: 100% 100%;
+  display: block;
+  justify-content: space-between;
+  margin-top: 10px;
+  filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.1)); }
+  .product-ticket .item.deadline {
+    background: url(../images/deadline.png) center center no-repeat;
+    background-size: 100% 100%; }
+  .product-ticket .item.will {
+    background: url(../images/normal.png) center center no-repeat;
+    background-size: 100% 100%; }
+    .product-ticket .item.will .name {
+      margin-bottom: 0 !important; }
+    .product-ticket .item.will .comingsoon {
+      background: #007bca;
+      line-height: 24px;
+      border-radius: 5px;
+      display: inline;
+      padding: 1px 5px; }
+    .product-ticket .item.will .info .mask {
+      position: absolute;
+      background: url(../images/coming-soon-bg.png) center center no-repeat;
+      background-size: contain;
+      padding: 5px 25px 10px 25px;
+      line-height: 16px;
+      left: 10px;
+      top: 20px;
+      transform: rotate(-10deg); }
+      .product-ticket .item.will .info .mask .icon-light {
+        background: url(../images/coming-soon-ic.svg) center center no-repeat;
+        background-size: contain;
+        display: inline-block;
+        width: 12px;
+        height: 12px; }
+  .product-ticket .item.expired {
+    background: url(../images/expired.png) center center no-repeat;
+    background-size: 100% 100%; }
+    .product-ticket .item.expired .img img {
+      filter: grayscale(100%); }
+    .product-ticket .item.expired .right-text {
+      height: 60px; }
+  .product-ticket .item.gived {
+    background: url(../images/expired.png) center center no-repeat;
+    background-size: 100% 100%; }
+    .product-ticket .item.gived .right-text {
+      height: 60px; }
+    .product-ticket .item.gived .img img {
+      filter: grayscale(100%); }
+    .product-ticket .item.gived .img .cancel-give {
+      width: fit-content;
+      position: absolute;
+      z-index: 2;
+      line-height: 29px;
+      border-radius: 29px;
+      padding: 0 10px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); }
+  .product-ticket .item .img {
+    width: 80px;
+    height: 80px;
+    position: relative; }
+    .product-ticket .item .img::before {
+      content: '';
+      height: 68px;
+      width: 68px;
+      background: #e2f5ff;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: block;
+      position: absolute;
+      z-index: 0; }
+    .product-ticket .item .img img {
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); }
+  .product-ticket .item .left {
+    padding: 20px;
+    width: 0;
+    flex: 1;
+    position: relative; }
+  .product-ticket .item p {
+    margin: 0; }
+  .product-ticket .item .info {
+    flex-shrink: 0;
+    margin-left: 3px;
+    position: relative; }
+    .product-ticket .item .info .name {
+      display: -webkit-box;
+      text-overflow: ellipsis;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      line-height: 20px;
+      margin-bottom: 10px;
+      word-break: break-all;
+      height: 38px;
+      color: black; }
+    .product-ticket .item .info .price {
+      margin-bottom: 5px; }
+  .product-ticket .item .right-text {
+    width: 16%;
+    position: relative;
+    height: 80px;
+    flex-shrink: 0; }
+    .product-ticket .item .right-text p {
+      width: 20px;
+      margin: 0 auto;
+      display: block;
+      position: absolute;
+      line-height: 18px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%); }
+
+[id^='alert'] {
+  line-height: 24px; }

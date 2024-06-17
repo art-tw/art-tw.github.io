@@ -1,0 +1,100 @@
+body,
+p {
+  margin: 0; }
+
+.kp-container {
+  background: url(../images/kp-bg.png) top center no-repeat, url(../images/kp-bg-repeat.png) bottom center repeat-y;
+  background-size: 100% auto;
+  padding: 44px 28px 0;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box; }
+  .kp-container .close {
+    position: absolute;
+    top: 19px;
+    right: 17px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url(../images/close-white.png) center center no-repeat; }
+  .kp-container .content {
+    background: url(../images/ticket-bg.png) top center no-repeat;
+    background-size: 100% 100%;
+    width: 100%;
+    height: 523px;
+    box-sizing: border-box; }
+    .kp-container .content .top {
+      padding: 30px 21px 0;
+      height: 69%;
+      box-sizing: border-box; }
+      .kp-container .content .top .img {
+        height: 120px;
+        margin: 0 auto;
+        width: fit-content;
+        margin-top: 18px;
+        margin-bottom: 28px; }
+        .kp-container .content .top .img img {
+          height: 100%; }
+      .kp-container .content .top .barcode {
+        height: 78px;
+        width: fit-content;
+        margin: 0 auto; }
+        .kp-container .content .top .barcode img {
+          height: 100%; }
+      .kp-container .content .top .tips {
+        margin-top: 13px; }
+        .kp-container .content .top .tips a {
+          text-decoration: underline; }
+    .kp-container .content .bottom {
+      padding: 20px;
+      height: 31%;
+      line-height: 18px; }
+    .kp-container .content .warning {
+      margin-top: 14px; }
+      .kp-container .content .warning ul {
+        padding-left: 5px;
+        width: 0;
+        margin: 10px 0;
+        list-style-type: disc;
+        list-style-position: inside; }
+        .kp-container .content .warning ul li {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis; }
+      .kp-container .content .warning .more {
+        margin-bottom: 10px;
+        text-decoration: underline; }
+  .kp-container .button {
+    margin-top: 17px; }
+    .kp-container .button a {
+      line-height: 50px;
+      border-radius: 50px;
+      width: 47%; }
+
+.img-scale {
+  position: fixed;
+  background: white;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0; }
+  .img-scale .close {
+    width: 16px;
+    height: 16px;
+    background: url(../images/close-blue.png) center center no-repeat;
+    background-size: 100% 100%;
+    display: block;
+    position: absolute;
+    top: 37px;
+    right: 27px; }
+  .img-scale img {
+    width: 60vh;
+    height: 22%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(90deg); }
+
+#barcode {
+  width: 100%; }
