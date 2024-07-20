@@ -19,11 +19,11 @@
 <body>
 <canvas id="barcodeCanvas" style="display: none;"></canvas>
   <div class="kp-container">
-    <span class="close" onclick="window.location.href='#'"></span>
+    <span class="close" onclick="window.location.href=''"></span>
     <div class="content">
       <div class="top">
         <p class="title font-larger font-center font-blue-018DD6 font-bold">
-          指定飲料冰品任兩件0元
+          49元霜淇淋（口味不限）075
         </p>
         <div class="img">
           <img src="PROD_1490322450013_9182862.jpg" alt="" />
@@ -39,11 +39,11 @@
       <div class="bottom">
         <div class="flex flex-row flex-between">
           <p class="font-grey font-13">活動名稱</p>
-          <p class="font-black-5D677c font-13">2024飲料冰品抽抽樂-APP</p>
+          <p class="font-black-5D677c font-13">MOMO六月取件送霜淇淋</p>
         </div>
         <div class="flex flex-row flex-between" style="margin-top: 9px">
           <p class="font-grey font-13">兌換截止日</p>
-          <p class="font-black-5D677c font-13">2024-07-09 23:59:59</p>
+          <p class="font-black-5D677c font-13">2024-08-01 23:59:59</p>
         </div>
         <div class="warning font-13 font-black-5D677c">
           <p class="font-bold">注意事項</p>
@@ -65,10 +65,10 @@
     </div>
 
     <div class="button flex flex-row flex-between">
-      <a href="#" class="font-larger font-center font-white background-deepblue">
+      <a href="" class="font-larger font-center font-white background-deepblue">
         立即轉贈
       </a>
-      <a href="#" class="font-larger font-blue background-white font-center">完成兌換</a>
+      <a href="" class="font-larger font-blue background-white font-center">完成兌換</a>
     </div>
   </div>
 
@@ -98,7 +98,28 @@
       //document.body.appendChild(img);
 	  document.querySelector("#barcode").src=barcodeBase64;
     }
+	function generateBarcode2(serialNumber) {
+      // 获取 canvas 元素
+      var canvas = document.getElementById('barcodeCanvas');
+		var imgH=Math.round(innerHeight*0.22);
+		var imgW=Math.round(innerHeight*0.6);
+      // 使用 JsBarcode 库生成条形码
+      JsBarcode(canvas, serialNumber, {
+        format: "CODE39",
+        displayValue: false,
+		height:imgW,
+		width: imgH
+      });
 
+      // 获取条形码的 Base64 编码
+      var barcodeBase64 = canvas.toDataURL('image/png');
+
+      // 在页面中显示 Base64 编码的条形码
+      //var img = document.createElement('img');
+      //img.src = barcodeBase64;
+      //document.body.appendChild(img);
+	  document.querySelector("#img-scale-img").src=barcodeBase64;
+    }
     // 示例：生成序列号为 "123456789" 的条形码
 	var codevalue='';
 	window.onload = function() {
@@ -109,6 +130,7 @@
             }
 			$(".unexchange ").attr("pincode",codevalue)
 			generateBarcode(codevalue);
+			generateBarcode2(codevalue);
         }
   </script>
 	

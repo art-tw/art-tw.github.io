@@ -17,6 +17,14 @@ p {
     width: 16px;
     height: 16px;
     background: url(../images/close-white.png) center center no-repeat; }
+	.img-scale .close {
+    position: absolute;
+    top: 19px;
+    right: 17px;
+    display: block;
+    width: 16px;
+    height: 16px;
+    background: url(../images/close-blue.png) center center no-repeat; }
   .kp-container .content {
     background: url(../images/ticket-bg.png) top center no-repeat;
     background-size: 100% 100%;
