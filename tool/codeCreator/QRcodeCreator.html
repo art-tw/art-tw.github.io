@@ -1,0 +1,276 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.4" />
+    <meta charset="utf-8">
+    <style>
+        textarea {
+            margin: 1rem;
+            min-width: 75%;
+            max-width: 75%;
+            min-height: 25%;
+            max-height: 60%;
+
+            font-size: 1rem;
+        }
+
+        body {
+            text-align: center;
+            background-color: #FFFFFF;
+        }
+
+        #idbar {
+            height: 84px;
+            margin: 5%;
+        }
+
+        .scroller {
+            overflow-x: scroll;
+            width: vw;
+            display: flex;
+            scroll-snap-type: x mandatory;
+            scroll-margin: 0;
+            margin: auto;
+        }
+
+        .scroller>div {
+            flex: 0 0 24em;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            scroll-snap-align: start;
+        }
+
+        .controlbtn {
+            border: none;
+            border-radius: 45px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+            background-color: #64A600;
+            color: #FFFFFF;
+            letter-spacing: 2.5px;
+            padding: 1.5em;
+            font-size: 1em;
+            transition: all 0.5s ease 0s;
+        }
+
+        .controlbtn:hover {
+            background-color: #8cc436;
+            box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
+
+            transform: translateY(-5px);
+        }
+
+        .showbtn {
+            background-color: #5aaaaa;
+        }
+
+        .ebtn {
+            display: none;
+        }
+
+        .srcbtn {
+            font-weight: bold;
+        }
+
+        h1 {
+            border: none;
+            border-radius: 45px;
+            font-size: 1.5rem;
+            width: 170px;
+            color: #FFFFFF;
+            background: #5FFFFF;
+            margin: 1.5rem auto;
+        }
+
+        #creatspeed,
+        #creatspeedValueDisplay {
+            margin: 1rem;
+            border: none;
+            border-radius: 45px;
+            font-size: 1.5rem;
+            width: auto;
+            color: #FFFFFF;
+            background: #ee0063;
+        }
+
+    </style>
+    <script type="text/javascript">
+        window.onload = function() {
+            if (location.href.includes("html?sign=")) {
+                var signature = location.href.split('?sign=')[1];
+                location.href = 'https://script.google.com/macros/s/AKfycbwhxHZQ4zOkJ6d4j9hXih3tpk6eC0MlDAQnij2EdIGLwkteksGOq1PYom-2fBwNS0-w/exec?v=' + signature;
+            } else {
+                if (location.href.includes('code=')) {
+                    var codes = location.href.split('?code=')[1];
+                    var elements = codes.split(',').map(function(item) {
+                        return item.trim();
+                    });
+                    var output = document.getElementById('entercode');
+                    elements.forEach(function(element, index) {
+                        output.value += element;
+                        if (index < elements.length - 1) {
+                            output.value += '\n';
+                        };
+                    });
+                }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1 class='fbtn'>模式選擇</h1>
+    <button class='fbtn controlbtn srcbtn' onclick="javascript:srcChange();">QRcode
+        <hr>一維條碼
+    </button>
+    <button class='fbtn controlbtn famibtn' onclick="javascript:FAMIsrc();">FAMI紅利序號
+        <hr>否
+    </button>
+    <h1 class='fbtn'>序號輸入處</h1>
+    <textarea id='entercode'></textarea>
+    <br>
+    <input class="fbtn" type="range" id="creatspeed" min="0.5" max="5" step="0.5" value="2">
+    <br>
+    <p class="fbtn" id="creatspeedValueDisplay">間隔2秒產生</p>
+    <button class='fbtn controlbtn showbtn' onclick="javascript:show();">產生</button>
+
+    <br>
+    <div id='tb' class='scroller'>
+    </div>
+
+    <button class='ebtn controlbtn' onclick="javascript:showup();">上一張</button>
+    <button class='ebtn controlbtn' onclick="javascript:showdown();">下一張</button>
+    <br><br>
+    <button class='ebtn controlbtn showbtn' id="shbtn" onclick="javascript:showel();">顯示輸入欄</button>
+    <button class='controlbtn showbtn' id="clipboardbtn" onclick="javascript:createUrl();">複製序號網址</button>
+
+
+    <script>
+        var qrcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
+        var barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
+        let codes = [];
+        var cl = 0;
+        var counter = 0;
+        var thread_creat = 0;
+        var famiCode=false;
+
+        function srcChange() {
+            var el = document.querySelector('.srcbtn');
+            if (el.innerHTML == 'QRcode<hr>一維條碼') {
+                el.innerHTML = '只產生<hr>QRcode';
+                //qrcode = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
+                qrcode = 'https://quickchart.io/qr?text=';
+                barcode = '';
+            } else {
+                el.innerHTML = 'QRcode<hr>一維條碼';
+                qrcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
+                barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
+            }
+        }
+        function FAMIsrc() {
+            var el = document.querySelector('.famibtn');
+            if (el.innerHTML == 'FAMI紅利序號<hr>否') {
+                el.innerHTML = 'FAMI紅利序號<hr>是';
+                //qrcode = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
+                famiCode = true;
+            } else {
+                el.innerHTML = 'FAMI紅利序號<hr>否';
+                famiCode = false;
+            }
+        }
+        function show() {
+            document.querySelectorAll('.ebtn').forEach(i => i.style.display = 'inline');
+            document.getElementById('entercode').style.display = 'none';
+            document.querySelectorAll('.fbtn').forEach(i => i.style.display = 'none');
+            var allcodes = document.getElementById('entercode').value;
+            var spl = allcodes.split('\n');
+            for (i = 0; i < spl.length; i++) {
+                if(famiCode==false){
+                    codes.push(spl[i]);
+                }else{
+                    codes.push('FAMI||{"bar1":"'+spl[i]+'","bar2":"","bar3":"","ID":"1R01"}');
+                }
+                
+            }
+            cl = spl.length;
+            //console.log(spl.length);
+            //console.log(codes);
+            var speedvalue=Number(document.getElementById('creatspeed').value);
+            thread_creat = setInterval(creatQrcode, speedvalue*1000);
+        }
+
+        function creatQrcode() {
+            var list = document.createElement("div");
+            var elcount = document.createElement('h1')
+            var titlecount = counter + 1;
+            elcount.textContent = '第【' + titlecount + '】筆';
+            var el = document.createElement("img");
+            el.src = qrcode + codes[counter];
+            //el.value = value;
+            el.style.margin = '3%';
+            //document.body.appendChild(el);
+            list.appendChild(elcount);
+            list.appendChild(el);
+
+            if (barcode) {
+                var elbar = document.createElement("img");
+                elbar.id = 'idbar';
+                elbar.src = barcode + codes[counter];
+                var elbr = document.createElement("br");
+                list.appendChild(elbr);
+                list.appendChild(elbar);
+            }
+            var elhr = document.createElement("hr");
+            list.appendChild(elhr);
+
+            document.getElementById('tb').appendChild(list);
+            counter++;
+            if (counter >= cl) clearInterval(thread_creat);
+        }
+
+        function showel() {
+            var el = document.getElementById('shbtn');
+            if (el.innerText == '顯示輸入欄') {
+                el.innerText = '隱藏輸入欄';
+                document.getElementById('entercode').style.display = 'inline';
+                //document.querySelector('button').style.display = 'inline';
+            } else {
+                el.innerText = '顯示輸入欄';
+                document.getElementById('entercode').style.display = 'none';
+            }
+        }
+        
+        function createUrl() {
+            var items=document.getElementById('entercode').value.split('\n');
+            var createurl='https://art-tw.github.io/tool/QRcodeCreator.html?code=';
+            items.forEach(i=>{createurl+=i;if(i!=items[items.length-1]){createurl+=','}});
+            navigator.clipboard.writeText(createurl);
+            alert('已產生連結!');
+        }
+        
+        var showpicCount = 0;
+        var viewWidth = document.body.clientWidth;
+
+        function showup() {
+            showpicCount = (showpicCount == 0 ? 0 : showpicCount - 1);
+            document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
+        }
+
+        function showdown() {
+            var endcount = codes.length - 1;
+            showpicCount = (showpicCount == endcount ? endcount : showpicCount + 1);
+            document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
+        }
+
+        var creatspeed = document.getElementById('creatspeed');
+        var creatspeedValueDisplay = document.getElementById('creatspeedValueDisplay');
+        creatspeed.addEventListener('input', function() {
+            creatspeedValueDisplay.textContent = '間隔' + creatspeed.value + '秒產生';
+        });
+
+    </script>
+    <div id="sign"></div>
+</body>
+
+</html>

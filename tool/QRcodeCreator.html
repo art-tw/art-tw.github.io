@@ -3,136 +3,28 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.4" />
     <meta charset="utf-8">
-    <style>
-        textarea {
-            margin: 1rem;
-            min-width: 75%;
-            max-width: 75%;
-            min-height: 25%;
-            max-height: 60%;
-
-            font-size: 1rem;
-        }
-
-        body {
-            text-align: center;
-            background-color: #FFFFFF;
-        }
-
-        #idbar {
-            height: 84px;
-            margin: 5%;
-        }
-
-        .scroller {
-            overflow-x: scroll;
-            width: vw;
-            display: flex;
-            scroll-snap-type: x mandatory;
-            scroll-margin: 0;
-            margin: auto;
-        }
-
-        .scroller>div {
-            flex: 0 0 24em;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            scroll-snap-align: start;
-        }
-
-        .controlbtn {
-            border: none;
-            border-radius: 45px;
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
-            background-color: #64A600;
-            color: #FFFFFF;
-            letter-spacing: 2.5px;
-            padding: 1.5em;
-            font-size: 1em;
-            transition: all 0.5s ease 0s;
-        }
-
-        .controlbtn:hover {
-            background-color: #8cc436;
-            box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
-
-            transform: translateY(-5px);
-        }
-
-        .showbtn {
-            background-color: #5aaaaa;
-        }
-
-        .ebtn {
-            display: none;
-        }
-
-        .srcbtn {
-            font-weight: bold;
-        }
-
-        h1 {
-            border: none;
-            border-radius: 45px;
-            font-size: 1.5rem;
-            width: 170px;
-            color: #FFFFFF;
-            background: #5FFFFF;
-            margin: 1.5rem auto;
-        }
-
-        #creatspeed,
-        #creatspeedValueDisplay {
-            margin: 1rem;
-            border: none;
-            border-radius: 45px;
-            font-size: 1.5rem;
-            width: auto;
-            color: #FFFFFF;
-            background: #ee0063;
-        }
-
-    </style>
-    <script type="text/javascript">
-        window.onload = function() {
-            if (location.href.includes("html?sign=")) {
-                var signature = location.href.split('?sign=')[1];
-                location.href = 'https://script.google.com/macros/s/AKfycbwhxHZQ4zOkJ6d4j9hXih3tpk6eC0MlDAQnij2EdIGLwkteksGOq1PYom-2fBwNS0-w/exec?v=' + signature;
-            } else {
-                if (location.href.includes('code=')) {
-                    var codes = location.href.split('?code=')[1];
-                    var elements = codes.split(',').map(function(item) {
-                        return item.trim();
-                    });
-                    var output = document.getElementById('entercode');
-                    elements.forEach(function(element, index) {
-                        output.value += element;
-                        if (index < elements.length - 1) {
-                            output.value += '\n';
-                        };
-                    });
-                }
-            }
-        }
-
-    </script>
+    <link rel="stylesheet" href="./qrcodecreator.css">
+    <script type="text/javascript"></script>
+    <script src="./creator.js"></script>
+    <script src="./qrcode.min.js"></script>
+    <script src="./JsBarcode.all.min.js"></script>
 </head>
 
 <body>
+    <div id="mode" style="display: none;">1</div>
     <h1 class='fbtn'>模式選擇</h1>
-    <button class='fbtn controlbtn srcbtn' onclick="javascript:srcChange();">QRcode
+    <button class='fbtn controlbtn modebtn' onclick="javascript:modeChange();">QRcode
         <hr>一維條碼
     </button>
-    <button class='fbtn controlbtn famibtn' onclick="javascript:FAMIsrc();">FAMI紅利序號
-        <hr>否
+    <br>
+    <button class='fbtn controlbtn famibtn' onclick="javascript:famiPin();">全家紅利PIN碼
     </button>
     <h1 class='fbtn'>序號輸入處</h1>
     <textarea id='entercode'></textarea>
     <br>
-    <input class="fbtn" type="range" id="creatspeed" min="0.5" max="5" step="0.5" value="2">
+    <input class="fbtn" type="range" id="creatspeed" min="0.5" max="5" step="0.5" value="0.5">
     <br>
-    <p class="fbtn" id="creatspeedValueDisplay">間隔2秒產生</p>
+    <p class="fbtn" id="creatspeedValueDisplay">間隔0.5秒產生</p>
     <button class='fbtn controlbtn showbtn' onclick="javascript:show();">產生</button>
 
     <br>
@@ -147,35 +39,31 @@
 
 
     <script>
-        var qrcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
-        var barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
         let codes = [];
         var cl = 0;
         var counter = 0;
         var thread_creat = 0;
-        var famiCode=false;
 
-        function srcChange() {
-            var el = document.querySelector('.srcbtn');
+
+        function modeChange() {
+            var el = document.querySelector('.modebtn');
             if (el.innerHTML == 'QRcode<hr>一維條碼') {
-                el.innerHTML = '只產生<hr>QRcode';
-                //qrcode = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
-                qrcode = 'https://quickchart.io/qr?text=';
-                barcode = '';
+                el.innerHTML = 'QRcode';
+                qrcode = true;
+                barcode = false;
             } else {
                 el.innerHTML = 'QRcode<hr>一維條碼';
-                qrcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
-                barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
+                qrcode = true;
+                barcode = true;
             }
         }
-        function FAMIsrc() {
+        function famiPin() {
             var el = document.querySelector('.famibtn');
-            if (el.innerHTML == 'FAMI紅利序號<hr>否') {
-                el.innerHTML = 'FAMI紅利序號<hr>是';
-                //qrcode = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
+            if (famiCode == false) {
+                el.style.backgroundColor = '#ff0000';
                 famiCode = true;
             } else {
-                el.innerHTML = 'FAMI紅利序號<hr>否';
+                el.style.backgroundColor = '#969696';
                 famiCode = false;
             }
         }
@@ -186,18 +74,18 @@
             var allcodes = document.getElementById('entercode').value;
             var spl = allcodes.split('\n');
             for (i = 0; i < spl.length; i++) {
-                if(famiCode==false){
+                if (famiCode == false) {
                     codes.push(spl[i]);
-                }else{
-                    codes.push('FAMI||{"bar1":"'+spl[i]+'","bar2":"","bar3":"","ID":"1R01"}');
+                } else {
+                    codes.push('FAMI||{"bar1":"' + spl[i] + '","bar2":"","bar3":"","ID":"1R01"}');
                 }
-                
+
             }
             cl = spl.length;
             //console.log(spl.length);
             //console.log(codes);
-            var speedvalue=Number(document.getElementById('creatspeed').value);
-            thread_creat = setInterval(creatQrcode, speedvalue*1000);
+            var speedvalue = Number(document.getElementById('creatspeed').value);
+            thread_creat = setInterval(creatQrcode, speedvalue * 1000);
         }
 
         function creatQrcode() {
@@ -205,21 +93,30 @@
             var elcount = document.createElement('h1')
             var titlecount = counter + 1;
             elcount.textContent = '第【' + titlecount + '】筆';
-            var el = document.createElement("img");
-            el.src = qrcode + codes[counter];
-            //el.value = value;
+            var el = document.createElement("div");
+            new QRCode(el, {
+                text: codes[counter],
+                width: 200,
+                height: 200,
+            });
             el.style.margin = '3%';
-            //document.body.appendChild(el);
             list.appendChild(elcount);
             list.appendChild(el);
 
-            if (barcode) {
+
+            if (barcode == true) {
                 var elbar = document.createElement("img");
-                elbar.id = 'idbar';
-                elbar.src = barcode + codes[counter];
                 var elbr = document.createElement("br");
                 list.appendChild(elbr);
                 list.appendChild(elbar);
+                JsBarcode(elbar, codes[counter], {
+                    format: "CODE128",
+                    displayValue: true,
+                    fontSize: 16,
+                    lineColor: "#000",
+                    width: 2,
+                    height: 100,
+                });
             }
             var elhr = document.createElement("hr");
             list.appendChild(elhr);
@@ -240,15 +137,21 @@
                 document.getElementById('entercode').style.display = 'none';
             }
         }
-        
+
         function createUrl() {
-            var items=document.getElementById('entercode').value.split('\n');
-            var createurl='https://art-tw.github.io/tool/QRcodeCreator.html?code=';
-            items.forEach(i=>{createurl+=i;if(i!=items[items.length-1]){createurl+=','}});
-            navigator.clipboard.writeText(createurl);
+            var items = document.getElementById('entercode').value.split('\n');
+            var url = 'https://art-tw.github.io/tool/QRcodeCreator.html?code=';
+            items.forEach(i => { url += i; if (i != items[items.length - 1]) { url += ',' } });
+            if(/[?&]mode=/.test(location.href)){
+                url+='&mode='+location.href.match(/[?&]mode=([^&]+)/)[1];
+            }
+            if(/[?&]fami=/.test(location.href)){
+                url+='&fami='+location.href.match(/[?&]fami=([^&]+)/)[1];
+            }
+            navigator.clipboard.writeText(url);
             alert('已產生連結!');
         }
-        
+
         var showpicCount = 0;
         var viewWidth = document.body.clientWidth;
 
@@ -265,12 +168,16 @@
 
         var creatspeed = document.getElementById('creatspeed');
         var creatspeedValueDisplay = document.getElementById('creatspeedValueDisplay');
-        creatspeed.addEventListener('input', function() {
+        creatspeed.addEventListener('input', function () {
             creatspeedValueDisplay.textContent = '間隔' + creatspeed.value + '秒產生';
         });
 
     </script>
     <div id="sign"></div>
+    <footer><img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAAyCAYAAACqNX6+AAACoUlEQVR4nO2b7ZGbMBRFTzJpgJTglIBLcAu7JZASvCXEJaxLsEuwS4hLsEsIJWx+CMYsK0BfCAHvzGjGs2KFrKsn3QcyCIIgCIIgCIIgCIIgjMUe+AN8aMq/qr6I0Afd/etyGfn+k5MB7/QPgk6csYRZtSA71ODaiNEs7yP0yUuQ7yN0KBY56stlHm0UqAFMhrkKkgGnQG3t8RM1KHMVpAA2gdrKGH+jN2augoReZl4Ct+fMHAXJCb/E5IHbc2aOguwMrimBLfANeDVs13QJzFAReuGrgzKJ3F3f//ww7ERKmETHEbhVn8/V56Eo2ACPgWvqxHM02hEy5KGb/n2qjdBEkPbAlgHue2FkMcB9ySpQovwlIcs4IifMlkpvfPeQnAizZmIKIrqwEJt6wbKjJOrSHMplJWMbA5MT+buZCvKGspDbjvrmpql78npv1OtMQuhEr+7DfejCAaJPNNsI0dnCsuPvS8BkKa4n60+eVruPa3V9XQ7NShtBXlCPutscCWMrU2QoWXzwHNASNdhe2Aiis31X1AxZKy4C9C6Dvpu6SYiujaHVIqMnp/EVZM96kkNTTCbpiQ47HcL2riE5tMHE4DTPAXx6jRwqD1l6cmhDiXqg6YSNIL/pz0VCvcELQd3XXxPd39ltuURI16bVFyGbqkR5QJcARxxzMxtBhrLfejPr6sidhZ9JamH6YuwTofaQG8/IWWrWbssNtXRaEUqQZvp/RkSpOWIZKSEEeeOrq3AK14VyRpkLI+flI8gB5bgOmrpbVdfsxLXj2jXwQE3SLWoCJ7OCnNA/fk/mXNQEREsXdjytcH30s+vQhCSVEbA5wSJUTH1QrmS9+4qWqQV5JaENLgWmEuSBchzeb9gEc+ozsO1fDyX1AxlBEATBmf+e/8qcG2l1iwAAAABJRU5ErkJggg=="
+            alt="Author Art"></footer>
+
 </body>
 
 </html>
