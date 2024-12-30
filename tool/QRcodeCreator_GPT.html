@@ -1,150 +1,143 @@
-<html>
+<!DOCTYPE html>
+<html lang="zh-Hant">
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.4" />
     <meta charset="utf-8">
+    <title>QRcode & Barcode 產生器</title>
     <style>
-        textarea {
-            margin: 1rem;
-            min-width: 75%;
-            max-width: 75%;
-            min-height: 25%;
-            max-height: 60%;
-
-            font-size: 1rem;
-        }
-
+        /* 基本樣式 */
         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #FFFFFF;
-        }
-
-        #idbar {
-            height: 84px;
-            margin: 5%;
-        }
-
-        .scroller {
-            overflow-x: scroll;
-            width: vw;
-            display: flex;
-            scroll-snap-type: x mandatory;
-            scroll-margin: 0;
-            margin: auto;
-        }
-
-        .scroller>div {
-            flex: 0 0 24em;
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            scroll-snap-align: start;
-        }
-
-        .controlbtn {
-            border: none;
-            border-radius: 45px;
-            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
-            background-color: #64A600;
-            color: #FFFFFF;
-            letter-spacing: 2.5px;
-            padding: 1.5em;
-            font-size: 1em;
-            transition: all 0.5s ease 0s;
-        }
-
-        .controlbtn:hover {
-            background-color: #8cc436;
-            box-shadow: 0px 12px 18px rgba(0, 0, 0, 0.3);
-
-            transform: translateY(-5px);
-        }
-
-        .showbtn {
-            background-color: #5aaaaa;
-        }
-
-        .ebtn {
-            display: none;
-        }
-
-        .srcbtn {
-            font-weight: bold;
+            background-color: #f7f9fc;
+            color: #333;
         }
 
         h1 {
-            border: none;
-            border-radius: 45px;
-            font-size: 1.5rem;
-            width: 170px;
-            color: #FFFFFF;
-            background: #5FFFFF;
+            font-size: 1.8rem;
             margin: 1.5rem auto;
+            color: #fff;
+            background: #0078d7;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            display: inline-block;
+        }
+
+        textarea {
+            margin: 1rem auto;
+            width: 90%;
+            height: 120px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            padding: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            resize: vertical;
+        }
+
+        /* 按鈕樣式 */
+        button {
+            border: none;
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            background-color: #0078d7;
+            color: #fff;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            margin: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #005a9e;
+            transform: translateY(-2px);
+        }
+
+        /* 特殊按鈕 */
+        .showbtn {
+            background-color: #5aaaaa;
         }
 
         #creatspeed,
         #creatspeedValueDisplay {
             margin: 1rem;
-            border: none;
-            border-radius: 45px;
-            font-size: 1.5rem;
-            width: auto;
-            color: #FFFFFF;
-            background: #ee0063;
+            border-radius: 8px;
+            font-size: 1rem;
         }
 
+        #creatspeedValueDisplay {
+            color: #0078d7;
+            font-weight: bold;
+        }
+
+        /* 滾動條區域 */
+        .scroller {
+            display: flex;
+            overflow-x: auto;
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 95%;
+            background: #eaf0f6;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .scroller>div {
+            flex: 0 0 300px;
+            text-align: center;
+            margin-right: 1rem;
+            padding: 1rem;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .scroller>div:last-child {
+            margin-right: 0;
+        }
+
+        /* 工具提示 */
+        #clipboardbtn:hover::after {
+            content: "複製序號網址至剪貼簿";
+            position: absolute;
+            background-color: #000;
+            color: #fff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            top: -2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
     </style>
-    <script type="text/javascript">
-        window.onload = function() {
-            if (location.href.includes("html?sign=")) {
-                var signature = location.href.split('?sign=')[1];
-                location.href = 'https://script.google.com/macros/s/AKfycbwhxHZQ4zOkJ6d4j9hXih3tpk6eC0MlDAQnij2EdIGLwkteksGOq1PYom-2fBwNS0-w/exec?v=' + signature;
-            } else {
-                if (location.href.includes('code=')) {
-                    var codes = location.href.split('?code=')[1];
-                    var elements = codes.split(',').map(function(item) {
-                        return item.trim();
-                    });
-                    var output = document.getElementById('entercode');
-                    elements.forEach(function(element, index) {
-                        output.value += element;
-                        if (index < elements.length - 1) {
-                            output.value += '\n';
-                        };
-                    });
-                }
-            }
-        }
-
-    </script>
 </head>
 
 <body>
-    <h1 class='fbtn'>模式選擇</h1>
-    <button class='fbtn controlbtn srcbtn' onclick="javascript:srcChange();">QRcode
+    <h1>QRcode & 一維條碼 產生器</h1>
+
+    <button class="controlbtn srcbtn" onclick="javascript:srcChange();">QRcode
         <hr>一維條碼
     </button>
-    <button class='fbtn controlbtn famibtn' onclick="javascript:FAMIsrc();">FAMI紅利序號
-        <hr>否
-    </button>
-    <h1 class='fbtn'>序號輸入處</h1>
-    <textarea id='entercode'></textarea>
-    <br>
-    <input class="fbtn" type="range" id="creatspeed" min="0.5" max="5" step="0.5" value="2">
-    <br>
-    <p class="fbtn" id="creatspeedValueDisplay">間隔2秒產生</p>
-    <button class='fbtn controlbtn showbtn' onclick="javascript:show();">產生</button>
+    <h1>序號輸入處</h1>
+    <textarea id="entercode" placeholder="請輸入序號，每行一筆..."></textarea>
 
-    <br>
-    <div id='tb' class='scroller'>
-    </div>
+    <input type="range" id="creatspeed" min="0.5" max="5" step="0.5" value="2" />
+    <p id="creatspeedValueDisplay">間隔 2 秒產生</p>
 
-    <button class='ebtn controlbtn' onclick="javascript:showup();">上一張</button>
-    <button class='ebtn controlbtn' onclick="javascript:showdown();">下一張</button>
-    <br><br>
-    <button class='ebtn controlbtn showbtn' id="shbtn" onclick="javascript:showel();">顯示輸入欄</button>
-    <button class='controlbtn showbtn' id="clipboardbtn" onclick="javascript:createUrl();">複製序號網址</button>
+    <button class="controlbtn showbtn" onclick="javascript:show();">開始產生</button>
 
+    <div id="tb" class="scroller"></div>
+
+    <button class="ebtn controlbtn" onclick="javascript:showup();">上一張</button>
+    <button class="ebtn controlbtn" onclick="javascript:showdown();">下一張</button>
+    <button class="ebtn controlbtn showbtn" id="shbtn" onclick="javascript:showel();">顯示輸入欄</button>
+    <button class="controlbtn showbtn" id="clipboardbtn" onclick="javascript:createUrl();">複製序號網址</button>
+
+    <div id="sign"></div>
 
     <script>
         var qrcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=1&code=';
@@ -153,7 +146,6 @@
         var cl = 0;
         var counter = 0;
         var thread_creat = 0;
-        var famiCode=false;
 
         function srcChange() {
             var el = document.querySelector('.srcbtn');
@@ -168,17 +160,7 @@
                 barcode = 'https://m.momoshop.com.tw/mymomo/ajaxProduceImage.jsp?type=0&code=';
             }
         }
-        function FAMIsrc() {
-            var el = document.querySelector('.famibtn');
-            if (el.innerHTML == 'FAMI紅利序號<hr>否') {
-                el.innerHTML = 'FAMI紅利序號<hr>是';
-                //qrcode = 'https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl=';
-                famiCode = true;
-            } else {
-                el.innerHTML = 'FAMI紅利序號<hr>否';
-                famiCode = false;
-            }
-        }
+
         function show() {
             document.querySelectorAll('.ebtn').forEach(i => i.style.display = 'inline');
             document.getElementById('entercode').style.display = 'none';
@@ -186,12 +168,7 @@
             var allcodes = document.getElementById('entercode').value;
             var spl = allcodes.split('\n');
             for (i = 0; i < spl.length; i++) {
-                if(famiCode==false){
-                    codes.push(spl[i]);
-                }else{
-                    codes.push('FAMI||{"bar1":"'+spl[i]+'","bar2":"","bar3":"","ID":"1R01"}');
-                }
-                
+                codes.push(spl[i]);
             }
             cl = spl.length;
             //console.log(spl.length);
@@ -270,7 +247,6 @@
         });
 
     </script>
-    <div id="sign"></div>
 </body>
 
 </html>
