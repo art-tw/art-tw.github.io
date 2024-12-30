@@ -1,5 +1,5 @@
-var qrcode = false;
-var barcode = false;
+var qrcode = true;
+var barcode = true;
 var famiCode = false;
 window.onload = function () {
     if (/[?&]sign=/.test(location.href)) {
