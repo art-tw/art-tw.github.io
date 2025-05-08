@@ -22,10 +22,10 @@
     <h1 class='fbtn'>序號輸入處</h1>
     <textarea id='entercode'></textarea>
     <br>
-    <input class="fbtn" type="range" id="creatspeed" min="0.5" max="5" step="0.5" value="0.5">
+    <!--<input class="fbtn" type="range" id="creatspeed" min="0.5" max="5" step="0.5" value="0.5">-->
     <br>
     <p class="fbtn" id="creatspeedValueDisplay">間隔0.5秒產生</p>
-    <button class='fbtn controlbtn showbtn' onclick="javascript:show();">產生</button>
+    <!--<button class='fbtn controlbtn showbtn' onclick="javascript:show();">產生</button>-->
 
     <br>
     <div id='tb' class='scroller'>
@@ -37,7 +37,10 @@
     <button class='ebtn controlbtn showbtn' id="shbtn" onclick="javascript:showel();">顯示輸入欄</button>
     <button class='controlbtn showbtn' id="clipboardbtn" onclick="javascript:createUrl();">複製序號網址</button>
 
-
+    <div id="floatingControls">
+      <button class='fbtn controlbtn showbtn' onclick="javascript:show();">產生</button>
+    </div>
+    
     <script>
         let codes = [];
         var cl = 0;
@@ -165,12 +168,87 @@
             showpicCount = (showpicCount == endcount ? endcount : showpicCount + 1);
             document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
         }
+        
+        
+        
+        // 模擬原 creatspeed input 的 value 功能
+        var creatspeed = {
+            value: 0.5
+        };
+        var minSpeed = 0.5;
+        var maxSpeed = 5;
+        var step = 0.5;
+        var creatspeedValueDisplay = document.getElementById('creatspeedValueDisplay');
 
+        function updateSpeedDisplay() {
+            creatspeedValueDisplay.textContent = '間隔' + creatspeed.value.toFixed(1) + '秒產生';
+            updateProgressBackground();
+        }
+
+        function updateProgressBackground() {
+            var ratio = (creatspeed.value - minSpeed) / (maxSpeed - minSpeed);
+            var percent = ratio * 100;
+            // 綠色 (#64A600) 填充，剩餘紅色 (#ee0063)
+            creatspeedValueDisplay.style.background = `linear-gradient(to right, #64A600 ${percent}%, #ee0063 ${percent}%)`;
+        }
+
+        function adjustSpeed(delta) {
+            creatspeed.value += delta * step;
+            if (creatspeed.value < minSpeed) creatspeed.value = minSpeed;
+            if (creatspeed.value > maxSpeed) creatspeed.value = maxSpeed;
+            updateSpeedDisplay();
+        }
+
+        // 滑鼠滑動調整
+        let startX = 0;
+        let isDragging = false;
+
+        creatspeedValueDisplay.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+        });
+        document.addEventListener('mouseup', () => { isDragging = false; });
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const deltaX = e.clientX - startX;
+                if (Math.abs(deltaX) >= 30) {
+                    adjustSpeed(deltaX > 0 ? 1 : -1);
+                    startX = e.clientX;
+                }
+            }
+        });
+
+        // 手機滑動調整
+        creatspeedValueDisplay.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        creatspeedValueDisplay.addEventListener('touchmove', (e) => {
+            const deltaX = e.touches[0].clientX - startX;
+            if (Math.abs(deltaX) >= 30) {
+                adjustSpeed(deltaX > 0 ? 1 : -1);
+                startX = e.touches[0].clientX;
+            }
+        });
+
+        updateSpeedDisplay();
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
         var creatspeed = document.getElementById('creatspeed');
         var creatspeedValueDisplay = document.getElementById('creatspeedValueDisplay');
         creatspeed.addEventListener('input', function () {
             creatspeedValueDisplay.textContent = '間隔' + creatspeed.value + '秒產生';
-        });
+        });*/
 
     </script>
     <div id="sign"></div>

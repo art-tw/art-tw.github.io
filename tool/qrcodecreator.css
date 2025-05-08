@@ -1,11 +1,14 @@
 textarea {
     margin: 1rem;
-    min-width: 75%;
-    max-width: 75%;
+    min-width: 65%;
+    max-width: 65%;
     min-height: 25%;
     max-height: 60%;
-
     font-size: 1rem;
+    padding: 20px;
+    border-radius: 20px;
+    border-color: #5aaaaa;
+    background-color: #f0f0f0;
 }
 
 body {
@@ -55,7 +58,7 @@ body {
 }
 
 .showbtn {
-    background-color: #5aaaaa;
+    background-color: #5b77c2;
 }
 
 .ebtn {
@@ -66,6 +69,7 @@ body {
     margin: 0.5em;
     font-weight: bold;
     height: 7em;
+    width: 35%;
 }
 
 .famibtn {
@@ -80,12 +84,12 @@ h1 {
     width: 170px;
     color: #FFFFFF;
     background: #1ccccc;
-    margin: 1.5rem auto;
+    margin: 1rem auto;
 }
 
 #creatspeed,
 #creatspeedValueDisplay {
-    margin: 1rem;
+    margin: 0.5rem;
     border: none;
     border-radius: 45px;
     font-size: 1.5rem;
@@ -93,17 +97,33 @@ h1 {
     margin-left: 15vw;
     margin-right: 15vw;
     color: #FFFFFF;
-    background: #ee0063;
+    
+    transition: background 0.2s;
+    padding: 0.5rem;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 footer>img {
     margin: 15;
 }
 
-textarea {
-    padding: 10px;
-    border-radius: 20px;
-    border-color: #5aaaaa;
-    background-color: #f0f0f0;
+#floatingControls {
+  position: fixed;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  border-top: 0px solid #ccc;
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  z-index: 9999;
+}
 
+#floatingControls button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 10px;
+  font-size: 20px;
 }
