@@ -47,7 +47,73 @@
         var counter = 0;
         var thread_creat = 0;
 
+        
+        
+        
+        // 模擬原 creatspeed input 的 value 功能
+        var creatspeed = {
+            value: 0.5
+        };
+        var minSpeed = 0.5;
+        var maxSpeed = 5;
+        var step = 0.5;
+        var creatspeedValueDisplay = document.getElementById('creatspeedValueDisplay');
 
+        function updateSpeedDisplay() {
+            creatspeedValueDisplay.textContent = '間隔' + creatspeed.value.toFixed(1) + '秒產生';
+            updateProgressBackground();
+        }
+
+        function updateProgressBackground() {
+            var ratio = (creatspeed.value - minSpeed) / (maxSpeed - minSpeed);
+            var percent = ratio * 100;
+            // 綠色 (#64A600) 填充，剩餘紅色 (#ee0063)
+            creatspeedValueDisplay.style.background = `linear-gradient(to right, #64A600 ${percent}%, #ee0063 ${percent}%)`;
+        }
+
+        function adjustSpeed(delta) {
+            creatspeed.value += delta * step;
+            if (creatspeed.value < minSpeed) creatspeed.value = minSpeed;
+            if (creatspeed.value > maxSpeed) creatspeed.value = maxSpeed;
+            updateSpeedDisplay();
+        }
+
+        // 滑鼠滑動調整
+        let startX = 0;
+        let isDragging = false;
+
+        creatspeedValueDisplay.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.clientX;
+        });
+        document.addEventListener('mouseup', () => { isDragging = false; });
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const deltaX = e.clientX - startX;
+                if (Math.abs(deltaX) >= 30) {
+                    adjustSpeed(deltaX > 0 ? 1 : -1);
+                    startX = e.clientX;
+                }
+            }
+        });
+
+        // 手機滑動調整
+        creatspeedValueDisplay.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        creatspeedValueDisplay.addEventListener('touchmove', (e) => {
+            const deltaX = e.touches[0].clientX - startX;
+            if (Math.abs(deltaX) >= 30) {
+                adjustSpeed(deltaX > 0 ? 1 : -1);
+                startX = e.touches[0].clientX;
+            }
+        });
+
+        updateSpeedDisplay();
+        
+        
+        
+        
         function modeChange() {
             var el = document.querySelector('.modebtn');
             if (el.innerHTML == 'QRcode<hr>一維條碼') {
@@ -87,7 +153,7 @@
             cl = spl.length;
             //console.log(spl.length);
             //console.log(codes);
-            var speedvalue = Number(document.getElementById('creatspeed').value);
+            var speedvalue = creatspeed;
             thread_creat = setInterval(creatQrcode, speedvalue * 1000);
         }
 
@@ -168,79 +234,6 @@
             showpicCount = (showpicCount == endcount ? endcount : showpicCount + 1);
             document.getElementById('tb').scrollTo(showpicCount * viewWidth, 0)
         }
-        
-        
-        
-        // 模擬原 creatspeed input 的 value 功能
-        var creatspeed = {
-            value: 0.5
-        };
-        var minSpeed = 0.5;
-        var maxSpeed = 5;
-        var step = 0.5;
-        var creatspeedValueDisplay = document.getElementById('creatspeedValueDisplay');
-
-        function updateSpeedDisplay() {
-            creatspeedValueDisplay.textContent = '間隔' + creatspeed.value.toFixed(1) + '秒產生';
-            updateProgressBackground();
-        }
-
-        function updateProgressBackground() {
-            var ratio = (creatspeed.value - minSpeed) / (maxSpeed - minSpeed);
-            var percent = ratio * 100;
-            // 綠色 (#64A600) 填充，剩餘紅色 (#ee0063)
-            creatspeedValueDisplay.style.background = `linear-gradient(to right, #64A600 ${percent}%, #ee0063 ${percent}%)`;
-        }
-
-        function adjustSpeed(delta) {
-            creatspeed.value += delta * step;
-            if (creatspeed.value < minSpeed) creatspeed.value = minSpeed;
-            if (creatspeed.value > maxSpeed) creatspeed.value = maxSpeed;
-            updateSpeedDisplay();
-        }
-
-        // 滑鼠滑動調整
-        let startX = 0;
-        let isDragging = false;
-
-        creatspeedValueDisplay.addEventListener('mousedown', (e) => {
-            isDragging = true;
-            startX = e.clientX;
-        });
-        document.addEventListener('mouseup', () => { isDragging = false; });
-        document.addEventListener('mousemove', (e) => {
-            if (isDragging) {
-                const deltaX = e.clientX - startX;
-                if (Math.abs(deltaX) >= 30) {
-                    adjustSpeed(deltaX > 0 ? 1 : -1);
-                    startX = e.clientX;
-                }
-            }
-        });
-
-        // 手機滑動調整
-        creatspeedValueDisplay.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-        });
-        creatspeedValueDisplay.addEventListener('touchmove', (e) => {
-            const deltaX = e.touches[0].clientX - startX;
-            if (Math.abs(deltaX) >= 30) {
-                adjustSpeed(deltaX > 0 ? 1 : -1);
-                startX = e.touches[0].clientX;
-            }
-        });
-
-        updateSpeedDisplay();
-
-
-        
-        
-        
-        
-        
-        
-        
-        
         
         
         /*
