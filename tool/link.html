@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動態網址生成器</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; line-height: 1.6; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover { background-color: #0056b3; }
+        .info { background: #f4f4f4; padding: 15px; border-left: 5px solid #ccc; margin-bottom: 20px; }
+        .error { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>生成的網址連結</h2>
+    <div id="infoBox" class="info">正在解析參數...</div>
+    <div id="linkContainer"></div>
+</div>
+
+<script>
+    // --- 在此自行設定網址對照表 ---
+    const urlMap = {
+        "1": "https://starbucks-pos.12cm.com.tw/user-coupons/",//星巴客
+        "2": "https://txp.rs/viewvoucher.aspx?voucherguid="//Edenred宜睿電子票券
+
+    };
+
+    function generateLinks() {
+        const params = new URLSearchParams(window.location.search);
+        const src = params.get('src');
+        const codeString = params.get('code');
+        
+        const infoBox = document.getElementById('infoBox');
+        const container = document.getElementById('linkContainer');
+
+        // 檢查參數是否存在
+        if (!src || !codeString) {
+            infoBox.innerHTML = '<span class="error">錯誤：請在網址提供 src 與 code 參數。</span><br>範例：?src=&code=';
+            return;
+        }
+
+        // 取得對應的主網址
+        const baseUrl = urlMap[src];
+        if (!baseUrl) {
+            infoBox.innerHTML = `<span class="error">錯誤：找不到 src=${src} 對應的網址設定。</span>`;
+            return;
+        }
+
+        // 處理 code 參數並生成按鈕
+        const codes = codeString.split(',');
+        infoBox.innerHTML = `<strong>來源類型：</strong> ${src} <br> <strong>目標基底：</strong> ${baseUrl}`;
+
+        codes.forEach(code => {
+            const finalUrl = baseUrl + code.trim();
+            const btn = document.createElement('a');
+            btn.href = finalUrl;
+            btn.className = 'btn';
+            btn.target = '_blank'; // 在新分頁開啟
+            btn.innerText = `連結至 ${code.trim()}`;
+            container.appendChild(btn);
+        });
+    }
+
+    // 執行函式
+    window.onload = generateLinks;
+</script>
+
+</body>
+</html>
