@@ -1,0 +1,248 @@
+<html lang="zh-TW"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:type" content="website">
+    <meta name="color-scheme" content="only light"><title>歡迎使用 Edenred 電子券</title>
+    
+    <script src="jquery-3.6.1.min.js"></script>
+    
+    <script src="../../JsBarcode.all.min.js"></script>
+
+</head>
+<body class="v-body">
+    <div class="v-form">
+        <div id="AnnouncementArea" style="display:none">
+    <div class="SystemNotify" style="width: auto;">
+        <div class="Context" id="AnnouncementContext"></div>
+    </div>
+</div>
+
+<link href="viewVoucher.css" rel="stylesheet">
+<link href="bootstrap.min.css" rel="stylesheet">
+
+<meta charset="utf-8">
+<meta content="telephone=no" name="format-detection">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title></title>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<style type="text/css">
+    * {
+        word-wrap: break-word;
+        word-break: break-all;
+        font-family: Montserrat, 'PingFangTC', 'Microsoft JhengHei' !important;
+        font-wieght: 400;
+    }
+
+    .CodeContent {
+        font-size: 0px;
+        line-height: 0px;
+    }
+
+    .CodeContent img {
+        width: 350px;
+        height: auto;
+        max-width: 100%;
+    }
+</style>
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%;max-width:750px;background-color:#fff;color:#333; margin:0 auto; font-family: 'Raleway',微軟正黑體, 'Microsoft JhengHei', sans-serif;" width="100%">
+    <tbody>
+        <tr>
+            <td style="padding:10px 15px;">
+                
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%;max-width:750px;background-color:#f0f1f1; margin:0 auto; padding:0;color:#777;font-size:14px; font-family: 'Raleway',微軟正黑體, 'Microsoft JhengHei', sans-serif;" width="100%">
+    <tbody>
+        <tr>
+            <td style="text-align:left; vertical-align:middle; padding:10px 15px;">
+                <div style="display:flex; align-content:flex-start; align-items:center;">
+                    <img alt="" src="logo-edenred.svg" style="width:auto; height:auto; max-width:120px; max-height:40px;">
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%;max-width:750px;background-color:#fff;color:#333; margin:0 auto; font-family: 'Raleway',微軟正黑體, 'Microsoft JhengHei', sans-serif;" width="100%">
+    <tbody>
+        <tr>
+            <td style="text-align:center; padding:10px 0px 0px 0px">
+                <img alt="" src="01.jpg" style="width:100%; height:auto;">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center;padding:20px 15px;font-size:18px;">
+                !SetItemNAME!好禮即享券
+            </td>
+        </tr>
+        <tr>
+            <td class="CodeContent" style="text-align:center; padding:0px;">
+                <img !setitembarcode!="">
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:center; font-size:12px; text-decoration:none; color:#333; padding:20px 15px;">
+                序號：!SetItemCODE!
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%;max-width:750px;background-color:#fff;color:#333; margin:0 auto; font-size:16px; border-top:1px solid #333;font-family: 'Raleway',微軟正黑體, 'Microsoft JhengHei', sans-serif;" width="100%">
+    <tbody>
+        <tr>
+            <td style="width:90px; color:#777; vertical-align:top; padding:10px 0px 10px 15px; font-size:14px; border-bottom:1px solid #eee;">
+                商品描述：
+            </td>
+            <td style="text-align:left; vertical-align:middle; padding:10px 15px 10px 5px; font-size:14px;border-bottom:1px solid #eee;">!SetItemNAME!</td>
+        </tr>
+        <tr>
+            <td style="color:#777; vertical-align:top; padding:10px 0px 10px 15px; font-size:14px; border-bottom:1px solid #eee;">
+                兌換期間至：
+            </td>
+            <td style="text-align:left; vertical-align:middle; padding:10px 15px 10px 5px; font-size:14px;border-bottom:1px solid #eee;">!SetItemDATE!</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="color:#777; vertical-align:top; padding:10px 15px;font-size:14px;">
+                注意事項：
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size:14px; padding:0px 15px 10px 15px;border-bottom:1px solid #eee;">
+                <p>
+                    </p><ul><li><font color="#f90101">本券不適用非開立<span lang="EN-US">CoCo</span>都可門市發票之特殊店鋪<span lang="EN-US">&nbsp;(</span>商場店、特殊店，如：商場<span lang="EN-US">/</span>百貨<span lang="EN-US">/</span>外島門市<span lang="EN-US">)</span></font>，<font color="#fb0404">不適用店點</font>：<a href="https://www.edenred.com.tw/index.php/store/coco/" target="_blank">https://www.edenred.com.tw/index.php/store/coco/</a>，<font color="#fa0000">兌換前請務必確認，請依業者現場說明為準，以免無法兌換</font>。</li>
+
+<li>本券可於CoCo都可門市自取使用，以「飲品原價」使用，優惠不併用，且不適用於門市外送、線上點單及外送平台服務。</li>
+
+<li><span>結帳前請出示本券，不接受手抄或口說序號方式兌換。如因提供之序號無法辨識，門市有權拒絕兌換。</span></li>
+
+<li>本券限兌換券上所載之指定商品，無法更換或加價兌換其他商品。</li>
+
+<li>若單次欲兌換10杯以上飲品，請於來店兌換前以電話向欲兌換門市確認取貨時間，並告知將以本券兌換。</li>
+
+<li>商品數量依門市現場供應為主，如商品當日售完或遇系統問題無法核銷序號，請至鄰近門市兌換或擇日再行兌換。&nbsp;</li>
+
+<li>本券無法兌換現金或找零，且不得與其他行銷優惠活動合併使用。</li>
+
+<li>本券序號具唯一性，僅限兌換一次，不可重複使用。</li>
+
+</ul>
+                <p></p>
+                <p>
+                    </p><ul>
+                        <li>本券發行日：2026/06/17</li>
+                        <li>信託查詢號碼：00001599231494898203</li>
+                    </ul><ul>
+	<li>
+		電子禮券記載之金額自銷售日/儲值日起由星展(台灣)商業銀行有限公司提供足額履約保證，保證期間自出售日/儲值日起算一年。</li>
+	<li>
+		發行人：Edenred Taiwan 新加坡商宜睿智慧股份有限公司台灣分公司，統一編號：70770620，地址：台北市信義區信義路五段106號2樓A1室，負責人：吳宗翰，實收資本額：新台幣一億三千萬元。</li>
+	<li>
+		本券僅供兌換商品/服務使用，不得兌換現金。未使用或超過商品/服務指定供應期間(序號效期)時，持券人應洽原購買人憑發票向所購買之線上通路申請退貨。退貨申請經通路或發行人同意後，發行人得保留收取返還金額百分之三之費用作為手續費之權利。</li>
+	<li>
+		本券為不記名，任何人皆可使用本券，請自行妥善保管，如遭他人盜用，不再補發或退貨。</li>
+	<li>
+		本券於出售時已開立統一發票，所兌換之商品或折抵消費之金額不再開立發票，惟如有其他特殊情況，將依相關法令或規範辦理之。</li>
+	<li>
+		本券有效與否，以發行人票券系統所記錄之狀態為憑。如系統因網路連線有所遲延，依兌換商家系統端資訊為準。</li>
+	<li>
+		本券為有價證券，請勿擅自偽造、變造，以免觸犯刑責。</li>
+	<li>
+		星展履約保證查詢功能，因作業因素，有1~45天的時間差，請您耐心等候。</li>
+	<li>
+		發行人如變更履約保障機制，履約保障期間將接續，且發行人將會在轉換履約保障機制生效日前予以公告：<a href="https://www.dbs.com.tw/personal-zh/latest-news/default.page">https://www.dbs.com.tw/personal-zh/latest-news/default.page</a>。</li>
+</ul>
+
+                <p></p>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="color:#777; vertical-align:top; padding:10px 15px;font-size:14px;">
+                門市查詢：
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="font-size:14px; padding:0px 15px 10px 15px;border-bottom:1px solid #eee;">
+                <a href="." style="color:#2a6caf; word-break:break-all; ">.</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" style="width:100%;max-width:750px;background-color:#f0f1f1; margin:0 auto; padding:0;color:#777;font-size:14px; font-family: 'Raleway',微軟正黑體, 'Microsoft JhengHei', sans-serif;" width="100%">
+    <tbody>
+        <tr>
+            <td style="text-align:left; vertical-align:middle; padding:10px 15px;">
+                <div style="display:flex; align-content:flex-start; align-items:center;">
+                    <img alt="" src="logo-edenred.svg" style="width:auto; height:auto; max-width:120px; max-height:35px;">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align:middle; padding:0px 15px 10px 15px; line-height:150%; font-size:14px;">
+                <div style="word-wrap: break-word;word-break: break-all;">
+ 宜睿智慧即享券客服中心服務時間：周一至周五上午10:00至下午6:00（例假日及國定假日除外），您可透由智能客服 / 真人文字客服 手機短網址 : <a href="https://reurl.cc/9pM4ld" style="color:#0085ca;text-decoration:underline;" target="_blank">https://reurl.cc/9pM4ld</a> 聯絡我們，或撥打客服專線：<a href="tel: 0266391012" style="color:#0085ca;text-decoration:underline;">(02)6639-1012</a></div>
+<div style="display:table;width:100%;margin:10px 0px 0px 0px;">
+ <div style="display:table-cell;text-align: left;vertical-align: middle;width:65%;">
+  <ul style="margin: 0px 0px 0px 0px;padding: 0px;display: block;width: 100%;">
+   <li style="display: inline-block;list-style: none;margin: 0px;padding: 0px;">
+    <div id="b2bleads" style="margin: 0px;padding: 0px;">
+     <a href="https://b2b.ticketxpress.com.tw/?utm_source=smartvoucher&amp;utm_medium=voucher" style="color: #0085ca; display: inline-block;" target="_blank">企業採購</a><span style="display: inline-block; vertical-align: top; width: 0px; height: 8px; border-right: 1px solid rgba(119,119,119,1);margin: 5px 2px 0px 2px;padding: 0px;">&nbsp;</span></div>
+   </li>
+   <li style="display: inline-block;list-style: none;margin: 0px;padding: 0px;">
+    <a href="https://www.edenred.com.tw/index.php/personal-info-protect/" style="color: #0085ca;display: inline-block;" target="_blank">個資聲明</a><span style="display: inline-block; vertical-align: top; width: 0px; height: 8px; border-right: 1px solid rgba(119,119,119,1);margin: 5px 2px 0px 2px;padding: 0px;">&nbsp;</span></li>
+   <li style="display: inline-block;list-style: none;margin: 0px;padding: 0px;">
+    <a href="https://www.edenred.com.tw/index.php/faq/" style="color: #0085ca;display: inline-block;cursor:pointer;" target="_blank">常見問題</a></li>
+  </ul>
+ </div>
+ <div style="display:table-cell;text-align: right;vertical-align: middle;width:35%;color:#808080;font-size:12px;">
+  Edenred © 2020~</div>
+</div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+    </div>
+
+<script>
+    // 1. 取得網址列的參數
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // 設定預設值以防網址沒有帶入參數
+    const code = urlParams.get('code') || '尚未提供序號';
+    const name = urlParams.get('name') || '尚未提供商品名稱';
+    const time = urlParams.get('time') || '尚未提供日期';
+
+    // 2. 替換網頁中的關鍵字 (!SetItemNAME!, !SetItemCODE!, !SetItemDATE!)
+    // 使用 body.innerHTML 替換可以維持原本你檔案內的排版設計
+    document.body.innerHTML = document.body.innerHTML
+        .replace(/!SetItemCODE!/g, code)
+        .replace(/!SetItemNAME!/g, name)
+        .replace(/!SetItemDATE!/g, time);
+
+    // 3. 處理 Barcode 圖片 (使用 JsBarcode)
+    const barcodeImg = document.querySelector('.CodeContent img');
+    if (barcodeImg && urlParams.has('code')) {
+        // 移除原有的空屬性
+        barcodeImg.removeAttribute('!setitembarcode!');
+        
+        // 給圖片補上 id，讓 JsBarcode 可以抓到
+        barcodeImg.id = 'barcode-render-target';
+        
+        // 呼叫 JsBarcode 生成 Code128 條碼
+        JsBarcode("#barcode-render-target", code, {
+            format: "CODE128",
+            displayValue: true, // 顯示條碼下方的文字
+            fontSize: 28,
+            margin: 40,
+            width: 3,
+            height: 100
+        });
+    } else if (barcodeImg) {
+        // 如果沒有 code 參數，隱藏圖片以免出現破圖
+        barcodeImg.style.display = 'none';
+    }
+</script>
+
+</body></html>
